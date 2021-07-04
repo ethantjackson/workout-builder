@@ -1,0 +1,14 @@
+body .carousel {
+  height: 90vh;
+  text-align: center;
+  perspective: 130vh;
+}
+.carousel-item {
+  top: -25vh !important;
+  width: 35vh !important;
+}
+.carousel-item > img {
+  height: 70vh !important;
+  width: auto !important;
+  margin-left: -5%;
+}
