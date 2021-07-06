@@ -10,5 +10,10 @@ body {
 }
 
 .instructionsHeader {
+  margin-bottom: 2rem;
   font-size: 2.5rem;
+}
+
+.instructionsSubHeader {
+  color: #26d1ed;
 }

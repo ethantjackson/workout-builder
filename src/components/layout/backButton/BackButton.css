@@ -1,0 +1,14 @@
+.backButton {
+  position: absolute;
+  padding: 0.4rem 1.3rem 0.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  top: 5rem;
+  left: 10%;
+  background-color: rgb(40, 63, 104);
+  font-size: 20px;
+  color: white;
+}
+.backButton:hover {
+  background-color: #26d1ed;
+}
