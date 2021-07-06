@@ -1,0 +1,2 @@
+export const SET_SUB_MUSCLES = 'SET_SUB_MUSCLES';
+export const SET_MUSCLE_GROUP = 'SET_MUSCLE_GROUP';

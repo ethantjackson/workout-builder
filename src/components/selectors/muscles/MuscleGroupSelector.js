@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setMuscleGroup } from '../../../actions/MuscleActions';
 import Back from '../../../img/back.png';
 import Front from '../../../img/front.png';
 import Side from '../../../img/side.png';
@@ -9,14 +12,19 @@ import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import './MuscleGroupSelector.css';
 
-const MuscleGroupSelector = () => {
-  const [selectedMuscleGroup, setSelectedMuscleGroup] = useState(null);
+const MuscleGroupSelector = ({ muscleGroup, setMuscleGroup }) => {
+  console.log(muscleGroup);
+  const [selectedMuscleGroup, setSelectedMuscleGroup] = useState(muscleGroup);
   useEffect(() => {
     var instance = document.querySelectorAll('.carousel');
     M.Carousel.init(instance, {
       indicators: true,
-      onCycleTo: (e) => setSelectedMuscleGroup(e.id),
+      onCycleTo: (e) => {
+        setSelectedMuscleGroup(e.id);
+        setMuscleGroup(e.id);
+      },
     });
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -45,4 +53,15 @@ const MuscleGroupSelector = () => {
   );
 };
 
-export default MuscleGroupSelector;
+MuscleGroupSelector.propTypes = {
+  muscleGroup: PropTypes.string.isRequired,
+  setMuscleGroup: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  muscleGroup: state.muscle.muscleGroup,
+});
+
+export default connect(mapStateToProps, { setMuscleGroup })(
+  MuscleGroupSelector
+);

@@ -9,7 +9,7 @@ const MuscleGroupSelectionPage = () => {
       <h1 className='instructionsHeader'>Select a muscle group to begin</h1>
       <MuscleGroupSelector />
       <BackButton target='/' />
-      <NextButton target='/' />
+      <NextButton target={'/sub-muscle-selection'} />
     </>
   );
 };
