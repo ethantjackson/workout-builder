@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import MuscleReducer from './MuscleReducer';
+import WorkoutReducer from './WorkoutReducer';
 
-export default combineReducers({ muscle: MuscleReducer });
+export default combineReducers({ workout: WorkoutReducer });

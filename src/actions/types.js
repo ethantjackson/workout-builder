@@ -1,2 +1,4 @@
 export const SET_SUB_MUSCLES = 'SET_SUB_MUSCLES';
 export const SET_MUSCLE_GROUP = 'SET_MUSCLE_GROUP';
+export const WORKOUT_ERROR = 'WORKOUT_ERROR';
+export const SET_LOADING = 'SET_LOADING';
