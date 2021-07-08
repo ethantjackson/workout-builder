@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setSubMuscles } from '../../../actions/WorkoutActions';
-import M from 'materialize-css/dist/js/materialize.min.js';
-import { Abs } from '../../../img/index';
+import SubMuscleBtn from '../../layout/subMuscleBtn/SubMuscleBtn';
+import { Test } from '../../../img/index';
 import './SubMuscleSelector.css';
 
 const SubMuscleSelector = ({
@@ -11,6 +11,45 @@ const SubMuscleSelector = ({
   setSubMuscles,
 }) => {
   const [subMuscleOptions, setSubMuscleOptions] = useState([]);
+  const [subMuscleOptionRows, setSubMuscleOptionRows] = useState([]);
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  const makeRows = () => {
+    if (windowSize.width >= 992) {
+      let rows = [];
+      let i = 0;
+      rows.push(subMuscleOptions.slice(i, i + 3));
+      while (i + 3 < subMuscleOptions.length) {
+        i += 3;
+        rows.push(subMuscleOptions.slice(i, i + 3));
+      }
+      setSubMuscleOptionRows(rows);
+    } else {
+      let rows = [];
+      let i = 0;
+      rows.push(subMuscleOptions.slice(i, i + 2));
+      while (i + 2 < subMuscleOptions.length) {
+        i += 2;
+        rows.push(subMuscleOptions.slice(i, i + 2));
+      }
+      setSubMuscleOptionRows(rows);
+    }
+  };
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     switch (muscleGroup) {
@@ -76,39 +115,17 @@ const SubMuscleSelector = ({
   }, [muscleGroup]);
 
   useEffect(() => {
-    var elems = document.querySelectorAll('.tooltipped');
-    M.Tooltip.init(elems, { position: 'top' });
-  }, [subMuscleOptions]);
+    makeRows();
+    // eslint-disable-next-line
+  }, [windowSize, subMuscleOptions]);
 
   return (
-    <div className='container row'>
-      {subMuscleOptions.map((muscle, index) => (
-        <div
-          className={
-            'subMuscleBtnDiv col s6 l4' +
-            (subMuscleOptions.length % 3 === 2 &&
-            subMuscleOptions.length - 2 <= index
-              ? subMuscleOptions.length - 2 === index
-                ? ' r2SecondLast'
-                : ' r2Last'
-              : '') +
-            ((subMuscleOptions.length % 2 === 1 ||
-              subMuscleOptions.length % 3 === 1) &&
-            subMuscleOptions.length - 1 === index &&
-            subMuscleOptions.length % 3 !== 0
-              ? ' oddLast'
-              : '')
-          }
-          key={index}
-        >
-          <button
-            className='subMuscleBtn tooltipped'
-            data-tooltip={muscle}
-            type='button'
-          >
-            {/* <img className='subMuscleBtnImg' src={Abs} alt='abs-img' /> */}
-            {muscle}
-          </button>
+    <div className='container'>
+      {subMuscleOptionRows.map((row, rowIndex) => (
+        <div className='subMuscleBtnRow' key={rowIndex}>
+          {row.map((muscle, index) => (
+            <SubMuscleBtn muscle={muscle} img={Test} key={index} />
+          ))}
         </div>
       ))}
     </div>

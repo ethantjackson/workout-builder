@@ -1,35 +1,9 @@
 .container {
   margin-top: 6rem;
 }
-
-.subMuscleBtnDiv {
-  height: 15rem;
-}
-
-.subMuscleBtn {
-  height: 80%;
-  width: 80%;
-  border-radius: 2rem;
-}
-
-.subMuscleBtnImg {
-  height: 100%;
-}
-
-@media only screen and (max-width: 991.9px) {
-  .oddLast {
-    margin-left: 25% !important;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .oddLast {
-    margin-left: 33.3333333% !important;
-  }
-  .r2SecondLast {
-    margin-left: 16.666667% !important;
-  }
-  body .r2Last {
-    margin-left: 0 !important;
-  }
+.subMuscleBtnRow {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  /* border: 1px solid red; */
 }
