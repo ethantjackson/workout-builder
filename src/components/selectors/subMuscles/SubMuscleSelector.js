@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setSubMuscles } from '../../../actions/WorkoutActions';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { Abs } from '../../../img/index';
 import './SubMuscleSelector.css';
 
 const SubMuscleSelector = ({
@@ -84,7 +85,7 @@ const SubMuscleSelector = ({
       {subMuscleOptions.map((muscle, index) => (
         <div
           className={
-            'subMuscleButtonDiv col s6 l4' +
+            'subMuscleBtnDiv col s6 l4' +
             (subMuscleOptions.length % 3 === 2 &&
             subMuscleOptions.length - 2 <= index
               ? subMuscleOptions.length - 2 === index
@@ -94,17 +95,18 @@ const SubMuscleSelector = ({
             ((subMuscleOptions.length % 2 === 1 ||
               subMuscleOptions.length % 3 === 1) &&
             subMuscleOptions.length - 1 === index &&
-            subMuscleOptions.length > 3
+            subMuscleOptions.length % 3 !== 0
               ? ' oddLast'
               : '')
           }
           key={index}
         >
           <button
-            className='subMuscleButton tooltipped'
+            className='subMuscleBtn tooltipped'
             data-tooltip={muscle}
             type='button'
           >
+            {/* <img className='subMuscleBtnImg' src={Abs} alt='abs-img' /> */}
             {muscle}
           </button>
         </div>

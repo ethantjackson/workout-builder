@@ -2,14 +2,18 @@
   margin-top: 6rem;
 }
 
-.subMuscleButtonDiv {
+.subMuscleBtnDiv {
   height: 15rem;
 }
 
-.subMuscleButton {
+.subMuscleBtn {
   height: 80%;
   width: 80%;
   border-radius: 2rem;
+}
+
+.subMuscleBtnImg {
+  height: 100%;
 }
 
 @media only screen and (max-width: 991.9px) {
