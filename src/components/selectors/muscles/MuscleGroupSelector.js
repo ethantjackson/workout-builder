@@ -2,12 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setMuscleGroup } from '../../../actions/WorkoutActions';
-import Back from '../../../img/back.png';
-import Front from '../../../img/front.png';
-import Side from '../../../img/side.png';
-import Legs from '../../../img/legs.png';
-import Arms from '../../../img/arms.png';
-import Abs from '../../../img/abs.png';
+import { Back, Front, Side, Legs, Arms, Abs } from '../../../img/index';
 
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
@@ -25,9 +20,6 @@ const MuscleGroupSelector = ({ muscleGroup, setMuscleGroup }) => {
         setMuscleGroup(e.id);
       },
     });
-    // M.Carousel.getInstance(instance).set(
-    //   muscleGroups.findIndex((muscle) => muscle === muscleGroup)
-    // );
     // eslint-disable-next-line
   }, []);
 

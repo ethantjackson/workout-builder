@@ -1,0 +1,31 @@
+.container {
+  margin-top: 6rem;
+}
+
+.subMuscleButtonDiv {
+  height: 15rem;
+}
+
+.subMuscleButton {
+  height: 80%;
+  width: 80%;
+  border-radius: 2rem;
+}
+
+@media only screen and (max-width: 991.9px) {
+  .oddLast {
+    margin-left: 25% !important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .oddLast {
+    margin-left: 33.3333333% !important;
+  }
+  .r2SecondLast {
+    margin-left: 16.666667% !important;
+  }
+  body .r2Last {
+    margin-left: 0 !important;
+  }
+}
