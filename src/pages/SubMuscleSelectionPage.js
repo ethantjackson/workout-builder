@@ -9,7 +9,7 @@ const SubMuscleSelectionPage = () => {
       <h1 className='instructionsHeader'>Target muscles</h1>
       <SubMuscleSelector />
       <BackButton target='/muscle-group-selection' />
-      <NextButton target='/' />
+      <NextButton target='/equipment-selection' />
     </>
   );
 };

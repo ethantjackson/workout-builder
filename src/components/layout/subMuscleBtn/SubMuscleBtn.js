@@ -6,7 +6,7 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import './SubMuscleBtn.css';
 
 const SubMuscleBtn = ({ subMuscles, subMuscle, img, setSubMuscles }) => {
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(subMuscles.includes(subMuscle));
 
   useEffect(() => {
     var elems = document.querySelectorAll('.tooltipped');
@@ -15,8 +15,8 @@ const SubMuscleBtn = ({ subMuscles, subMuscle, img, setSubMuscles }) => {
 
   useEffect(() => {
     if (selected) {
-      console.log('selected');
-      setSubMuscles([...subMuscles, subMuscle]);
+      if (!subMuscles.includes(subMuscle))
+        setSubMuscles([...subMuscles, subMuscle]);
     } else {
       setSubMuscles(subMuscles.filter((muscle) => muscle !== subMuscle));
     }
