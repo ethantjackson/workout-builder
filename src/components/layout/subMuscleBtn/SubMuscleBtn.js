@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { setSubMuscles } from '../../../actions/WorkoutActions';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import './SubMuscleBtn.css';
 
-const SubMuscleBtn = ({ muscle, img }) => {
+const SubMuscleBtn = ({ subMuscles, subMuscle, img, setSubMuscles }) => {
   const [selected, setSelected] = useState(false);
 
   useEffect(() => {
     var elems = document.querySelectorAll('.tooltipped');
     M.Tooltip.init(elems, { position: 'top' });
   }, []);
+
+  useEffect(() => {
+    if (selected) {
+      console.log('selected');
+      setSubMuscles([...subMuscles, subMuscle]);
+    } else {
+      setSubMuscles(subMuscles.filter((muscle) => muscle !== subMuscle));
+    }
+    // eslint-disable-next-line
+  }, [selected]);
 
   return (
     <div className='subMuscleBtnDiv'>
@@ -21,15 +33,23 @@ const SubMuscleBtn = ({ muscle, img }) => {
         }}
         src={img}
         alt='test-img'
-        data-tooltip={muscle}
-        onClick={() => setSelected(!selected)}
+        data-tooltip={subMuscle}
+        onClick={() => {
+          setSelected(!selected);
+        }}
       />
     </div>
   );
 };
 
 SubMuscleBtn.propTypes = {
-  muscle: PropTypes.string.isRequired,
+  subMuscle: PropTypes.string.isRequired,
+  subMuscles: PropTypes.array.isRequired,
+  setSubMuscles: PropTypes.func.isRequired,
 };
 
-export default SubMuscleBtn;
+const mapStateToProps = (state) => ({
+  subMuscles: state.workout.subMuscles,
+});
+
+export default connect(mapStateToProps, { setSubMuscles })(SubMuscleBtn);

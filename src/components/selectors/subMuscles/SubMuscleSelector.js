@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setSubMuscles } from '../../../actions/WorkoutActions';
 import SubMuscleBtn from '../../layout/subMuscleBtn/SubMuscleBtn';
 import { Test } from '../../../img/index';
 import './SubMuscleSelector.css';
 
-const SubMuscleSelector = ({
-  workout: { muscleGroup, subMuscles },
-  setSubMuscles,
-}) => {
+const SubMuscleSelector = ({ workout: { muscleGroup } }) => {
   const [subMuscleOptions, setSubMuscleOptions] = useState([]);
   const [subMuscleOptionRows, setSubMuscleOptionRows] = useState([]);
   const [windowSize, setWindowSize] = useState({
@@ -67,7 +63,6 @@ const SubMuscleSelector = ({
           'Lateral Deltoid Head',
           'Posterior Deltoid Head',
           'Supraspinatus',
-          'test',
         ]);
         break;
       case 'BACK':
@@ -117,14 +112,14 @@ const SubMuscleSelector = ({
   useEffect(() => {
     makeRows();
     // eslint-disable-next-line
-  }, [windowSize, subMuscleOptions]);
+  }, [windowSize]);
 
   return (
     <div className='container'>
       {subMuscleOptionRows.map((row, rowIndex) => (
         <div className='subMuscleBtnRow' key={rowIndex}>
-          {row.map((muscle, index) => (
-            <SubMuscleBtn muscle={muscle} img={Test} key={index} />
+          {row.map((subMuscle, index) => (
+            <SubMuscleBtn subMuscle={subMuscle} img={Test} key={index} />
           ))}
         </div>
       ))}
@@ -134,11 +129,10 @@ const SubMuscleSelector = ({
 
 SubMuscleSelector.propTypes = {
   workout: PropTypes.object.isRequired,
-  setSubMuscles: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   workout: state.workout,
 });
 
-export default connect(mapStateToProps, { setSubMuscles })(SubMuscleSelector);
+export default connect(mapStateToProps, {})(SubMuscleSelector);
