@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setMuscleGroup } from '../../../actions/WorkoutActions';
-import { setSubMuscles } from '../../../actions/WorkoutActions';
+import { setSubMuscles, setEquipment } from '../../../actions/WorkoutActions';
 import { Back, Front, Side, Legs, Arms, Abs } from '../../../img/index';
 
 import 'materialize-css/dist/css/materialize.min.css';
@@ -13,6 +13,7 @@ const MuscleGroupSelector = ({
   muscleGroup,
   setMuscleGroup,
   setSubMuscles,
+  setEquipment,
 }) => {
   const muscleGroups = ['CHEST', 'BACK', 'SHOULDERS', 'ABS', 'LEGS', 'ARMS'];
   const muscleGroupImgs = [Front, Back, Side, Abs, Legs, Arms];
@@ -24,6 +25,7 @@ const MuscleGroupSelector = ({
       onCycleTo: (e) => {
         setMuscleGroup(e.id);
         setSubMuscles([]);
+        setEquipment([]);
       },
     });
     // eslint-disable-next-line
@@ -46,12 +48,15 @@ const MuscleGroupSelector = ({
 MuscleGroupSelector.propTypes = {
   muscleGroup: PropTypes.string.isRequired,
   setMuscleGroup: PropTypes.func.isRequired,
+  setEquipment: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   muscleGroup: state.workout.muscleGroup,
 });
 
-export default connect(mapStateToProps, { setMuscleGroup, setSubMuscles })(
-  MuscleGroupSelector
-);
+export default connect(mapStateToProps, {
+  setMuscleGroup,
+  setSubMuscles,
+  setEquipment,
+})(MuscleGroupSelector);

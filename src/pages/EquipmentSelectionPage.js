@@ -12,10 +12,10 @@ import BackButton from '../components/layout/backButton/BackButton';
 const EquipmentSelectionPage = ({ muscleGroup, includeNoEquipment }) => {
   const [checked, setChecked] = useState(includeNoEquipment);
 
-  useEffect(() => {
-    setIncludeNoEquipment(checked);
-    console.log(includeNoEquipment);
-  }, [checked]);
+  // useEffect(() => {
+  //   setIncludeNoEquipment(checked);
+  //   console.log(includeNoEquipment);
+  // }, [checked]);
 
   return (
     <>
@@ -28,7 +28,10 @@ const EquipmentSelectionPage = ({ muscleGroup, includeNoEquipment }) => {
           <input
             type='checkbox'
             checked={checked}
-            onChange={(e) => setChecked(e.target.checked)}
+            onChange={(e) => {
+              setIncludeNoEquipment(e.target.checked);
+              setChecked(e.target.checked);
+            }}
           />
           <span className='lever'></span>
         </label>

@@ -36,7 +36,7 @@ const WorkoutReducer = (state = initialState, action) => {
     case SET_INCLUDE_NO_EQUIPMENT:
       return {
         ...state,
-        includeNoEquipment: false,
+        includeNoEquipment: action.payload,
       };
     case SET_LOADING:
       return {

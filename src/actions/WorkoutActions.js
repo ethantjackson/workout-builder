@@ -29,6 +29,7 @@ export const setMuscleGroup = (muscleGroup) => {
 };
 
 export const setIncludeNoEquipment = (included) => {
+  console.log(included);
   return {
     type: SET_INCLUDE_NO_EQUIPMENT,
     payload: included,
