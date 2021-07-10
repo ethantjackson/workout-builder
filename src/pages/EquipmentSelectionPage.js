@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -9,13 +9,12 @@ import AllButton from '../components/layout/allButton/AllButton';
 import NextButton from '../components/layout/nextButton/NextButton';
 import BackButton from '../components/layout/backButton/BackButton';
 
-const EquipmentSelectionPage = ({ muscleGroup, includeNoEquipment }) => {
+const EquipmentSelectionPage = ({
+  muscleGroup,
+  includeNoEquipment,
+  setIncludeNoEquipment,
+}) => {
   const [checked, setChecked] = useState(includeNoEquipment);
-
-  // useEffect(() => {
-  //   setIncludeNoEquipment(checked);
-  //   console.log(includeNoEquipment);
-  // }, [checked]);
 
   return (
     <>
@@ -48,6 +47,7 @@ const EquipmentSelectionPage = ({ muscleGroup, includeNoEquipment }) => {
 EquipmentSelectionPage.propTypes = {
   muscleGroup: PropTypes.string.isRequired,
   includeNoEquipment: PropTypes.bool.isRequired,
+  setIncludeNoEquipment: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

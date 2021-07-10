@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setMuscleGroup } from '../../../actions/WorkoutActions';
-import { setSubMuscles, setEquipment } from '../../../actions/WorkoutActions';
+import {
+  setMuscleGroup,
+  setSubMuscles,
+  setEquipment,
+  setIncludeNoEquipment,
+} from '../../../actions/WorkoutActions';
 import { Back, Front, Side, Legs, Arms, Abs } from '../../../img/index';
 
 import 'materialize-css/dist/css/materialize.min.css';
@@ -14,6 +18,7 @@ const MuscleGroupSelector = ({
   setMuscleGroup,
   setSubMuscles,
   setEquipment,
+  setIncludeNoEquipment,
 }) => {
   const muscleGroups = ['CHEST', 'BACK', 'SHOULDERS', 'ABS', 'LEGS', 'ARMS'];
   const muscleGroupImgs = [Front, Back, Side, Abs, Legs, Arms];
@@ -26,6 +31,7 @@ const MuscleGroupSelector = ({
         setMuscleGroup(e.id);
         setSubMuscles([]);
         setEquipment([]);
+        setIncludeNoEquipment(true);
       },
     });
     // eslint-disable-next-line
@@ -48,7 +54,9 @@ const MuscleGroupSelector = ({
 MuscleGroupSelector.propTypes = {
   muscleGroup: PropTypes.string.isRequired,
   setMuscleGroup: PropTypes.func.isRequired,
+  setSubMuscles: PropTypes.func.isRequired,
   setEquipment: PropTypes.func.isRequired,
+  setIncludeNoEquipment: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -59,4 +67,5 @@ export default connect(mapStateToProps, {
   setMuscleGroup,
   setSubMuscles,
   setEquipment,
+  setIncludeNoEquipment,
 })(MuscleGroupSelector);

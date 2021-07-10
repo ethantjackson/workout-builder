@@ -54,11 +54,83 @@ const EquipmentSelector = ({ muscleGroup }) => {
           'Dumbells',
           'Bench Press',
           'Smith Machine',
-          'Chest Press',
+          'Chest Press Machine',
           'Dip Station',
           'T-Bar',
           'Cable Machine',
           'Butterfly Machine',
+          'Battle Ropes',
+          'Suspension Trainer',
+        ]);
+        break;
+      case 'BACK':
+        setEquipmentOptions([
+          'Dumbells',
+          'Barbell',
+          'Pull-Up Bar',
+          'T-Bar',
+          'Cable Machine',
+          'Cable Row Machine',
+          'Smith Machine',
+          'Pulldown Machine',
+          'Dip Station',
+          'Roman Chair',
+          'Rear Delt Fly Machine',
+          'Battle Ropes',
+          'Suspension Trainer',
+        ]);
+        break;
+      case 'SHOULDERS':
+        setEquipmentOptions([
+          'Dumbells',
+          'Barbell',
+          'Cable Machine',
+          'Overhead Press Machine',
+          'Dip Station',
+          'Battle Ropes',
+          'Suspension Trainer',
+        ]);
+        break;
+      case 'ABS':
+        setEquipmentOptions([
+          'Dumbells',
+          'Pull-Up Bar',
+          'Cable Machine',
+          'Crunch Machine',
+          'Adjustable Bench',
+          'Ab Roller',
+          'Medicine Ball',
+          'Roman Chair',
+          'Battle Ropes',
+          'Suspension Trainer',
+        ]);
+        break;
+      case 'LEGS':
+        setEquipmentOptions([
+          'Dumbells',
+          'Barbell',
+          'Hex Bar',
+          'Kettlebell',
+          'Leg Curl Machine',
+          'Leg Extension Machine',
+          'Rear Leg Extension Machine',
+          'Leg Press Machine',
+          'Sled',
+          'Jump Rope',
+        ]);
+        break;
+      case 'ARMS':
+        setEquipmentOptions([
+          'Dumbells',
+          'Barbell',
+          'Cable Machine',
+          'Arm Curl Machine',
+          'Overhead Press Machine',
+          'Tricep Extension Machine',
+          'Dip Station',
+          'Pull-Up Bar',
+          'Battle Ropes',
+          'Suspension Trainer',
         ]);
         break;
       default:

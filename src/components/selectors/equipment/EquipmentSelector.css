@@ -13,3 +13,6 @@
 .switch label input[type='checkbox']:checked + .lever {
   background-color: #26d1ed;
 }
+.switch label input[type='checkbox']:not(:checked) + .lever {
+  background-color: rgb(40, 63, 104);
+}
