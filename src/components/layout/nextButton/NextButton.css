@@ -8,6 +8,7 @@
   background-color: rgb(40, 63, 104);
   font-size: 20px;
   color: white;
+  box-shadow: 5px 5px 5px rgb(30, 36, 47);
 }
 .nextButton:hover {
   background-color: #26d1ed;

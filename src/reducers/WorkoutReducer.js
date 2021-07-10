@@ -1,6 +1,8 @@
 import {
+  SET_EQUIPMENT,
   SET_SUB_MUSCLES,
   SET_MUSCLE_GROUP,
+  SET_INCLUDE_NO_EQUIPMENT,
   SET_LOADING,
   WORKOUT_ERROR,
 } from '../actions/types';
@@ -9,6 +11,7 @@ const initialState = {
   muscleGroup: '',
   subMuscles: [],
   equipment: [],
+  includeNoEquipment: true,
   loading: false,
   error: false,
 };
@@ -24,6 +27,16 @@ const WorkoutReducer = (state = initialState, action) => {
       return {
         ...state,
         subMuscles: action.payload,
+      };
+    case SET_EQUIPMENT:
+      return {
+        ...state,
+        equipment: action.payload,
+      };
+    case SET_INCLUDE_NO_EQUIPMENT:
+      return {
+        ...state,
+        includeNoEquipment: false,
       };
     case SET_LOADING:
       return {

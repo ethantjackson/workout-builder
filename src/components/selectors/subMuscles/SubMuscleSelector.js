@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import SubMuscleBtn from '../../layout/subMuscleBtn/SubMuscleBtn';
+import SubMuscleButton from '../../layout/subMuscleButton/SubMuscleButton';
 import { Test } from '../../../img/index';
 import './SubMuscleSelector.css';
 
@@ -115,11 +115,11 @@ const SubMuscleSelector = ({ workout: { muscleGroup } }) => {
   }, [windowSize]);
 
   return (
-    <div className='container'>
+    <div className='subMuscleBtnsContainer container'>
       {subMuscleOptionRows.map((row, rowIndex) => (
         <div className='subMuscleBtnRow' key={rowIndex}>
           {row.map((subMuscle, index) => (
-            <SubMuscleBtn subMuscle={subMuscle} img={Test} key={index} />
+            <SubMuscleButton subMuscle={subMuscle} img={Test} key={index} />
           ))}
         </div>
       ))}

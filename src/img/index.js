@@ -7,6 +7,10 @@ import Side from './muscleGroups/side.png';
 
 import Test from './subMuscles/test.png';
 
+import TestEquipment from './equipment/test.png';
+
 export { Abs, Arms, Back, Front, Legs, Side };
 
 export { Test };
+
+export { TestEquipment };

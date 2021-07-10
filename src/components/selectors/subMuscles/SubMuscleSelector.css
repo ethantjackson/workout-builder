@@ -1,5 +1,5 @@
-.container {
-  margin-top: 6rem;
+.subMuscleBtnsContainer {
+  margin-top: 6rem !important;
 }
 .subMuscleBtnRow {
   display: grid;

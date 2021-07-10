@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setSubMuscles } from '../../../actions/WorkoutActions';
 import M from 'materialize-css/dist/js/materialize.min.js';
-import './SubMuscleBtn.css';
+import './SubMuscleButton.css';
 
-const SubMuscleBtn = ({ subMuscles, subMuscle, img, setSubMuscles }) => {
+const SubMuscleButton = ({ subMuscles, subMuscle, img, setSubMuscles }) => {
   const [selected, setSelected] = useState(subMuscles.includes(subMuscle));
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const SubMuscleBtn = ({ subMuscles, subMuscle, img, setSubMuscles }) => {
   );
 };
 
-SubMuscleBtn.propTypes = {
+SubMuscleButton.propTypes = {
   subMuscle: PropTypes.string.isRequired,
   subMuscles: PropTypes.array.isRequired,
   setSubMuscles: PropTypes.func.isRequired,
@@ -52,4 +52,4 @@ const mapStateToProps = (state) => ({
   subMuscles: state.workout.subMuscles,
 });
 
-export default connect(mapStateToProps, { setSubMuscles })(SubMuscleBtn);
+export default connect(mapStateToProps, { setSubMuscles })(SubMuscleButton);
