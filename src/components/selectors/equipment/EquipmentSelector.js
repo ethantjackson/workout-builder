@@ -2,7 +2,40 @@ import React, { useState, useEffect } from 'react';
 import EquipmentButton from '../../layout/equipmentButton/EquipmentButton';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { TestEquipment } from '../../../img/index';
+import {
+  BenchPress,
+  Dumbells,
+  SmithMachine,
+  ChestPressMachine,
+  DipStation,
+  T_BAR,
+  CableMachine,
+  ButterflyMachine,
+  BattleRopes,
+  SuspensionTrainer,
+  Barbell,
+  Pull_UpBar,
+  CableRowMachine,
+  PulldownMachine,
+  RomanChair,
+  RearDeltFlyMachine,
+  OverheadPressMachine,
+  CrunchMachine,
+  AdjustableBench,
+  MedicineBall,
+  AbRoller,
+  HexBar,
+  Kettlebell,
+  LegCurlMachine,
+  KickbackMachine,
+  LegExtensionMachine,
+  LegPressMachine,
+  Sled,
+  JumpRope,
+  BicepCurlMachine,
+  CalfRaiseMachine,
+  TricepExtension,
+} from '../../../img/index';
 import './EquipmentSelector.css';
 
 const EquipmentSelector = ({ muscleGroup }) => {
@@ -51,86 +84,87 @@ const EquipmentSelector = ({ muscleGroup }) => {
     switch (muscleGroup) {
       case 'CHEST':
         setEquipmentOptions([
-          'Dumbells',
-          'Bench Press',
-          'Smith Machine',
-          'Chest Press Machine',
-          'Dip Station',
-          'T-Bar',
-          'Cable Machine',
-          'Butterfly Machine',
-          'Battle Ropes',
-          'Suspension Trainer',
+          { name: 'Dumbells', img: Dumbells },
+          { name: 'Bench Press', img: BenchPress },
+          { name: 'Smith Machine', img: SmithMachine },
+          { name: 'Chest Press Machine', img: ChestPressMachine },
+          { name: 'Dip Station', img: DipStation },
+          { name: 'T-Bar', img: T_BAR },
+          { name: 'Cable Machine', img: CableMachine },
+          { name: 'Butterfly Machine', img: ButterflyMachine },
+          { name: 'Battle Ropes', img: BattleRopes },
+          { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
       case 'BACK':
         setEquipmentOptions([
-          'Dumbells',
-          'Barbell',
-          'Pull-Up Bar',
-          'T-Bar',
-          'Cable Machine',
-          'Cable Row Machine',
-          'Smith Machine',
-          'Pulldown Machine',
-          'Dip Station',
-          'Roman Chair',
-          'Rear Delt Fly Machine',
-          'Battle Ropes',
-          'Suspension Trainer',
+          { name: 'Dumbells', img: Dumbells },
+          { name: 'Barbell', img: Barbell },
+          { name: 'Pull-Up Bar', img: Pull_UpBar },
+          { name: 'T-Bar', img: T_BAR },
+          { name: 'Cable Machine', img: CableMachine },
+          { name: 'Cable Row Machine', img: CableRowMachine },
+          { name: 'Smith Machine', img: SmithMachine },
+          { name: 'Pulldown Machine', img: PulldownMachine },
+          { name: 'Dip Station', img: DipStation },
+          { name: 'Roman Chair', img: RomanChair },
+          { name: 'Rear Delt Fly Machine', img: RearDeltFlyMachine },
+          { name: 'Battle Ropes', img: BattleRopes },
+          { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
       case 'SHOULDERS':
         setEquipmentOptions([
-          'Dumbells',
-          'Barbell',
-          'Cable Machine',
-          'Overhead Press Machine',
-          'Dip Station',
-          'Battle Ropes',
-          'Suspension Trainer',
+          { name: 'Dumbells', img: Dumbells },
+          { name: 'Barbell', img: Barbell },
+          { name: 'Cable Machine', img: CableMachine },
+          { name: 'Overhead Press Machine', img: OverheadPressMachine },
+          { name: 'Dip Station', img: DipStation },
+          { name: 'Battle Ropes', img: BattleRopes },
+          { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
       case 'ABS':
         setEquipmentOptions([
-          'Dumbells',
-          'Pull-Up Bar',
-          'Cable Machine',
-          'Crunch Machine',
-          'Adjustable Bench',
-          'Ab Roller',
-          'Medicine Ball',
-          'Roman Chair',
-          'Battle Ropes',
-          'Suspension Trainer',
+          { name: 'Dumbells', img: Dumbells },
+          { name: 'Medicine Ball', img: MedicineBall },
+          { name: 'Pull-Up Bar', img: Pull_UpBar },
+          { name: 'Cable Machine', img: CableMachine },
+          { name: 'Crunch Machine', img: CrunchMachine },
+          { name: 'Adjustable Bench', img: AdjustableBench },
+          { name: 'Ab Roller', img: AbRoller },
+          { name: 'Roman Chair', img: RomanChair },
+          { name: 'Battle Ropes', img: BattleRopes },
+          { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
       case 'LEGS':
         setEquipmentOptions([
-          'Dumbells',
-          'Barbell',
-          'Hex Bar',
-          'Kettlebell',
-          'Leg Curl Machine',
-          'Leg Extension Machine',
-          'Rear Leg Extension Machine',
-          'Leg Press Machine',
-          'Sled',
-          'Jump Rope',
+          { name: 'Dumbells', img: Dumbells },
+          { name: 'Barbell', img: Barbell },
+          { name: 'Hex Bar', img: HexBar },
+          { name: 'Kettlebell', img: Kettlebell },
+          { name: 'Leg Press Machine', img: LegPressMachine },
+          { name: 'Leg Curl Machine', img: LegCurlMachine },
+          { name: 'Leg Extension Machine', img: LegExtensionMachine },
+          { name: 'Kickback Machine', img: KickbackMachine },
+          { name: 'Calf Raise Machine', img: CalfRaiseMachine },
+          { name: 'Sled', img: Sled },
+          { name: 'Jump Rope', img: JumpRope },
         ]);
         break;
       case 'ARMS':
         setEquipmentOptions([
-          'Dumbells',
-          'Barbell',
-          'Cable Machine',
-          'Arm Curl Machine',
-          'Overhead Press Machine',
-          'Tricep Extension Machine',
-          'Dip Station',
-          'Pull-Up Bar',
-          'Battle Ropes',
-          'Suspension Trainer',
+          { name: 'Dumbells', img: Dumbells },
+          { name: 'Barbell', img: Barbell },
+          { name: 'Cable Machine', img: CableMachine },
+          { name: 'Bicep Curl Machine', img: BicepCurlMachine },
+          { name: 'Overhead Press Machine', img: OverheadPressMachine },
+          { name: 'Tricep Extension Machine', img: TricepExtension },
+          { name: 'Dip Station', img: DipStation },
+          { name: 'Pull-Up Bar', img: Pull_UpBar },
+          { name: 'Battle Ropes', img: BattleRopes },
+          { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
       default:
@@ -149,8 +183,8 @@ const EquipmentSelector = ({ muscleGroup }) => {
         <div className='equipmentBtnRow' key={rowIndex}>
           {row.map((equipmentItem, index) => (
             <EquipmentButton
-              equipmentItem={equipmentItem}
-              img={TestEquipment}
+              equipmentItem={equipmentItem.name}
+              img={equipmentItem.img}
               key={index}
             />
           ))}
