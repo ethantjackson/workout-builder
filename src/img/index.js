@@ -22,7 +22,7 @@ import Pull_UpBar from './equipment/pullUpBar.png';
 import CableRowMachine from './equipment/cableRowMachine.png';
 import PulldownMachine from './equipment/pulldownMachine.png';
 import RomanChair from './equipment/romanChair.png';
-import RearDeltFlyMachine from './equipment/rearDeltFlyMachine.png';
+import RearFlyMachine from './equipment/rearFlyMachine.png';
 import OverheadPressMachine from './equipment/overheadPressMachine.png';
 import CrunchMachine from './equipment/crunchMachine.png';
 import AdjustableBench from './equipment/adjustableBench.png';
@@ -39,6 +39,8 @@ import JumpRope from './equipment/jumpRope.png';
 import BicepCurlMachine from './equipment/bicepCurlMachine.png';
 import CalfRaiseMachine from './equipment/calfRaiseMachine.png';
 import TricepExtension from './equipment/tricepExtension.png';
+import HighRowMachine from './equipment/highRowMachine.png';
+import LowRowMachine from './equipment/lowRowMachine.png';
 
 export { Abs, Arms, Back, Front, Legs, Side };
 
@@ -60,7 +62,7 @@ export {
   CableRowMachine,
   PulldownMachine,
   RomanChair,
-  RearDeltFlyMachine,
+  RearFlyMachine,
   OverheadPressMachine,
   CrunchMachine,
   AdjustableBench,
@@ -77,4 +79,6 @@ export {
   BicepCurlMachine,
   CalfRaiseMachine,
   TricepExtension,
+  HighRowMachine,
+  LowRowMachine,
 };

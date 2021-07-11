@@ -54,10 +54,9 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
     switch (muscleGroup) {
       case 'CHEST':
         setSubMuscleOptions([
-          'Pectoralis Major',
-          'Pectoralis Minor',
-          'Serratus Anterior',
-          'Subclavius',
+          'Clavicular Pectoral',
+          'Sternal Pectoral',
+          'Costal Pectoral',
         ]);
         break;
       case 'SHOULDERS':
@@ -65,7 +64,7 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
           'Anterior Deltoid Head',
           'Lateral Deltoid Head',
           'Posterior Deltoid Head',
-          'Supraspinatus',
+          'Rotator Cuff',
         ]);
         break;
       case 'BACK':
@@ -73,26 +72,28 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
           'Latissimus Dorsi',
           'Rhomboids',
           'Teres Major & Minor',
-          'Trapezius',
           'Erector Spinae',
-          'Infraspinatus',
+          'Trapezius',
         ]);
         break;
       case 'LEGS':
         setSubMuscleOptions([
-          'Gluteus Muscles',
-          'Quadriceps',
+          'Gluteus Maximus',
+          'Vastus Medcialis',
+          'Vastus Lateralis & Intermedius',
           'Hamstrings',
           'Gastrocnemius',
-          'Peroneal Muscles',
-          'Soleus',
+          'Hip Abductors',
+          'Hip Adductors',
         ]);
         break;
       case 'ABS':
         setSubMuscleOptions([
           'External Abdominal Oblique',
-          'Rectus Abdominis',
+          'Upper Rectus Abdominis',
+          'Lower Rectus Abdominis',
           'Internal Abdominal Oblique',
+          'Serratus',
         ]);
         break;
       case 'ARMS':
@@ -100,7 +101,7 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
           'Short Bicep Head',
           'Long Bicep Head',
           'Brachialis',
-          'Brachioradialis',
+          'Forearms',
           'Long Tricep Head',
           'Medial Tricep Head',
           'Lateral Tricep Head',

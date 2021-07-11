@@ -18,6 +18,17 @@ body {
   color: #26d1ed;
 }
 
+label {
+  font-size: 1.2rem;
+}
+
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 10%;
+  left: 7%;
+}
+
 @media only screen and (max-width: 600px) {
   .instructionsHeader {
     font-size: 1.5rem;
