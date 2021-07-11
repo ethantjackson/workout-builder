@@ -2,7 +2,7 @@ body .carousel {
   height: 90vh;
   text-align: center;
   perspective: 130vh;
-  margin-top: -8rem;
+  margin-top: -6rem;
 }
 .carousel-item {
   top: -23vh !important;
@@ -12,7 +12,6 @@ body .carousel {
   height: 70vh !important;
   width: auto !important;
   margin-left: -5%;
-  border-radius: 2rem;
 }
 
 @media only screen and (max-width: 600px) {

@@ -1,0 +1,53 @@
+.landingContainer {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 0 !important;
+}
+
+.landingImg {
+  /* height: 100vh; */
+  /* position: relative; */
+  /* bottom: -18vh; */
+  height: 74vh;
+  margin-top: 13vh;
+}
+
+.loginDiv {
+  margin-top: 10vh;
+  height: 80vh;
+  padding-top: 10vh !important;
+  border-left: 1px solid grey;
+}
+.loginForm {
+  margin-top: 4rem;
+}
+.input-field input[type='email']:focus,
+.input-field input[type='password']:focus {
+  border-bottom: 1px solid #26d1ed !important;
+  box-shadow: 0 1px 0 0 #000 !important;
+}
+.signInButton {
+  padding: 0.4rem 1.3rem 0.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  background-color: rgb(40, 63, 104);
+  font-size: 1.8rem;
+  color: white;
+  box-shadow: 5px 5px 5px rgb(30, 36, 47);
+}
+.signInButton:hover {
+  background-color: #26d1ed;
+}
+.signUpModalTrigger {
+  margin-top: 1.6rem;
+  margin-bottom: -1rem;
+  color: grey;
+}
+.signUpModalTrigger i {
+  position: relative;
+  top: 0.2rem;
+}
+.signUpModalTrigger a:hover {
+  color: #26d1ed;
+}

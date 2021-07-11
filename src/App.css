@@ -22,6 +22,26 @@ label {
   font-size: 1.2rem;
 }
 
+a {
+  color: inherit;
+}
+
+img {
+  border-radius: 2rem;
+}
+
+input {
+  color: white;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #282c34 inset;
+  box-shadow: 0 0 0 30px #282c34 inset;
+  color: white;
+}
+
 #toast-container {
   top: auto !important;
   right: auto !important;
