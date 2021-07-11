@@ -14,14 +14,20 @@ const SubMuscleButton = ({ subMuscles, subMuscle, img, setSubMuscles }) => {
   }, []);
 
   useEffect(() => {
-    if (selected) {
+    setSelected(subMuscles.includes(subMuscle));
+    // eslint-disable-next-line
+  }, [subMuscles]);
+
+  const handleSelect = () => {
+    const newSelected = !selected;
+    if (newSelected) {
       if (!subMuscles.includes(subMuscle))
         setSubMuscles([...subMuscles, subMuscle]);
     } else {
       setSubMuscles(subMuscles.filter((muscle) => muscle !== subMuscle));
     }
-    // eslint-disable-next-line
-  }, [selected]);
+    setSelected(newSelected);
+  };
 
   return (
     <div className='subMuscleBtnDiv'>
@@ -34,9 +40,7 @@ const SubMuscleButton = ({ subMuscles, subMuscle, img, setSubMuscles }) => {
         src={img}
         alt='test-img'
         data-tooltip={subMuscle}
-        onClick={() => {
-          setSelected(!selected);
-        }}
+        onClick={() => handleSelect()}
       />
     </div>
   );

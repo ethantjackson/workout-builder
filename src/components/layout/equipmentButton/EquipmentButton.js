@@ -14,7 +14,13 @@ const EquipmentButton = ({ equipment, equipmentItem, img, setEquipment }) => {
   }, []);
 
   useEffect(() => {
-    if (selected) {
+    setSelected(equipment.includes(equipmentItem));
+    // eslint-disable-next-line
+  }, [equipment]);
+
+  const handleSelect = () => {
+    const newSelected = !selected;
+    if (newSelected) {
       if (!equipment.includes(equipmentItem))
         setEquipment([...equipment, equipmentItem]);
     } else {
@@ -22,8 +28,8 @@ const EquipmentButton = ({ equipment, equipmentItem, img, setEquipment }) => {
         equipment.filter((equipment) => equipment !== equipmentItem)
       );
     }
-    // eslint-disable-next-line
-  }, [selected]);
+    setSelected(newSelected);
+  };
 
   return (
     <div className='equipmentBtnDiv'>
@@ -36,9 +42,7 @@ const EquipmentButton = ({ equipment, equipmentItem, img, setEquipment }) => {
         src={img}
         alt='test-img'
         data-tooltip={equipmentItem}
-        onClick={() => {
-          setSelected(!selected);
-        }}
+        onClick={() => handleSelect()}
       />
     </div>
   );

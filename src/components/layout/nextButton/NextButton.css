@@ -6,10 +6,17 @@
   top: 7rem;
   right: 7%;
   background-color: rgb(40, 63, 104);
-  font-size: 20px;
+  font-size: 1.4rem;
   color: white;
   box-shadow: 5px 5px 5px rgb(30, 36, 47);
 }
 .nextButton:hover {
   background-color: #26d1ed;
+}
+
+@media only screen and (max-width: 600px) {
+  .nextButton {
+    font-size: 1rem;
+    top: 6.2rem;
+  }
 }

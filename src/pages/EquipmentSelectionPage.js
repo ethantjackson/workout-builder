@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setIncludeNoEquipment } from '../actions/WorkoutActions';
 import EquipmentSelector from '../components/selectors/equipment/EquipmentSelector';
-import ClearButton from '../components/layout/clearButton/ClearButton';
-import AllButton from '../components/layout/allButton/AllButton';
 import NextButton from '../components/layout/nextButton/NextButton';
 import BackButton from '../components/layout/backButton/BackButton';
 
@@ -15,6 +13,22 @@ const EquipmentSelectionPage = ({
   setIncludeNoEquipment,
 }) => {
   const [checked, setChecked] = useState(includeNoEquipment);
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <>
@@ -23,7 +37,7 @@ const EquipmentSelectionPage = ({
       </h1>
       <div className='switch'>
         <label>
-          Include No-Equipment Exercises
+          Include No-Equipment Exercises {windowSize.width < 660 && <br />}
           <input
             type='checkbox'
             checked={checked}
@@ -36,8 +50,6 @@ const EquipmentSelectionPage = ({
         </label>
       </div>
       <EquipmentSelector />
-      <ClearButton />
-      <AllButton />
       <BackButton target='/sub-muscle-selection' />
       <NextButton target='/' />
     </>

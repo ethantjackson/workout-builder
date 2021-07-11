@@ -7,3 +7,9 @@
 .equipmentBtnDiv {
   height: 17rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .equipmentBtnDiv {
+    height: 12rem;
+  }
+}

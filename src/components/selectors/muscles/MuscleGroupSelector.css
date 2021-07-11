@@ -5,7 +5,7 @@ body .carousel {
   margin-top: -5rem;
 }
 .carousel-item {
-  top: -25vh !important;
+  top: -23vh !important;
   width: 35vh !important;
 }
 .carousel-item > img {

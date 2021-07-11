@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import EquipmentButton from '../../layout/equipmentButton/EquipmentButton';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { setEquipment } from '../../../actions/WorkoutActions';
 import {
   BenchPress,
   Dumbells,
@@ -36,9 +37,11 @@ import {
   CalfRaiseMachine,
   TricepExtension,
 } from '../../../img/index';
+import ClearButton from '../../layout/clearButton/ClearButton';
+import AllButton from '../../layout/allButton/AllButton';
 import './EquipmentSelector.css';
 
-const EquipmentSelector = ({ muscleGroup }) => {
+const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
   const [equipmentOptions, setEquipmentOptions] = useState([]);
   const [equipmentOptionRows, setEquipmentOptionRows] = useState([]);
   const [windowSize, setWindowSize] = useState({
@@ -190,16 +193,25 @@ const EquipmentSelector = ({ muscleGroup }) => {
           ))}
         </div>
       ))}
+      <ClearButton onClick={() => setEquipment([])} />
+      <AllButton
+        onClick={() =>
+          setEquipment(
+            equipmentOptions.map((equipmentItem) => equipmentItem.name)
+          )
+        }
+      />
     </div>
   );
 };
 
 EquipmentSelector.propTypes = {
   muscleGroup: PropTypes.string.isRequired,
+  setEquipment: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   muscleGroup: state.workout.muscleGroup,
 });
 
-export default connect(mapStateToProps, {})(EquipmentSelector);
+export default connect(mapStateToProps, { setEquipment })(EquipmentSelector);

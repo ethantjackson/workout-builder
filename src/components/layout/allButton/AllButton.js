@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react';
-import M from 'materialize-css/dist/js/materialize.min.js';
+import React from 'react';
 import './AllButton.css';
+import PropTypes from 'prop-types';
 
-const AllButton = () => {
-  useEffect(() => {
-    var elems = document.querySelectorAll('.tooltipped');
-    M.Tooltip.init(elems, { position: 'left' });
-  }, []);
+const AllButton = ({ onClick }) => {
   return (
-    <button className='allBtn tooltipped btn-flat' data-tooltip='Select All'>
+    <div
+      className='allBtn tooltipped btn-flat'
+      data-tooltip='Select All'
+      data-position='left'
+      onClick={onClick}
+    >
       <i className='material-icons'>clear_all</i>
-    </button>
+    </div>
   );
+};
+
+AllButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AllButton;

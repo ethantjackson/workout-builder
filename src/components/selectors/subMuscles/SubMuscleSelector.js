@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SubMuscleButton from '../../layout/subMuscleButton/SubMuscleButton';
+import { setSubMuscles } from '../../../actions/WorkoutActions';
+import AllButton from '../../layout/allButton/AllButton';
+import ClearButton from '../../layout/clearButton/ClearButton';
 import { Test } from '../../../img/index';
 import './SubMuscleSelector.css';
 
-const SubMuscleSelector = ({ workout: { muscleGroup } }) => {
+const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
   const [subMuscleOptions, setSubMuscleOptions] = useState([]);
   const [subMuscleOptionRows, setSubMuscleOptionRows] = useState([]);
   const [windowSize, setWindowSize] = useState({
@@ -123,16 +126,27 @@ const SubMuscleSelector = ({ workout: { muscleGroup } }) => {
           ))}
         </div>
       ))}
+      <ClearButton
+        onClick={() => {
+          setSubMuscles([]);
+        }}
+      />
+      <AllButton
+        onClick={() => {
+          setSubMuscles(subMuscleOptions);
+        }}
+      />
     </div>
   );
 };
 
 SubMuscleSelector.propTypes = {
   workout: PropTypes.object.isRequired,
+  setSubMuscles: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   workout: state.workout,
 });
 
-export default connect(mapStateToProps, {})(SubMuscleSelector);
+export default connect(mapStateToProps, { setSubMuscles })(SubMuscleSelector);
