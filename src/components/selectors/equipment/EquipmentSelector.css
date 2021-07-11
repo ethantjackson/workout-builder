@@ -1,0 +1,18 @@
+.equipmentBtnsContainer {
+  margin-top: 4rem !important;
+}
+.equipmentBtnRow {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  /* border: 1px solid red; */
+}
+.switch label input[type='checkbox']:checked + .lever:after {
+  background-color: #fff;
+}
+.switch label input[type='checkbox']:checked + .lever {
+  background-color: #26d1ed;
+}
+.switch label input[type='checkbox']:not(:checked) + .lever {
+  background-color: rgb(40, 63, 104);
+}

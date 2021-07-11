@@ -1,48 +1,71 @@
-import React, { useState, useEffect } from 'react';
-import Back from '../../../img/back.png';
-import Front from '../../../img/front.png';
-import Side from '../../../img/side.png';
-import Legs from '../../../img/legs.png';
-import Arms from '../../../img/arms.png';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import {
+  setMuscleGroup,
+  setSubMuscles,
+  setEquipment,
+  setIncludeNoEquipment,
+} from '../../../actions/WorkoutActions';
+import { Back, Front, Side, Legs, Arms, Abs } from '../../../img/index';
 
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import './MuscleGroupSelector.css';
 
-const MuscleGroupSelector = () => {
-  const [selectedMuscleGroup, setSelectedMuscleGroup] = useState(null);
+const MuscleGroupSelector = ({
+  muscleGroup,
+  setMuscleGroup,
+  setSubMuscles,
+  setEquipment,
+  setIncludeNoEquipment,
+}) => {
+  const muscleGroups = ['CHEST', 'BACK', 'SHOULDERS', 'ABS', 'LEGS', 'ARMS'];
+  const muscleGroupImgs = [Front, Back, Side, Abs, Legs, Arms];
+
   useEffect(() => {
     var instance = document.querySelectorAll('.carousel');
     M.Carousel.init(instance, {
       indicators: true,
-      onCycleTo: (e) => setSelectedMuscleGroup(e.id),
+      onCycleTo: (e) => {
+        setMuscleGroup(e.id);
+        setSubMuscles([]);
+        setEquipment([]);
+        setIncludeNoEquipment(true);
+      },
     });
+    // eslint-disable-next-line
   }, []);
 
   return (
     <>
-      {selectedMuscleGroup !== null && (
-        <h4 className='instructionsSubHeader'>{selectedMuscleGroup}</h4>
-      )}
+      <h4 className='instructionsSubHeader'>{muscleGroup}</h4>
       <div className='carousel no-autoinit'>
-        <a className='carousel-item' href='#front' id='CHEST'>
-          <img src={Front} alt='front-img' />
-        </a>
-        <a className='carousel-item' href='#back' id='BACK'>
-          <img src={Back} alt='back-img' />
-        </a>
-        <a className='carousel-item' href='#side' id='SHOULDERS'>
-          <img src={Side} alt='side-img' />
-        </a>
-        <a className='carousel-item' href='#legs' id='LEGS'>
-          <img src={Legs} alt='legs-img' />
-        </a>
-        <a className='carousel-item' href='#arms' id='ARMS'>
-          <img src={Arms} alt='arms-img' />
-        </a>
+        {muscleGroups.map((muscle, index) => (
+          <div className='carousel-item' id={muscle} key={muscle}>
+            <img src={muscleGroupImgs[index]} alt={muscle + '-img'} />
+          </div>
+        ))}
       </div>
     </>
   );
 };
 
-export default MuscleGroupSelector;
+MuscleGroupSelector.propTypes = {
+  muscleGroup: PropTypes.string.isRequired,
+  setMuscleGroup: PropTypes.func.isRequired,
+  setSubMuscles: PropTypes.func.isRequired,
+  setEquipment: PropTypes.func.isRequired,
+  setIncludeNoEquipment: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  muscleGroup: state.workout.muscleGroup,
+});
+
+export default connect(mapStateToProps, {
+  setMuscleGroup,
+  setSubMuscles,
+  setEquipment,
+  setIncludeNoEquipment,
+})(MuscleGroupSelector);

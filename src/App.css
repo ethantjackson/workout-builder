@@ -17,3 +17,15 @@ body {
 .instructionsSubHeader {
   color: #26d1ed;
 }
+
+@media only screen and (max-width: 600px) {
+  .instructionsHeader {
+    font-size: 1.5rem;
+  }
+  .instructionsSubHeader {
+    font-size: 1.5rem;
+  }
+  label {
+    font-size: 0.8rem;
+  }
+}

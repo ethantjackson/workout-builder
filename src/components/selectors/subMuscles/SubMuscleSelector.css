@@ -1,0 +1,9 @@
+.subMuscleBtnsContainer {
+  margin-top: 6rem !important;
+}
+.subMuscleBtnRow {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  /* border: 1px solid red; */
+}

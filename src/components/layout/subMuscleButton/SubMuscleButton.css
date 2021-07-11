@@ -1,0 +1,14 @@
+.subMuscleImgBtn {
+  height: 90%;
+  border-radius: 2rem;
+}
+
+.subMuscleBtnDiv {
+  height: 17rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .subMuscleBtnDiv {
+    height: 12rem;
+  }
+}
