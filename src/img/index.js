@@ -41,6 +41,12 @@ import CalfRaiseMachine from './equipment/calfRaiseMachine.png';
 import TricepExtension from './equipment/tricepExtension.png';
 import HighRowMachine from './equipment/highRowMachine.png';
 import LowRowMachine from './equipment/lowRowMachine.png';
+import LateralRaiseMachine from './equipment/lateralRaiseMachine.png';
+import CalfExtensionMachine from './equipment/calfExtensionMachine.png';
+import SquatMachine from './equipment/squatMachine.png';
+import TricepBar from './equipment/tricepBar.png';
+import ObliqueCrunchMachine from './equipment/obliqueCrunchMachine.png';
+import ProneLegCurlMachine from './equipment/proneLegCurlMachine.png';
 
 export { Abs, Arms, Back, Front, Legs, Side };
 
@@ -81,4 +87,10 @@ export {
   TricepExtension,
   HighRowMachine,
   LowRowMachine,
+  LateralRaiseMachine,
+  CalfExtensionMachine,
+  SquatMachine,
+  TricepBar,
+  ObliqueCrunchMachine,
+  ProneLegCurlMachine,
 };
