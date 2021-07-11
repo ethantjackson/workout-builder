@@ -1,5 +1,5 @@
 .nextButton {
-  position: absolute;
+  position: fixed;
   padding: 0.4rem 1.3rem 0.5rem;
   border-radius: 1rem;
   cursor: pointer;
