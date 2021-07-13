@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
@@ -20,13 +20,18 @@ const MuscleGroupSelector = ({
   setEquipment,
   setIncludeNoEquipment,
 }) => {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
   const muscleGroups = ['CHEST', 'BACK', 'SHOULDERS', 'ABS', 'LEGS', 'ARMS'];
   const muscleGroupImgs = [Front, Back, Side, Abs, Legs, Arms];
 
   useEffect(() => {
     var instance = document.querySelectorAll('.carousel');
+    console.log('changing');
     M.Carousel.init(instance, {
-      indicators: true,
+      indicators: windowSize.width >= 992 ? true : false,
       onCycleTo: (e) => {
         setMuscleGroup(e.id);
         setSubMuscles([]);
@@ -35,12 +40,27 @@ const MuscleGroupSelector = ({
       },
     });
     // eslint-disable-next-line
+  }, [windowSize]);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
     <>
       <h4 className='instructionsSubHeader'>{muscleGroup}</h4>
-      <div className='carousel'>
+      <div
+        className='carousel'
+        style={{ marginTop: windowSize.height < 850 && '-3rem' }}
+      >
         {muscleGroups.map((muscle, index) => (
           <div className='carousel-item' id={muscle} key={muscle}>
             <img src={muscleGroupImgs[index]} alt={muscle + '-img'} />

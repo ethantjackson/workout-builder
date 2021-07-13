@@ -10,14 +10,16 @@
   /* position: relative; */
   /* bottom: -18vh; */
   height: 74vh;
-  margin-top: 13vh;
+  margin-top: 3vh;
 }
 
-.loginDiv {
+.landingImgDiv {
+  border-right: 1px solid grey;
   margin-top: 10vh;
   height: 80vh;
-  padding-top: 10vh !important;
-  border-left: 1px solid grey;
+}
+.loginDiv {
+  padding-top: 18vh !important;
 }
 .loginForm {
   margin-top: 4rem;
