@@ -40,7 +40,7 @@ const MuscleGroupSelector = ({
   return (
     <>
       <h4 className='instructionsSubHeader'>{muscleGroup}</h4>
-      <div className='carousel no-autoinit'>
+      <div className='carousel'>
         {muscleGroups.map((muscle, index) => (
           <div className='carousel-item' id={muscle} key={muscle}>
             <img src={muscleGroupImgs[index]} alt={muscle + '-img'} />

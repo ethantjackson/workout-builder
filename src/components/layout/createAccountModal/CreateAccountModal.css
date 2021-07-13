@@ -1,0 +1,39 @@
+.createAccountModal {
+  width: 75%;
+  background-color: #282c34 !important;
+  border-radius: 1rem !important;
+  padding: 5% 5% 8% !important;
+}
+.createAccountFooter {
+  color: grey;
+  position: absolute;
+  cursor: pointer;
+}
+.createAccountFooter:hover {
+  color: #26d1ed;
+}
+.moreInfoIcon {
+  position: absolute;
+  bottom: 0.8rem;
+  right: -1rem;
+}
+.createAccountIcon {
+  position: absolute;
+  bottom: 0.8rem;
+  left: -1rem;
+}
+
+.accountFeatureDiv {
+  padding: 5% !important;
+}
+.accountFeatureTitle {
+  font-size: 2rem;
+  color: #26d1ed;
+}
+.accountFeatureImg {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.accountFeatureDescription {
+  color: rgb(200, 199, 199);
+}

@@ -39,15 +39,15 @@
 .signInButton:hover {
   background-color: #26d1ed;
 }
-.signUpModalTrigger {
+.accountSubText {
   margin-top: 1.6rem;
   margin-bottom: -1rem;
   color: grey;
 }
-.signUpModalTrigger i {
+.accountSubText i {
   position: relative;
   top: 0.2rem;
 }
-.signUpModalTrigger a:hover {
+.accountSubText a:hover {
   color: #26d1ed;
 }
