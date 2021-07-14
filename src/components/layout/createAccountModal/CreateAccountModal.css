@@ -1,8 +1,14 @@
+#create-account-modal {
+  max-height: 85% !important;
+}
 .createAccountModal {
   width: 75%;
   background-color: #282c34 !important;
   border-radius: 1rem !important;
-  padding: 5% 5% 8% !important;
+  padding: 5% !important;
+}
+.modal-content {
+  height: auto;
 }
 .createAccountFooter {
   color: grey;

@@ -6,6 +6,14 @@ import Legs from './muscleGroups/legs.png';
 import Side from './muscleGroups/side.png';
 
 import Test from './subMuscles/test.png';
+import ClavicularPectoral from './subMuscles/chest/clavicularPectoral.png';
+import CostalPectoral from './subMuscles/chest/costalPectoral.png';
+import SternalPectoral from './subMuscles/chest/sternalPectoral.png';
+import Trapezius from './subMuscles/back/trapezius.png';
+import TeresMajorAndMinor from './subMuscles/back/teresMajor&Minor.png';
+import ErectorSpinae from './subMuscles/back/erectorSpinae.png';
+import LatissimusDorsi from './subMuscles/back/latissimusDorsi.png';
+import Rhomboids from './subMuscles/back/rhomboids.png';
 
 import BenchPress from './equipment/benchPress.png';
 import Dumbells from './equipment/dumbells.png';
@@ -50,7 +58,17 @@ import ProneLegCurlMachine from './equipment/proneLegCurlMachine.png';
 
 export { Abs, Arms, Back, Front, Legs, Side };
 
-export { Test };
+export {
+  Test,
+  ClavicularPectoral,
+  CostalPectoral,
+  SternalPectoral,
+  ErectorSpinae,
+  LatissimusDorsi,
+  Rhomboids,
+  TeresMajorAndMinor,
+  Trapezius,
+};
 
 export {
   BenchPress,
