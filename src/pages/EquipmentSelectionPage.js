@@ -51,7 +51,7 @@ const EquipmentSelectionPage = ({
       </div>
       <EquipmentSelector />
       <BackButton target='/sub-muscle-selection' />
-      <NextButton target='/' />
+      <NextButton target='/workouts' />
     </>
   );
 };

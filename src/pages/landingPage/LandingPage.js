@@ -22,11 +22,11 @@ const LandingPage = () => {
   return (
     <>
       <div className='landingContainer row'>
-        {windowSize.width > 992 && (
-          <div className='col m6 landingImgDiv'>
-            <img className='landingImg' src={Front} alt='landing-img' />
-          </div>
-        )}
+        {/* {windowSize.width > 992 && ( */}
+        <div className='col m6 landingImgDiv hide-on-med-and-down'>
+          <img className='landingImg' src={Front} alt='landing-img' />
+        </div>
+        {/* )} */}
         <div className='col s12 l6 loginDiv'>
           <h1 className='instructionsHeader'>WORKOUT BUILDER</h1>
           <form className='loginForm' action=''>

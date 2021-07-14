@@ -34,7 +34,7 @@ const SubMuscleButton = ({ subMuscles, subMuscle, img, setSubMuscles }) => {
       <img
         className='subMuscleImgBtn tooltipped'
         style={{
-          opacity: selected ? '1' : '.3',
+          opacity: selected ? '1' : '.5',
           boxShadow: selected && '0px 0px 15px #26d1ed',
         }}
         src={img}

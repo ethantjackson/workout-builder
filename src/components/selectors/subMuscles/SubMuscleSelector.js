@@ -148,7 +148,9 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
       />
       <AllButton
         onClick={() => {
-          setSubMuscles(subMuscleOptions);
+          setSubMuscles(
+            subMuscleOptions.map((subMuscleOption) => subMuscleOption.name)
+          );
         }}
       />
     </div>
