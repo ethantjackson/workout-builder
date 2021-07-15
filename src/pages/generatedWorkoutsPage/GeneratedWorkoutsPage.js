@@ -1,9 +1,9 @@
 import React from 'react';
 import WorkoutCard from '../../components/layout/workoutCard/WorkoutCard';
 import RestartButton from '../../components/layout/restartButton/RestartButton';
-import './WorkoutsPage.css';
+import './GeneratedWorkoutsPage.css';
 
-const WorkoutsPage = () => {
+const GeneratedWorkoutsPage = () => {
   return (
     <>
       <div className='container workoutCardsContainer'>
@@ -20,4 +20,4 @@ const WorkoutsPage = () => {
   );
 };
 
-export default WorkoutsPage;
+export default GeneratedWorkoutsPage;

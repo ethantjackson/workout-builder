@@ -2,6 +2,10 @@ const express = require('express');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 
+var dotenv = require('dotenv');
+dotenv.config();
+var url = process.env.MONGO_URI;
+
 const app = express();
 app.set('view engine', 'ejs');
 
@@ -17,13 +21,10 @@ app.use(express.static('public'));
 //   useUnifiedTopology: true,
 // });
 
-mongoose.connect(
-  'mongodb+srv://Ethan:GigRhgPMm4sbWahT@cluster0.laxv2.mongodb.net/workoutDB?retryWrites=true&w=majority',
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const workoutSchema = {
   name: String,
