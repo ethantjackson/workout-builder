@@ -3,7 +3,7 @@ import './WorkoutCard.css';
 
 const WorkoutCard = () => {
   return (
-    <div className='col s6 cardContainer'>
+    <div className='col s12 l6 cardContainer'>
       <div className='card'>
         <div className='card-image waves-effect waves-block waves-light cardImg'>
           <img

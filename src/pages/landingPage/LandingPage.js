@@ -48,7 +48,7 @@ const LandingPage = () => {
           </a>
           <p className='accountSubText'>
             <a href='#create-account-modal' className='modal-trigger '>
-              Create an account
+              Create an account{' '}
               <i className='material-icons tiny'>info_outline</i>
             </a>
           </p>

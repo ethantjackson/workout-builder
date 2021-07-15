@@ -1,11 +1,12 @@
 import React from 'react';
-import WorkoutCard from '../components/layout/workoutCard/WorkoutCard';
-import RestartButton from '../components/layout/restartButton/RestartButton';
+import WorkoutCard from '../../components/layout/workoutCard/WorkoutCard';
+import RestartButton from '../../components/layout/restartButton/RestartButton';
+import './WorkoutsPage.css';
 
 const WorkoutsPage = () => {
   return (
     <>
-      <div className='container'>
+      <div className='container workoutCardsContainer'>
         <h1 className='instructionsHeader'>Generated Workouts</h1>
         <div className='row'>
           <WorkoutCard />
