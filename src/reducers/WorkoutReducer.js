@@ -3,8 +3,6 @@ import {
   SET_SUB_MUSCLES,
   SET_MUSCLE_GROUP,
   SET_INCLUDE_NO_EQUIPMENT,
-  SET_LOADING,
-  WORKOUT_ERROR,
 } from '../actions/types';
 
 const initialState = {
@@ -12,8 +10,6 @@ const initialState = {
   subMuscles: [],
   equipment: [],
   includeNoEquipment: true,
-  loading: false,
-  error: false,
 };
 
 const WorkoutReducer = (state = initialState, action) => {
@@ -38,14 +34,6 @@ const WorkoutReducer = (state = initialState, action) => {
         ...state,
         includeNoEquipment: action.payload,
       };
-    case SET_LOADING:
-      return {
-        ...state,
-        loading: true,
-      };
-    case WORKOUT_ERROR:
-      console.error(action.payload);
-      return { ...state, error: action.payload };
     default:
       return state;
   }
