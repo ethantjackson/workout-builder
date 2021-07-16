@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import WorkoutCard from '../../components/layout/workoutCard/WorkoutCard';
 import RestartButton from '../../components/layout/restartButton/RestartButton';
 import Preloader from '../../components/layout/Preloader';
@@ -16,26 +16,63 @@ const GeneratedWorkoutsPage = ({
   getWorkouts,
   setLoading,
 }) => {
+  const [cardRows, setCardRows] = useState([]);
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
   useEffect(() => {
     setLoading();
     getWorkouts(workout);
+
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    var size = windowSize.width >= 992 ? 2 : 1;
+    var rows = [];
+    for (let i = 0; i < workouts.length; i += size) {
+      rows.push(workouts.slice(i, i + size));
+    }
+    setCardRows(rows);
+  }, [workouts, windowSize]);
 
   return (
     <>
       <div className='container workoutCardsContainer'>
         <h1 className='instructionsHeader'>Generated Workouts</h1>
-        {workouts.length === 0 ? (
-          <p>{'No workouts found :('}</p>
-        ) : loading || workouts === null ? (
+        {loading || workouts === null ? (
           <Preloader />
+        ) : workouts.length === 0 ? (
+          <h5 className='instructionsSubHeader'>{'No workouts found :('}</h5>
         ) : (
-          <div className='row'>
-            {workouts.map((workoutItem, index) => {
-              return <WorkoutCard workout={workoutItem} key={index} />;
-            })}
-          </div>
+          cardRows.map((row, rowIndex) => (
+            <div className='row' key={rowIndex}>
+              {row.map((workoutItem) => (
+                <div
+                  className={
+                    'col s12 l6' +
+                    (row.length === 1 && rowIndex === cardRows.length - 1
+                      ? ' offset-l3'
+                      : '')
+                  }
+                  key={workoutItem.name}
+                >
+                  <WorkoutCard workout={workoutItem} />
+                </div>
+              ))}
+            </div>
+          ))
         )}
       </div>
       {!loading && workouts !== null && <RestartButton />}

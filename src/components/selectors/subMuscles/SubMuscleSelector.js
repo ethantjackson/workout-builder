@@ -15,6 +15,21 @@ import {
   Rhomboids,
   TeresMajorAndMinor,
   Trapezius,
+  AnteriorDeltoidHead,
+  LateralDeltoidHead,
+  PosteriorDeltoidHead,
+  ExternalAbdominalOblique,
+  InternalAbdominalOblique,
+  UpperRectusAbdominis,
+  Serratus,
+  LowerRectusAbdominis,
+  Brachialis,
+  Forearms,
+  LateralTricepHead,
+  LongBicepHead,
+  LongTricepHead,
+  MedialTricepHead,
+  ShortBicepHead,
 } from '../../../img/index';
 import './SubMuscleSelector.css';
 
@@ -71,9 +86,9 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
         break;
       case 'SHOULDERS':
         setSubMuscleOptions([
-          { name: 'Anterior Deltoid Head', img: Test },
-          { name: 'Lateral Deltoid Head', img: Test },
-          { name: 'Posterior Deltoid Head', img: Test },
+          { name: 'Anterior Deltoid Head', img: AnteriorDeltoidHead },
+          { name: 'Lateral Deltoid Head', img: LateralDeltoidHead },
+          { name: 'Posterior Deltoid Head', img: PosteriorDeltoidHead },
           { name: 'Rotator Cuff', img: Test },
         ]);
         break;
@@ -99,22 +114,22 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
         break;
       case 'ABS':
         setSubMuscleOptions([
-          { name: 'External Abdominal Oblique', img: Test },
-          { name: 'Upper Rectus Abdominis', img: Test },
-          { name: 'Lower Rectus Abdominis', img: Test },
-          { name: 'Internal Abdominal Oblique', img: Test },
-          { name: 'Serratus', img: Test },
+          { name: 'Internal Abdominal Oblique', img: InternalAbdominalOblique },
+          { name: 'External Abdominal Oblique', img: ExternalAbdominalOblique },
+          { name: 'Upper Rectus Abdominis', img: UpperRectusAbdominis },
+          { name: 'Lower Rectus Abdominis', img: LowerRectusAbdominis },
+          { name: 'Serratus', img: Serratus },
         ]);
         break;
       case 'ARMS':
         setSubMuscleOptions([
-          { name: 'Short Bicep Head', img: Test },
-          { name: 'Long Bicep Head', img: Test },
-          { name: 'Brachialis', img: Test },
-          { name: 'Forearms', img: Test },
-          { name: 'Long Tricep Head', img: Test },
-          { name: 'Medial Tricep Head', img: Test },
-          { name: 'Lateral Tricep Head', img: Test },
+          { name: 'Short Bicep Head', img: ShortBicepHead },
+          { name: 'Long Bicep Head', img: LongBicepHead },
+          { name: 'Brachialis', img: Brachialis },
+          { name: 'Forearms', img: Forearms },
+          { name: 'Long Tricep Head', img: LongTricepHead },
+          { name: 'Medial Tricep Head', img: MedialTricepHead },
+          { name: 'Lateral Tricep Head', img: LateralTricepHead },
         ]);
         break;
       default:
@@ -132,11 +147,11 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
     <div className='subMuscleBtnsContainer container'>
       {subMuscleOptionRows.map((row, rowIndex) => (
         <div className='subMuscleBtnRow' key={rowIndex}>
-          {row.map((subMuscle, index) => (
+          {row.map((subMuscle) => (
             <SubMuscleButton
               subMuscle={subMuscle.name}
               img={subMuscle.img}
-              key={index}
+              key={subMuscle.name}
             />
           ))}
         </div>

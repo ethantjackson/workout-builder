@@ -1,7 +1,7 @@
 .restartButtonContainer {
   position: fixed;
   top: 6rem;
-  right: 7%;
+  right: 5%;
   z-index: 3;
 }
 .restartButton {
