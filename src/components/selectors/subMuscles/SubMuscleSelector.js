@@ -20,10 +20,16 @@ import {
   PosteriorDeltoidHead,
   ExternalAbdominalOblique,
   InternalAbdominalOblique,
-  LowerRectusAbdominism,
   UpperRectusAbdominis,
   Serratus,
   LowerRectusAbdominis,
+  Brachialis,
+  Forearms,
+  LateralTricepHead,
+  LongBicepHead,
+  LongTricepHead,
+  MedialTricepHead,
+  ShortBicepHead,
 } from '../../../img/index';
 import './SubMuscleSelector.css';
 
@@ -117,13 +123,13 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
         break;
       case 'ARMS':
         setSubMuscleOptions([
-          { name: 'Short Bicep Head', img: Test },
-          { name: 'Long Bicep Head', img: Test },
-          { name: 'Brachialis', img: Test },
-          { name: 'Forearms', img: Test },
-          { name: 'Long Tricep Head', img: Test },
-          { name: 'Medial Tricep Head', img: Test },
-          { name: 'Lateral Tricep Head', img: Test },
+          { name: 'Short Bicep Head', img: ShortBicepHead },
+          { name: 'Long Bicep Head', img: LongBicepHead },
+          { name: 'Brachialis', img: Brachialis },
+          { name: 'Forearms', img: Forearms },
+          { name: 'Long Tricep Head', img: LongTricepHead },
+          { name: 'Medial Tricep Head', img: MedialTricepHead },
+          { name: 'Lateral Tricep Head', img: LateralTricepHead },
         ]);
         break;
       default:

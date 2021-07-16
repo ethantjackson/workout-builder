@@ -22,6 +22,13 @@ import InternalAbdominalOblique from './subMuscles/abs/internalAbdominalOblique.
 import LowerRectusAbdominis from './subMuscles/abs/lowerRectusAbdominis.png';
 import UpperRectusAbdominis from './subMuscles/abs/upperRectusAbdominis.png';
 import Serratus from './subMuscles/abs/serratus.png';
+import Brachialis from './subMuscles/arms/brachialis.png';
+import Forearms from './subMuscles/arms/forearms.png';
+import LateralTricepHead from './subMuscles/arms/lateralTricepHead.png';
+import LongBicepHead from './subMuscles/arms/longBicepHead.png';
+import LongTricepHead from './subMuscles/arms/longTricepHead.png';
+import MedialTricepHead from './subMuscles/arms/medialTricepHead.png';
+import ShortBicepHead from './subMuscles/arms/shortBicepHead.png';
 
 import BenchPress from './equipment/benchPress.png';
 import Dumbells from './equipment/dumbells.png';
@@ -84,6 +91,13 @@ export {
   LowerRectusAbdominis,
   UpperRectusAbdominis,
   Serratus,
+  Brachialis,
+  Forearms,
+  LateralTricepHead,
+  LongBicepHead,
+  LongTricepHead,
+  MedialTricepHead,
+  ShortBicepHead,
 };
 
 export {
