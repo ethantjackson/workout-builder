@@ -1,0 +1,55 @@
+import React from 'react';
+import './WorkoutCard.css';
+import PropTypes from 'prop-types';
+
+const WorkoutCard = ({ workout }) => {
+  return (
+    <div className='col s12 l6 cardContainer'>
+      <div className='card'>
+        <div className='card-image waves-effect waves-block waves-light cardImg'>
+          <img
+            className='activator'
+            src='https://res.cloudinary.com/workoutcloud/image/upload/v1626232208/workout-website/dumbbellbenchpress-1457043820_vwtchd.gif'
+            alt='card-img'
+            // style={{ height: '10vh', width: 'auto' }}
+          />
+        </div>
+        <div className='card-content'>
+          <span className='card-title activator'>
+            {workout.name}
+            <i className='material-icons right'>more_vert</i>
+          </span>
+        </div>
+        <div className='card-reveal'>
+          <span className='card-title'>
+            {workout.name}
+            <i className='material-icons right'>close</i>
+          </span>
+          <div className='left-align revealContent'>
+            <blockquote className='revealSubHeader'>Tips:</blockquote>
+            <ul className='revealList browser-default'>
+              {workout.tips.map((tip, index) => (
+                <li key={index}>{tip}</li>
+              ))}
+            </ul>
+            <br />
+            <blockquote className='revealSubHeader'>
+              Tangent Muscles Worked:
+            </blockquote>
+            <ul className='revealList browser-default'>
+              {workout.tangents.map((tangent, index) => (
+                <li key={index}>{tangent}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+WorkoutCard.propTypes = {
+  workout: PropTypes.object.isRequired,
+};
+
+export default WorkoutCard;

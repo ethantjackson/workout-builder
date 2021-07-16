@@ -1,0 +1,32 @@
+.restartButtonContainer {
+  position: fixed;
+  top: 6rem;
+  right: 7%;
+  z-index: 3;
+}
+.restartButton {
+  position: relative;
+  padding: 0.4rem 1.3rem 0.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  background-color: rgb(40, 63, 104);
+  font-size: 1.8rem;
+  color: white;
+  z-index: inherit;
+  box-shadow: 5px 5px 5px rgb(30, 36, 47);
+}
+.restartButton:hover {
+  background-color: #26d1ed;
+}
+
+@media only screen and (max-width: 600px) {
+  .restartButtonContainer {
+    right: 50%;
+    top: auto;
+    bottom: 3rem;
+    font-size: 1.2rem;
+  }
+  .restartButton {
+    right: -50%;
+  }
+}

@@ -21,7 +21,7 @@ const CreateAccountForm = () => {
   };
 
   return (
-    <div>
+    <div className='createAccountForm'>
       <h4 className='instructionsHeader'>Create Account</h4>
       <form>
         <div className='row'>

@@ -3,8 +3,6 @@ import {
   SET_SUB_MUSCLES,
   SET_MUSCLE_GROUP,
   SET_INCLUDE_NO_EQUIPMENT,
-  SET_LOADING,
-  // WORKOUT_ERROR,
 } from './types';
 
 export const setEquipment = (equipment) => {
@@ -32,11 +30,5 @@ export const setIncludeNoEquipment = (included) => {
   return {
     type: SET_INCLUDE_NO_EQUIPMENT,
     payload: included,
-  };
-};
-
-export const setLoading = () => {
-  return {
-    type: SET_LOADING,
   };
 };

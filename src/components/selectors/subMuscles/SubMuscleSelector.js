@@ -5,7 +5,17 @@ import SubMuscleButton from '../../layout/subMuscleButton/SubMuscleButton';
 import { setSubMuscles } from '../../../actions/WorkoutActions';
 import AllButton from '../../layout/allButton/AllButton';
 import ClearButton from '../../layout/clearButton/ClearButton';
-import { Test } from '../../../img/index';
+import {
+  Test,
+  ClavicularPectoral,
+  CostalPectoral,
+  SternalPectoral,
+  LatissimusDorsi,
+  ErectorSpinae,
+  Rhomboids,
+  TeresMajorAndMinor,
+  Trapezius,
+} from '../../../img/index';
 import './SubMuscleSelector.css';
 
 const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
@@ -54,57 +64,57 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
     switch (muscleGroup) {
       case 'CHEST':
         setSubMuscleOptions([
-          'Clavicular Pectoral',
-          'Sternal Pectoral',
-          'Costal Pectoral',
+          { name: 'Clavicular Pectoral', img: ClavicularPectoral },
+          { name: 'Costal Pectoral', img: SternalPectoral },
+          { name: 'Sternal Pectoral', img: CostalPectoral },
         ]);
         break;
       case 'SHOULDERS':
         setSubMuscleOptions([
-          'Anterior Deltoid Head',
-          'Lateral Deltoid Head',
-          'Posterior Deltoid Head',
-          'Rotator Cuff',
+          { name: 'Anterior Deltoid Head', img: Test },
+          { name: 'Lateral Deltoid Head', img: Test },
+          { name: 'Posterior Deltoid Head', img: Test },
+          { name: 'Rotator Cuff', img: Test },
         ]);
         break;
       case 'BACK':
         setSubMuscleOptions([
-          'Latissimus Dorsi',
-          'Rhomboids',
-          'Teres Major & Minor',
-          'Erector Spinae',
-          'Trapezius',
+          { name: 'Latissimus Dorsi', img: LatissimusDorsi },
+          { name: 'Rhomboids', img: Rhomboids },
+          { name: 'Teres Major And Minor', img: TeresMajorAndMinor },
+          { name: 'Erector Spinae', img: ErectorSpinae },
+          { name: 'Trapezius', img: Trapezius },
         ]);
         break;
       case 'LEGS':
         setSubMuscleOptions([
-          'Gluteus Maximus',
-          'Vastus Medcialis',
-          'Vastus Lateralis & Intermedius',
-          'Hamstrings',
-          'Gastrocnemius',
-          'Hip Abductors',
-          'Hip Adductors',
+          { name: 'Gluteus Maximus', img: Test },
+          { name: 'Vastus Medcialis', img: Test },
+          { name: 'Vastus Lateralis And Intermedius', img: Test },
+          { name: 'Hamstrings', img: Test },
+          { name: 'Gastrocnemius', img: Test },
+          { name: 'Hip Abductors', img: Test },
+          { name: 'Hip Adductors', img: Test },
         ]);
         break;
       case 'ABS':
         setSubMuscleOptions([
-          'External Abdominal Oblique',
-          'Upper Rectus Abdominis',
-          'Lower Rectus Abdominis',
-          'Internal Abdominal Oblique',
-          'Serratus',
+          { name: 'External Abdominal Oblique', img: Test },
+          { name: 'Upper Rectus Abdominis', img: Test },
+          { name: 'Lower Rectus Abdominis', img: Test },
+          { name: 'Internal Abdominal Oblique', img: Test },
+          { name: 'Serratus', img: Test },
         ]);
         break;
       case 'ARMS':
         setSubMuscleOptions([
-          'Short Bicep Head',
-          'Long Bicep Head',
-          'Brachialis',
-          'Forearms',
-          'Long Tricep Head',
-          'Medial Tricep Head',
-          'Lateral Tricep Head',
+          { name: 'Short Bicep Head', img: Test },
+          { name: 'Long Bicep Head', img: Test },
+          { name: 'Brachialis', img: Test },
+          { name: 'Forearms', img: Test },
+          { name: 'Long Tricep Head', img: Test },
+          { name: 'Medial Tricep Head', img: Test },
+          { name: 'Lateral Tricep Head', img: Test },
         ]);
         break;
       default:
@@ -123,7 +133,11 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
       {subMuscleOptionRows.map((row, rowIndex) => (
         <div className='subMuscleBtnRow' key={rowIndex}>
           {row.map((subMuscle, index) => (
-            <SubMuscleButton subMuscle={subMuscle} img={Test} key={index} />
+            <SubMuscleButton
+              subMuscle={subMuscle.name}
+              img={subMuscle.img}
+              key={index}
+            />
           ))}
         </div>
       ))}
@@ -134,7 +148,9 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
       />
       <AllButton
         onClick={() => {
-          setSubMuscles(subMuscleOptions);
+          setSubMuscles(
+            subMuscleOptions.map((subMuscleOption) => subMuscleOption.name)
+          );
         }}
       />
     </div>

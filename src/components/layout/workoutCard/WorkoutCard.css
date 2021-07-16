@@ -1,0 +1,30 @@
+.cardContainer {
+  padding: 1rem 3rem !important;
+}
+
+.card {
+  color: white;
+  background-color: rgb(30, 36, 47);
+  border-radius: 1rem;
+}
+
+.cardImg {
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card-reveal {
+  background-color: inherit !important;
+}
+
+.revealContent {
+  font-size: 1.1rem;
+}
+
+.revealSubHeader {
+  border-left: 5px solid #26d1ed;
+}
+
+.revealList {
+  color: rgb(200, 199, 199);
+  list-style-type: disc;
+}

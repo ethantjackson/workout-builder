@@ -5,6 +5,7 @@ import CreateAccountModal from './components/layout/createAccountModal/CreateAcc
 import MuscleGroupSelectionPage from './pages/MuscleGroupSelectionPage';
 import SubMuscleSelectionPage from './pages/SubMuscleSelectionPage';
 import EquipmentSelectionPage from './pages/EquipmentSelectionPage';
+import GeneratedWorkoutsPage from './pages/generatedWorkoutsPage/GeneratedWorkoutsPage';
 import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
@@ -42,6 +43,9 @@ const App = () => {
               </Route>
               <Route exact path='/equipment-selection'>
                 <EquipmentSelectionPage />
+              </Route>
+              <Route exact path='/workouts'>
+                <GeneratedWorkoutsPage />
               </Route>
             </Switch>
           </Router>
