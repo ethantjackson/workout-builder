@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const WorkoutCard = ({ workout }) => {
   return (
-    <div className='col s12 l6 cardContainer'>
+    <div className='cardContainer'>
       <div className='card'>
         <div className='card-image waves-effect waves-block waves-light cardImg'>
           <img

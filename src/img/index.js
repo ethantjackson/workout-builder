@@ -14,6 +14,14 @@ import TeresMajorAndMinor from './subMuscles/back/teresMajor&Minor.png';
 import ErectorSpinae from './subMuscles/back/erectorSpinae.png';
 import LatissimusDorsi from './subMuscles/back/latissimusDorsi.png';
 import Rhomboids from './subMuscles/back/rhomboids.png';
+import AnteriorDeltoidHead from './subMuscles/shoulders/anteriorDeltoidHead.png';
+import LateralDeltoidHead from './subMuscles/shoulders/lateralDeltoidHead.png';
+import PosteriorDeltoidHead from './subMuscles/shoulders/posteriorDeltoidHead.png';
+import ExternalAbdominalOblique from './subMuscles/abs/externalAbdominalOblique.png';
+import InternalAbdominalOblique from './subMuscles/abs/internalAbdominalOblique.png';
+import LowerRectusAbdominis from './subMuscles/abs/lowerRectusAbdominis.png';
+import UpperRectusAbdominis from './subMuscles/abs/upperRectusAbdominis.png';
+import Serratus from './subMuscles/abs/serratus.png';
 
 import BenchPress from './equipment/benchPress.png';
 import Dumbells from './equipment/dumbells.png';
@@ -68,6 +76,14 @@ export {
   Rhomboids,
   TeresMajorAndMinor,
   Trapezius,
+  AnteriorDeltoidHead,
+  LateralDeltoidHead,
+  PosteriorDeltoidHead,
+  ExternalAbdominalOblique,
+  InternalAbdominalOblique,
+  LowerRectusAbdominis,
+  UpperRectusAbdominis,
+  Serratus,
 };
 
 export {
