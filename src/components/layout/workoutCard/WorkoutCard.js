@@ -9,7 +9,8 @@ const WorkoutCard = ({ workout }) => {
         <div className='card-image waves-effect waves-block waves-light cardImg'>
           <img
             className='activator'
-            src='https://res.cloudinary.com/workoutcloud/image/upload/v1626232208/workout-website/dumbbellbenchpress-1457043820_vwtchd.gif'
+            rel={'external'}
+            src={workout.demo}
             alt='card-img'
             // style={{ height: '10vh', width: 'auto' }}
           />
