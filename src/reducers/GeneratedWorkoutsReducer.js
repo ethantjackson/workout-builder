@@ -1,4 +1,9 @@
-import { GET_WORKOUTS, WORKOUTS_ERROR, SET_LOADING } from '../actions/types';
+import {
+  GET_WORKOUTS,
+  CLEAR_WORKOUTS,
+  WORKOUTS_ERROR,
+  SET_LOADING,
+} from '../actions/types';
 
 const initialState = {
   workouts: [],
@@ -13,6 +18,11 @@ const GeneratedWorkoutsReducer = (state = initialState, action) => {
         ...state,
         workouts: action.payload,
         loading: false,
+      };
+    case CLEAR_WORKOUTS:
+      return {
+        ...state,
+        workouts: [],
       };
     case WORKOUTS_ERROR:
       console.error(action.payload);

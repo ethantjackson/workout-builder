@@ -1,10 +1,26 @@
-import { GET_WORKOUTS, WORKOUTS_ERROR, SET_LOADING } from './types';
+import {
+  GET_WORKOUTS,
+  CLEAR_WORKOUTS,
+  WORKOUTS_ERROR,
+  SET_LOADING,
+} from './types';
 
-export const getWorkouts = () => async (dispatch) => {
+import _ from 'lodash';
+
+export const getWorkouts = (workout) => async (dispatch) => {
   try {
-    setLoading();
+    // setLoading();
 
-    const res = await fetch('/workouts');
+    const snakeCaseStringify = (arr) => {
+      return arr.map((item) => _.snakeCase(item)).join('-');
+    };
+
+    const res = await fetch(
+      '/workouts/' +
+        snakeCaseStringify(workout.subMuscles) +
+        '&' +
+        snakeCaseStringify(workout.equipment)
+    );
     const data = await res.json();
 
     dispatch({
@@ -17,6 +33,12 @@ export const getWorkouts = () => async (dispatch) => {
       payload: err.response.data,
     });
   }
+};
+
+export const clearWorkouts = () => {
+  return {
+    type: CLEAR_WORKOUTS,
+  };
 };
 
 export const setLoading = () => {

@@ -6,6 +6,8 @@ var dotenv = require('dotenv');
 dotenv.config();
 var url = process.env.MONGO_URI;
 
+const _ = require('lodash');
+
 const app = express();
 app.set('view engine', 'ejs');
 
@@ -37,11 +39,24 @@ const workoutSchema = {
 
 const Workout = mongoose.model('Workout', workoutSchema);
 
-app.route('/workouts').get(function (req, res) {
-  Workout.find({}, function (err, foundWorkouts) {
-    if (!err) res.send(foundWorkouts);
-    else res.send(err);
-  });
+app.route('/workouts/:targets&:equipment').get(function (req, res) {
+  const targetsString = req.params.targets;
+  const equipmentString = req.params.equipment;
+
+  const targets = targetsString.split('-').map((target) => _.startCase(target));
+  const equipment = equipmentString
+    .split('-')
+    .map((equipment) => _.startCase(equipment));
+
+  Workout.find(
+    {
+      $and: [{ targets: { $in: targets } }, { equipment: { $in: equipment } }],
+    },
+    function (err, foundWorkouts) {
+      if (!err) res.send(foundWorkouts);
+      else res.send(err);
+    }
+  );
 });
 
 app.listen(5000, function () {

@@ -7,6 +7,7 @@ import {
   setEquipment,
   setIncludeNoEquipment,
 } from '../../../actions/WorkoutActions';
+import { clearWorkouts } from '../../../actions/GeneratedWorkoutsActions';
 import { Back, Front, Side, Legs, Arms, Abs } from '../../../img/index';
 
 import 'materialize-css/dist/css/materialize.min.css';
@@ -19,6 +20,7 @@ const MuscleGroupSelector = ({
   setSubMuscles,
   setEquipment,
   setIncludeNoEquipment,
+  clearWorkouts,
 }) => {
   const [windowSize, setWindowSize] = useState({
     width: undefined,
@@ -36,6 +38,7 @@ const MuscleGroupSelector = ({
         setSubMuscles([]);
         setEquipment([]);
         setIncludeNoEquipment(true);
+        clearWorkouts();
       },
     });
     // eslint-disable-next-line
@@ -76,6 +79,7 @@ MuscleGroupSelector.propTypes = {
   setSubMuscles: PropTypes.func.isRequired,
   setEquipment: PropTypes.func.isRequired,
   setIncludeNoEquipment: PropTypes.func.isRequired,
+  clearWorkouts: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -87,4 +91,5 @@ export default connect(mapStateToProps, {
   setSubMuscles,
   setEquipment,
   setIncludeNoEquipment,
+  clearWorkouts,
 })(MuscleGroupSelector);

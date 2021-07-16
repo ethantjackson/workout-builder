@@ -81,7 +81,7 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
         setSubMuscleOptions([
           { name: 'Latissimus Dorsi', img: LatissimusDorsi },
           { name: 'Rhomboids', img: Rhomboids },
-          { name: 'Teres Major & Minor', img: TeresMajorAndMinor },
+          { name: 'Teres Major And Minor', img: TeresMajorAndMinor },
           { name: 'Erector Spinae', img: ErectorSpinae },
           { name: 'Trapezius', img: Trapezius },
         ]);
@@ -90,7 +90,7 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
         setSubMuscleOptions([
           { name: 'Gluteus Maximus', img: Test },
           { name: 'Vastus Medcialis', img: Test },
-          { name: 'Vastus Lateralis & Intermedius', img: Test },
+          { name: 'Vastus Lateralis And Intermedius', img: Test },
           { name: 'Hamstrings', img: Test },
           { name: 'Gastrocnemius', img: Test },
           { name: 'Hip Abductors', img: Test },
