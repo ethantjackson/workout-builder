@@ -97,6 +97,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
         setEquipmentOptions([
           { name: 'Dumbells', img: Dumbells },
           { name: 'Bench Press', img: BenchPress },
+          { name: 'Barbell', img: Barbell },
           { name: 'Smith Machine', img: SmithMachine },
           { name: 'Chest Press Machine', img: ChestPressMachine },
           { name: 'Dip Station', img: DipStation },
