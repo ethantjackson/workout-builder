@@ -30,10 +30,20 @@ const WorkoutReducer = (state = initialState, action) => {
         equipment: action.payload,
       };
     case SET_INCLUDE_NO_EQUIPMENT:
-      return {
-        ...state,
-        includeNoEquipment: action.payload,
-      };
+      if (action.payload)
+        return {
+          ...state,
+          equipment: [...state.equipment, 'None'],
+          includeNoEquipment: action.payload,
+        };
+      else
+        return {
+          ...state,
+          equipment: state.equipment.filter(
+            (equipmentItem) => equipmentItem !== 'None'
+          ),
+          includeNoEquipment: action.payload,
+        };
     default:
       return state;
   }

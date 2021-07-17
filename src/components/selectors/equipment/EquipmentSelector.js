@@ -44,6 +44,7 @@ import {
   TricepBar,
   ObliqueCrunchMachine,
   ProneLegCurlMachine,
+  HackSquatMachine,
 } from '../../../img/index';
 import ClearButton from '../../layout/clearButton/ClearButton';
 import AllButton from '../../layout/allButton/AllButton';
@@ -97,7 +98,6 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
         setEquipmentOptions([
           { name: 'Dumbells', img: Dumbells },
           { name: 'Bench Press', img: BenchPress },
-          { name: 'Barbell', img: Barbell },
           { name: 'Smith Machine', img: SmithMachine },
           { name: 'Chest Press Machine', img: ChestPressMachine },
           { name: 'Dip Station', img: DipStation },
@@ -159,6 +159,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Smith Machine', img: SmithMachine },
           { name: 'Leg Press Machine', img: LegPressMachine },
           { name: 'Squat Machine', img: SquatMachine },
+          { name: 'Hack Squat Machine', img: HackSquatMachine },
           { name: 'Leg Curl Machine', img: LegCurlMachine },
           { name: 'Prone Leg Curl Machine', img: ProneLegCurlMachine },
           { name: 'Leg Extension Machine', img: LegExtensionMachine },

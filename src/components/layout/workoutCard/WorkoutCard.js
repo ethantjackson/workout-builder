@@ -34,6 +34,13 @@ const WorkoutCard = ({ workout }) => {
               ))}
             </ul>
             <br />
+            <blockquote className='revealSubHeader'>Target Muscles:</blockquote>
+            <ul className='revealList browser-default'>
+              {workout.targets.map((target, index) => (
+                <li key={index}>{target}</li>
+              ))}
+            </ul>
+            <br />
             <blockquote className='revealSubHeader'>
               Tangent Muscles Worked:
             </blockquote>
