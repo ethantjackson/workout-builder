@@ -22,7 +22,7 @@ import {
   RearFlyMachine,
   OverheadPressMachine,
   CrunchMachine,
-  AdjustableBench,
+  // AdjustableBench,
   MedicineBall,
   AbRoller,
   HexBar,
@@ -44,6 +44,8 @@ import {
   TricepBar,
   ObliqueCrunchMachine,
   ProneLegCurlMachine,
+  HackSquatMachine,
+  LegRaiseStation,
 } from '../../../img/index';
 import ClearButton from '../../layout/clearButton/ClearButton';
 import AllButton from '../../layout/allButton/AllButton';
@@ -100,7 +102,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Smith Machine', img: SmithMachine },
           { name: 'Chest Press Machine', img: ChestPressMachine },
           { name: 'Dip Station', img: DipStation },
-          { name: 'T-Bar', img: T_BAR },
+          { name: 'T Bar', img: T_BAR },
           { name: 'Cable Machine', img: CableMachine },
           { name: 'Butterfly Machine', img: ButterflyMachine },
           { name: 'Suspension Trainer', img: SuspensionTrainer },
@@ -111,7 +113,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Dumbells', img: Dumbells },
           { name: 'Barbell', img: Barbell },
           { name: 'Pull-Up Bar', img: Pull_UpBar },
-          { name: 'T-Bar', img: T_BAR },
+          { name: 'T Bar', img: T_BAR },
           { name: 'Cable Machine', img: CableMachine },
           { name: 'Cable Row Machine', img: CableRowMachine },
           { name: 'Smith Machine', img: SmithMachine },
@@ -120,6 +122,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Rear Fly Machine', img: RearFlyMachine },
           { name: 'High Row Machine', img: HighRowMachine },
           { name: 'Low Row Machine', img: LowRowMachine },
+          { name: 'Kettlebell', img: Kettlebell },
           { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
@@ -132,6 +135,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Lateral Raise Machine', img: LateralRaiseMachine },
           { name: 'Rear Fly Machine', img: RearFlyMachine },
           { name: 'Dip Station', img: DipStation },
+          { name: 'Kettlebell', img: Kettlebell },
           { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
@@ -139,13 +143,14 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
         setEquipmentOptions([
           { name: 'Dumbells', img: Dumbells },
           { name: 'Medicine Ball', img: MedicineBall },
-          { name: 'Pull-Up Bar', img: Pull_UpBar },
+          { name: 'Pull Up Bar', img: Pull_UpBar },
           { name: 'Cable Machine', img: CableMachine },
           { name: 'Crunch Machine', img: CrunchMachine },
           { name: 'Oblique Crunch Machine', img: ObliqueCrunchMachine },
-          { name: 'Adjustable Bench', img: AdjustableBench },
+          { name: 'Leg Raise Station', img: LegRaiseStation },
           { name: 'Ab Roller', img: AbRoller },
           { name: 'Roman Chair', img: RomanChair },
+          { name: 'Kettlebell', img: Kettlebell },
           { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
@@ -158,6 +163,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Smith Machine', img: SmithMachine },
           { name: 'Leg Press Machine', img: LegPressMachine },
           { name: 'Squat Machine', img: SquatMachine },
+          { name: 'Hack Squat Machine', img: HackSquatMachine },
           { name: 'Leg Curl Machine', img: LegCurlMachine },
           { name: 'Prone Leg Curl Machine', img: ProneLegCurlMachine },
           { name: 'Leg Extension Machine', img: LegExtensionMachine },
@@ -174,10 +180,12 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Tricep Bar', img: TricepBar },
           { name: 'Cable Machine', img: CableMachine },
           { name: 'Bicep Curl Machine', img: BicepCurlMachine },
+          { name: 'Pulldown Machine', img: PulldownMachine },
           { name: 'Overhead Press Machine', img: OverheadPressMachine },
           { name: 'Tricep Extension Machine', img: TricepExtension },
           { name: 'Dip Station', img: DipStation },
-          { name: 'Pull-Up Bar', img: Pull_UpBar },
+          { name: 'Pull Up Bar', img: Pull_UpBar },
+          { name: 'Kettlebell', img: Kettlebell },
           { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
