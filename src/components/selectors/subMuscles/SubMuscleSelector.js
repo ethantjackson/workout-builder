@@ -105,7 +105,7 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
         setSubMuscleOptions([
           { name: 'Gluteus Maximus', img: Test },
           { name: 'Vastus Medialis', img: Test },
-          { name: 'Vastus Lateralis And Intermedius', img: Test },
+          { name: 'Vastus Lateralis And Rectus Femoris', img: Test },
           { name: 'Hamstrings', img: Test },
           { name: 'Gastrocnemius', img: Test },
           { name: 'Hip Abductors', img: Test },

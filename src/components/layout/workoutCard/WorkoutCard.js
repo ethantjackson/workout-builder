@@ -27,12 +27,16 @@ const WorkoutCard = ({ workout }) => {
             <i className='material-icons right'>close</i>
           </span>
           <div className='left-align revealContent'>
-            <blockquote className='revealSubHeader'>Tips:</blockquote>
-            <ul className='revealList browser-default'>
-              {workout.tips.map((tip, index) => (
-                <li key={index}>{tip}</li>
-              ))}
-            </ul>
+            {workout.tips.length > 0 && (
+              <>
+                <blockquote className='revealSubHeader'>Tips:</blockquote>
+                <ul className='revealList browser-default'>
+                  {workout.tips.map((tip, index) => (
+                    <li key={index}>{tip}</li>
+                  ))}
+                </ul>
+              </>
+            )}
             <br />
             <blockquote className='revealSubHeader'>Target Muscles:</blockquote>
             <ul className='revealList browser-default'>
@@ -41,14 +45,18 @@ const WorkoutCard = ({ workout }) => {
               ))}
             </ul>
             <br />
-            <blockquote className='revealSubHeader'>
-              Tangent Muscles Worked:
-            </blockquote>
-            <ul className='revealList browser-default'>
-              {workout.tangents.map((tangent, index) => (
-                <li key={index}>{tangent}</li>
-              ))}
-            </ul>
+            {workout.tangents.length > 0 && (
+              <>
+                <blockquote className='revealSubHeader'>
+                  Tangent Muscles Worked:
+                </blockquote>
+                <ul className='revealList browser-default'>
+                  {workout.tangents.map((tangent, index) => (
+                    <li key={index}>{tangent}</li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -71,6 +71,7 @@ import TricepBar from './equipment/tricepBar.png';
 import ObliqueCrunchMachine from './equipment/obliqueCrunchMachine.png';
 import ProneLegCurlMachine from './equipment/proneLegCurlMachine.png';
 import HackSquatMachine from './equipment/hackSquatMachine.png';
+import LegRaiseStation from './equipment/legRaiseStation.png';
 
 export { Abs, Arms, Back, Front, Legs, Side };
 
@@ -143,4 +144,5 @@ export {
   ObliqueCrunchMachine,
   ProneLegCurlMachine,
   HackSquatMachine,
+  LegRaiseStation,
 };
