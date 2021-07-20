@@ -6,7 +6,7 @@ import { setSubMuscles } from '../../../actions/WorkoutActions';
 import AllButton from '../../layout/allButton/AllButton';
 import ClearButton from '../../layout/clearButton/ClearButton';
 import {
-  Test,
+  // Test,
   ClavicularPectoral,
   CostalPectoral,
   SternalPectoral,
@@ -18,6 +18,7 @@ import {
   AnteriorDeltoidHead,
   LateralDeltoidHead,
   PosteriorDeltoidHead,
+  RotatorCuff,
   ExternalAbdominalOblique,
   InternalAbdominalOblique,
   UpperRectusAbdominis,
@@ -30,6 +31,13 @@ import {
   LongTricepHead,
   MedialTricepHead,
   ShortBicepHead,
+  Gastrocnemius,
+  GluteusMaximus,
+  Hamstrings,
+  HipAbductors,
+  HipAdductors,
+  VastusLateralisAndRectusFemoris,
+  VastusMedialis,
 } from '../../../img/index';
 import './SubMuscleSelector.css';
 
@@ -89,7 +97,7 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
           { name: 'Anterior Deltoid Head', img: AnteriorDeltoidHead },
           { name: 'Lateral Deltoid Head', img: LateralDeltoidHead },
           { name: 'Posterior Deltoid Head', img: PosteriorDeltoidHead },
-          { name: 'Rotator Cuff', img: Test },
+          { name: 'Rotator Cuff', img: RotatorCuff },
         ]);
         break;
       case 'BACK':
@@ -103,13 +111,16 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
         break;
       case 'LEGS':
         setSubMuscleOptions([
-          { name: 'Gluteus Maximus', img: Test },
-          { name: 'Vastus Medialis', img: Test },
-          { name: 'Vastus Lateralis And Intermedius', img: Test },
-          { name: 'Hamstrings', img: Test },
-          { name: 'Gastrocnemius', img: Test },
-          { name: 'Hip Abductors', img: Test },
-          { name: 'Hip Adductors', img: Test },
+          { name: 'Gluteus Maximus', img: GluteusMaximus },
+          { name: 'Vastus Medialis', img: VastusMedialis },
+          {
+            name: 'Vastus Lateralis And Rectus Femoris',
+            img: VastusLateralisAndRectusFemoris,
+          },
+          { name: 'Hamstrings', img: Hamstrings },
+          { name: 'Gastrocnemius', img: Gastrocnemius },
+          { name: 'Hip Abductors', img: HipAbductors },
+          { name: 'Hip Adductors', img: HipAdductors },
         ]);
         break;
       case 'ABS':

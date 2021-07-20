@@ -17,6 +17,7 @@ import Rhomboids from './subMuscles/back/rhomboids.png';
 import AnteriorDeltoidHead from './subMuscles/shoulders/anteriorDeltoidHead.png';
 import LateralDeltoidHead from './subMuscles/shoulders/lateralDeltoidHead.png';
 import PosteriorDeltoidHead from './subMuscles/shoulders/posteriorDeltoidHead.png';
+import RotatorCuff from './subMuscles/shoulders/rotatorCuff.jpg';
 import ExternalAbdominalOblique from './subMuscles/abs/externalAbdominalOblique.png';
 import InternalAbdominalOblique from './subMuscles/abs/internalAbdominalOblique.png';
 import LowerRectusAbdominis from './subMuscles/abs/lowerRectusAbdominis.png';
@@ -29,6 +30,13 @@ import LongBicepHead from './subMuscles/arms/longBicepHead.png';
 import LongTricepHead from './subMuscles/arms/longTricepHead.png';
 import MedialTricepHead from './subMuscles/arms/medialTricepHead.png';
 import ShortBicepHead from './subMuscles/arms/shortBicepHead.png';
+import Gastrocnemius from './subMuscles/legs/gastrocnemius.jpg';
+import GluteusMaximus from './subMuscles/legs/gluteusMaximus.jpg';
+import Hamstrings from './subMuscles/legs/hamstrings.jpg';
+import HipAbductors from './subMuscles/legs/hipAbductors.jpg';
+import HipAdductors from './subMuscles/legs/hipAdductors.jpg';
+import VastusMedialis from './subMuscles/legs/vastusMedialis.jpg';
+import VastusLateralisAndRectusFemoris from './subMuscles/legs/vastusLateralisAndRectusFemoris.jpg';
 
 import BenchPress from './equipment/benchPress.png';
 import Dumbells from './equipment/dumbells.png';
@@ -70,6 +78,8 @@ import SquatMachine from './equipment/squatMachine.png';
 import TricepBar from './equipment/tricepBar.png';
 import ObliqueCrunchMachine from './equipment/obliqueCrunchMachine.png';
 import ProneLegCurlMachine from './equipment/proneLegCurlMachine.png';
+import HackSquatMachine from './equipment/hackSquatMachine.png';
+import LegRaiseStation from './equipment/legRaiseStation.png';
 
 export { Abs, Arms, Back, Front, Legs, Side };
 
@@ -86,6 +96,7 @@ export {
   AnteriorDeltoidHead,
   LateralDeltoidHead,
   PosteriorDeltoidHead,
+  RotatorCuff,
   ExternalAbdominalOblique,
   InternalAbdominalOblique,
   LowerRectusAbdominis,
@@ -98,6 +109,13 @@ export {
   LongTricepHead,
   MedialTricepHead,
   ShortBicepHead,
+  Gastrocnemius,
+  GluteusMaximus,
+  Hamstrings,
+  HipAbductors,
+  HipAdductors,
+  VastusLateralisAndRectusFemoris,
+  VastusMedialis,
 };
 
 export {
@@ -141,4 +159,6 @@ export {
   TricepBar,
   ObliqueCrunchMachine,
   ProneLegCurlMachine,
+  HackSquatMachine,
+  LegRaiseStation,
 };

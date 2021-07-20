@@ -3,12 +3,14 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setIncludeNoEquipment } from '../actions/WorkoutActions';
+import M from 'materialize-css/dist/js/materialize.min.js';
 import EquipmentSelector from '../components/selectors/equipment/EquipmentSelector';
 import NextButton from '../components/layout/nextButton/NextButton';
 import BackButton from '../components/layout/backButton/BackButton';
 
 const EquipmentSelectionPage = ({
   muscleGroup,
+  equipment,
   includeNoEquipment,
   setIncludeNoEquipment,
 }) => {
@@ -29,6 +31,13 @@ const EquipmentSelectionPage = ({
     handleResize();
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const handleNext = (e) => {
+    if (!includeNoEquipment && equipment.length === 0) {
+      e.preventDefault();
+      M.toast({ html: 'Please select equipment.' });
+    }
+  };
 
   return (
     <>
@@ -51,7 +60,7 @@ const EquipmentSelectionPage = ({
       </div>
       <EquipmentSelector />
       <BackButton target='/sub-muscle-selection' />
-      <NextButton target='/workouts' />
+      <NextButton target='/workouts' onClick={(e) => handleNext(e)} />
     </>
   );
 };
@@ -64,6 +73,7 @@ EquipmentSelectionPage.propTypes = {
 
 const mapStateToProps = (state) => ({
   muscleGroup: state.workout.muscleGroup,
+  equipment: state.workout.equipment,
   includeNoEquipment: state.workout.includeNoEquipment,
 });
 

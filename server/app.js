@@ -48,12 +48,23 @@ app.route('/workouts/:targets&:equipment').get(function (req, res) {
     .split('-')
     .map((equipment) => _.startCase(equipment));
 
-  Workout.find(
-    {
-      $and: [{ targets: { $in: targets } }, { equipment: { $in: equipment } }],
-    },
-    function (err, foundWorkouts) {
-      if (!err) res.send(foundWorkouts);
+  Workout.aggregate(
+    [
+      {
+        $match: {
+          $and: [
+            { targets: { $in: targets } },
+            {
+              equipment: {
+                $elemMatch: { $not: { $elemMatch: { $nin: equipment } } },
+              },
+            },
+          ],
+        },
+      },
+    ],
+    function (err, found) {
+      if (!err) res.send(found);
       else res.send(err);
     }
   );
