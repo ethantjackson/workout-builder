@@ -99,6 +99,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
         setEquipmentOptions([
           { name: 'Dumbells', img: Dumbells },
           { name: 'Bench Press', img: BenchPress },
+          { name: 'Hex Bar', img: HexBar },
           { name: 'Smith Machine', img: SmithMachine },
           { name: 'Chest Press Machine', img: ChestPressMachine },
           { name: 'Dip Station', img: DipStation },
@@ -112,6 +113,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
         setEquipmentOptions([
           { name: 'Dumbells', img: Dumbells },
           { name: 'Barbell', img: Barbell },
+          { name: 'Hex Bar', img: HexBar },
           { name: 'Pull-Up Bar', img: Pull_UpBar },
           { name: 'T Bar', img: T_BAR },
           { name: 'Cable Machine', img: CableMachine },
@@ -130,6 +132,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
         setEquipmentOptions([
           { name: 'Dumbells', img: Dumbells },
           { name: 'Barbell', img: Barbell },
+          { name: 'Hex Bar', img: HexBar },
           { name: 'Cable Machine', img: CableMachine },
           { name: 'Overhead Press Machine', img: OverheadPressMachine },
           { name: 'Lateral Raise Machine', img: LateralRaiseMachine },
