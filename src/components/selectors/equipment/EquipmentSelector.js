@@ -106,6 +106,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'T Bar', img: T_BAR },
           { name: 'Cable Machine', img: CableMachine },
           { name: 'Butterfly Machine', img: ButterflyMachine },
+          { name: 'Medicine Ball', img: MedicineBall },
           { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
@@ -124,6 +125,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Rear Fly Machine', img: RearFlyMachine },
           { name: 'High Row Machine', img: HighRowMachine },
           { name: 'Low Row Machine', img: LowRowMachine },
+          { name: 'Medicine Ball', img: MedicineBall },
           { name: 'Kettlebell', img: Kettlebell },
           { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
@@ -138,6 +140,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Lateral Raise Machine', img: LateralRaiseMachine },
           { name: 'Rear Fly Machine', img: RearFlyMachine },
           { name: 'Dip Station', img: DipStation },
+          { name: 'Medicine Ball', img: MedicineBall },
           { name: 'Kettlebell', img: Kettlebell },
           { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
@@ -162,7 +165,6 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Dumbells', img: Dumbells },
           { name: 'Barbell', img: Barbell },
           { name: 'Hex Bar', img: HexBar },
-          { name: 'Kettlebell', img: Kettlebell },
           { name: 'Smith Machine', img: SmithMachine },
           { name: 'Leg Press Machine', img: LegPressMachine },
           { name: 'Squat Machine', img: SquatMachine },
@@ -173,7 +175,10 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Kickback Machine', img: KickbackMachine },
           { name: 'Calf Raise Machine', img: CalfRaiseMachine },
           { name: 'Calf Extension Machine', img: CalfExtensionMachine },
+          { name: 'Medicine Ball', img: MedicineBall },
+          { name: 'Kettlebell', img: Kettlebell },
           { name: 'Sled', img: Sled },
+          { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
       case 'ARMS':
@@ -188,6 +193,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Tricep Extension Machine', img: TricepExtension },
           { name: 'Dip Station', img: DipStation },
           { name: 'Pull Up Bar', img: Pull_UpBar },
+          { name: 'Medicine Ball', img: MedicineBall },
           { name: 'Kettlebell', img: Kettlebell },
           { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
