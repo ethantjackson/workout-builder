@@ -106,8 +106,8 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'T Bar', img: T_BAR },
           { name: 'Cable Machine', img: CableMachine },
           { name: 'Butterfly Machine', img: ButterflyMachine },
-          { name: 'Suspension Trainer', img: SuspensionTrainer },
           { name: 'Medicine Ball', img: MedicineBall },
+          { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
       case 'BACK':
@@ -178,6 +178,7 @@ const EquipmentSelector = ({ muscleGroup, setEquipment }) => {
           { name: 'Medicine Ball', img: MedicineBall },
           { name: 'Kettlebell', img: Kettlebell },
           { name: 'Sled', img: Sled },
+          { name: 'Suspension Trainer', img: SuspensionTrainer },
         ]);
         break;
       case 'ARMS':

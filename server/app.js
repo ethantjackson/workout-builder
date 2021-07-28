@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 var dotenv = require('dotenv');
 dotenv.config();
 var url = process.env.MONGO_URI;
+console.log(url);
 
 const _ = require('lodash');
 
