@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   getWorkouts,
-  setLoading,
+  setWorkoutsLoading,
 } from '../../actions/GeneratedWorkoutsActions';
 import './GeneratedWorkoutsPage.css';
 
@@ -14,7 +14,7 @@ const GeneratedWorkoutsPage = ({
   workout,
   generatedWorkouts: { workouts, loading },
   getWorkouts,
-  setLoading,
+  setWorkoutsLoading,
 }) => {
   const [cardRows, setCardRows] = useState([]);
   const [windowSize, setWindowSize] = useState({
@@ -23,7 +23,7 @@ const GeneratedWorkoutsPage = ({
   });
 
   useEffect(() => {
-    setLoading();
+    setWorkoutsLoading();
     getWorkouts(workout);
 
     function handleResize() {
@@ -90,6 +90,6 @@ GeneratedWorkoutsPage.propTypes = {
   getWorkouts: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, { getWorkouts, setLoading })(
+export default connect(mapStateToProps, { getWorkouts, setWorkoutsLoading })(
   GeneratedWorkoutsPage
 );

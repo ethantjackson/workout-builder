@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 var dotenv = require('dotenv');
 dotenv.config();
 var url = process.env.MONGO_URI;
-console.log(url);
 
 const _ = require('lodash');
 
@@ -69,6 +68,30 @@ app.route('/workouts/:targets&:equipment').get(function (req, res) {
       else res.send(err);
     }
   );
+});
+
+app.route('/equipment/:targets').get(function (req, res) {
+  const targetsString = req.params.targets;
+  const targets = targetsString.split('-').map((target) => _.startCase(target));
+  // console.log(targets);
+
+  Workout.find({ targets: { $in: targets } }, function (err, foundWorkouts) {
+    if (!err) {
+      // console.log(foundWorkouts);
+      let equipmentOptions = [];
+      foundWorkouts.forEach((workout) => {
+        workout.equipment.forEach((equipmentArr) => {
+          equipmentArr.forEach((equipment) => {
+            // console.log(equipment);
+            if (equipmentOptions.indexOf(equipment) === -1)
+              equipmentOptions.push(equipment);
+          });
+        });
+      });
+      // console.log(equipmentOptions);
+      res.send(equipmentOptions);
+    } else res.send(err);
+  });
 });
 
 app.listen(5000, function () {

@@ -2,15 +2,13 @@ import {
   GET_WORKOUTS,
   CLEAR_WORKOUTS,
   WORKOUTS_ERROR,
-  SET_LOADING,
+  SET_WORKOUTS_LOADING,
 } from './types';
 
 import _ from 'lodash';
 
 export const getWorkouts = (workout) => async (dispatch) => {
   try {
-    // setLoading();
-
     const snakeCaseStringify = (arr) => {
       return arr.map((item) => _.snakeCase(item)).join('-');
     };
@@ -41,8 +39,8 @@ export const clearWorkouts = () => {
   };
 };
 
-export const setLoading = () => {
+export const setWorkoutsLoading = () => {
   return {
-    type: SET_LOADING,
+    type: SET_WORKOUTS_LOADING,
   };
 };

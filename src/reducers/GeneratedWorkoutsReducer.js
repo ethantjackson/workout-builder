@@ -2,7 +2,7 @@ import {
   GET_WORKOUTS,
   CLEAR_WORKOUTS,
   WORKOUTS_ERROR,
-  SET_LOADING,
+  SET_WORKOUTS_LOADING,
 } from '../actions/types';
 
 const initialState = {
@@ -30,7 +30,7 @@ const GeneratedWorkoutsReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
       };
-    case SET_LOADING:
+    case SET_WORKOUTS_LOADING:
       return {
         ...state,
         loading: true,
