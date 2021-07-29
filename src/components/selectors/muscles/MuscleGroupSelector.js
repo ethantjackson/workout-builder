@@ -5,7 +5,6 @@ import {
   setMuscleGroup,
   setSubMuscles,
   setEquipment,
-  setIncludeNoEquipment,
 } from '../../../actions/WorkoutActions';
 import { clearWorkouts } from '../../../actions/GeneratedWorkoutsActions';
 import { Back, Front, Side, Legs, Arms, Abs } from '../../../img/index';
@@ -19,7 +18,6 @@ const MuscleGroupSelector = ({
   setMuscleGroup,
   setSubMuscles,
   setEquipment,
-  setIncludeNoEquipment,
   clearWorkouts,
 }) => {
   const [windowSize, setWindowSize] = useState({
@@ -37,7 +35,6 @@ const MuscleGroupSelector = ({
         setMuscleGroup(e.id);
         setSubMuscles([]);
         setEquipment([]);
-        setIncludeNoEquipment(true);
         clearWorkouts();
       },
     });
@@ -78,7 +75,6 @@ MuscleGroupSelector.propTypes = {
   setMuscleGroup: PropTypes.func.isRequired,
   setSubMuscles: PropTypes.func.isRequired,
   setEquipment: PropTypes.func.isRequired,
-  setIncludeNoEquipment: PropTypes.func.isRequired,
   clearWorkouts: PropTypes.func.isRequired,
 };
 
@@ -90,6 +86,5 @@ export default connect(mapStateToProps, {
   setMuscleGroup,
   setSubMuscles,
   setEquipment,
-  setIncludeNoEquipment,
   clearWorkouts,
 })(MuscleGroupSelector);

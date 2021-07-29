@@ -2,7 +2,6 @@ import {
   SET_EQUIPMENT,
   SET_SUB_MUSCLES,
   SET_MUSCLE_GROUP,
-  SET_INCLUDE_NO_EQUIPMENT,
   GET_EQUIPMENT_OPTIONS,
   SET_SELECTIONS_LOADING,
   SELECTIONS_ERROR,
@@ -13,7 +12,6 @@ const initialState = {
   subMuscles: [],
   equipment: [],
   equipmentOptions: [],
-  includeNoEquipment: true,
   loading: false,
   error: null,
 };
@@ -35,21 +33,6 @@ const WorkoutReducer = (state = initialState, action) => {
         ...state,
         equipment: action.payload,
       };
-    case SET_INCLUDE_NO_EQUIPMENT:
-      if (action.payload)
-        return {
-          ...state,
-          equipment: [...state.equipment, 'None'],
-          includeNoEquipment: action.payload,
-        };
-      else
-        return {
-          ...state,
-          equipment: state.equipment.filter(
-            (equipmentItem) => equipmentItem !== 'None'
-          ),
-          includeNoEquipment: action.payload,
-        };
     case GET_EQUIPMENT_OPTIONS:
       return {
         ...state,

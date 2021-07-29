@@ -2,7 +2,6 @@ import {
   SET_EQUIPMENT,
   SET_SUB_MUSCLES,
   SET_MUSCLE_GROUP,
-  SET_INCLUDE_NO_EQUIPMENT,
   GET_EQUIPMENT_OPTIONS,
   SET_SELECTIONS_LOADING,
   SELECTIONS_ERROR,
@@ -28,13 +27,6 @@ export const setMuscleGroup = (muscleGroup) => {
   return {
     type: SET_MUSCLE_GROUP,
     payload: muscleGroup,
-  };
-};
-
-export const setIncludeNoEquipment = (included) => {
-  return {
-    type: SET_INCLUDE_NO_EQUIPMENT,
-    payload: included,
   };
 };
 

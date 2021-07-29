@@ -80,6 +80,7 @@ import ObliqueCrunchMachine from './equipment/obliqueCrunchMachine.png';
 import ProneLegCurlMachine from './equipment/proneLegCurlMachine.png';
 import HackSquatMachine from './equipment/hackSquatMachine.png';
 import LegRaiseStation from './equipment/legRaiseStation.png';
+import NoEquipment from './equipment/noEquipment.gif';
 
 export { Abs, Arms, Back, Front, Legs, Side };
 
@@ -161,4 +162,5 @@ export {
   ProneLegCurlMachine,
   HackSquatMachine,
   LegRaiseStation,
+  NoEquipment,
 };
