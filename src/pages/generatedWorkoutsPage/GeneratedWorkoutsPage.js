@@ -53,8 +53,6 @@ const GeneratedWorkoutsPage = ({
         <h1 className='instructionsHeader'>Generated Workouts</h1>
         {loading || workouts === null ? (
           <Preloader />
-        ) : workouts.length === 0 ? (
-          <h5 className='instructionsSubHeader'>{'No workouts found :('}</h5>
         ) : (
           cardRows.map((row, rowIndex) => (
             <div className='row' key={rowIndex}>
