@@ -12,6 +12,7 @@ const EquipmentSelectionPage = ({
   muscleGroup,
   equipment,
   includeNoEquipment,
+  loading,
   setIncludeNoEquipment,
 }) => {
   const [checked, setChecked] = useState(includeNoEquipment);
@@ -30,6 +31,7 @@ const EquipmentSelectionPage = ({
     window.addEventListener('resize', handleResize);
     handleResize();
     return () => window.removeEventListener('resize', handleResize);
+    //eslint-disable-next-line
   }, []);
 
   const handleNext = (e) => {
@@ -59,8 +61,12 @@ const EquipmentSelectionPage = ({
         </label>
       </div>
       <EquipmentSelector />
-      <BackButton target='/sub-muscle-selection' />
-      <NextButton target='/workouts' onClick={(e) => handleNext(e)} />
+      {!loading && (
+        <>
+          <BackButton target='/sub-muscle-selection' />
+          <NextButton target='/workouts' onClick={(e) => handleNext(e)} />
+        </>
+      )}
     </>
   );
 };
@@ -68,6 +74,7 @@ const EquipmentSelectionPage = ({
 EquipmentSelectionPage.propTypes = {
   muscleGroup: PropTypes.string.isRequired,
   includeNoEquipment: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
   setIncludeNoEquipment: PropTypes.func.isRequired,
 };
 
@@ -75,8 +82,9 @@ const mapStateToProps = (state) => ({
   muscleGroup: state.workout.muscleGroup,
   equipment: state.workout.equipment,
   includeNoEquipment: state.workout.includeNoEquipment,
+  loading: state.workout.loading,
 });
 
-export default connect(mapStateToProps, { setIncludeNoEquipment })(
-  EquipmentSelectionPage
-);
+export default connect(mapStateToProps, {
+  setIncludeNoEquipment,
+})(EquipmentSelectionPage);

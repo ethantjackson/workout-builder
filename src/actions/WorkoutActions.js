@@ -40,13 +40,14 @@ export const setIncludeNoEquipment = (included) => {
 
 export const getEquipmentOptions = (subMuscles) => async (dispatch) => {
   try {
+    // setSelectionsLoading();
+
     const snakeCaseStringify = (arr) => {
       return arr.map((item) => _.snakeCase(item)).join('-');
     };
 
     const res = await fetch('/equipment/' + snakeCaseStringify(subMuscles));
     const data = await res.json();
-    console.log(data);
 
     dispatch({
       type: GET_EQUIPMENT_OPTIONS,
@@ -61,6 +62,7 @@ export const getEquipmentOptions = (subMuscles) => async (dispatch) => {
 };
 
 export const setSelectionsLoading = () => {
+  console.log('loading');
   return {
     type: SET_SELECTIONS_LOADING,
   };

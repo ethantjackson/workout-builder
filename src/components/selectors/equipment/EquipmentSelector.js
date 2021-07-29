@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import EquipmentButton from '../../layout/equipmentButton/EquipmentButton';
-import Preloader from '../../layout/Preloader';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Preloader from '../../layout/Preloader';
 import {
   setEquipment,
   getEquipmentOptions,
@@ -56,15 +56,55 @@ import ClearButton from '../../layout/clearButton/ClearButton';
 import AllButton from '../../layout/allButton/AllButton';
 import './EquipmentSelector.css';
 
+const images = {};
+images['Bench Press'] = BenchPress;
+images['Dumbells'] = Dumbells;
+images['Smith Machine'] = SmithMachine;
+images['Chest Press Machine'] = ChestPressMachine;
+images['Dip Station'] = DipStation;
+images['T BAR'] = T_BAR;
+images['Cable Machine'] = CableMachine;
+images['Butterfly Machine'] = ButterflyMachine;
+images['Suspension Trainer'] = SuspensionTrainer;
+images['Barbell'] = Barbell;
+images['Pull Up Bar'] = Pull_UpBar;
+images['Cable Row Machine'] = CableRowMachine;
+images['Pulldown Machine'] = PulldownMachine;
+images['Roman Chair'] = RomanChair;
+images['Rear Fly Machine'] = RearFlyMachine;
+images['Overhead Press Machine'] = OverheadPressMachine;
+images['Crunch Machine'] = CrunchMachine;
+images['Medicine Ball'] = MedicineBall;
+images['Ab Roller'] = AbRoller;
+images['Hex Bar'] = HexBar;
+images['Kettlebell'] = Kettlebell;
+images['Leg Curl Machine'] = LegCurlMachine;
+images['Kickback Machine'] = KickbackMachine;
+images['Leg Extension Machine'] = LegExtensionMachine;
+images['Leg Press Machine'] = LegPressMachine;
+images['Sled'] = Sled;
+images['Bicep Curl Machine'] = BicepCurlMachine;
+images['Calf Raise Machine'] = CalfRaiseMachine;
+images['Tricep Extension Machine'] = TricepExtension;
+images['High Row Machine'] = HighRowMachine;
+images['Low Row Machine'] = LowRowMachine;
+images['Lateral Raise Machine'] = LateralRaiseMachine;
+images['Calf Extension Machine'] = CalfExtensionMachine;
+images['Squat Machine'] = SquatMachine;
+images['Hack Squat Machine'] = HackSquatMachine;
+images['Tricep Bar'] = TricepBar;
+images['Oblique Crunch Machine'] = ObliqueCrunchMachine;
+images['Prone Leg Curl Machine'] = ProneLegCurlMachine;
+images['Leg Raise Station'] = LegRaiseStation;
+
 const EquipmentSelector = ({
-  muscleGroup,
   subMuscles,
   equipmentOptions,
   loading,
   setEquipment,
   getEquipmentOptions,
+  setSelectionsLoading,
 }) => {
-  // const [equipmentOptions, setEquipmentOptions] = useState([]);
   const [equipmentOptionRows, setEquipmentOptionRows] = useState([]);
   const [windowSize, setWindowSize] = useState({
     width: undefined,
@@ -73,7 +113,6 @@ const EquipmentSelector = ({
 
   const makeRows = () => {
     if (equipmentOptions) {
-      console.log(equipmentOptions);
       if (windowSize.width >= 992) {
         let rows = [];
         let i = 0;
@@ -97,8 +136,6 @@ const EquipmentSelector = ({
   };
 
   useEffect(() => {
-    setSelectionsLoading();
-    getEquipmentOptions(subMuscles);
     function handleResize() {
       setWindowSize({
         width: window.innerWidth,
@@ -110,130 +147,26 @@ const EquipmentSelector = ({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // useEffect(() => {
-  //   switch (muscleGroup) {
-  //     case 'CHEST':
-  //       setEquipmentOptions([
-  //         { name: 'Dumbells', img: Dumbells },
-  //         { name: 'Bench Press', img: BenchPress },
-  //         { name: 'Hex Bar', img: HexBar },
-  //         { name: 'Smith Machine', img: SmithMachine },
-  //         { name: 'Chest Press Machine', img: ChestPressMachine },
-  //         { name: 'Dip Station', img: DipStation },
-  //         { name: 'T Bar', img: T_BAR },
-  //         { name: 'Cable Machine', img: CableMachine },
-  //         { name: 'Butterfly Machine', img: ButterflyMachine },
-  //         { name: 'Medicine Ball', img: MedicineBall },
-  //         { name: 'Suspension Trainer', img: SuspensionTrainer },
-  //       ]);
-  //       break;
-  //     case 'BACK':
-  //       setEquipmentOptions([
-  //         { name: 'Dumbells', img: Dumbells },
-  //         { name: 'Barbell', img: Barbell },
-  //         { name: 'Hex Bar', img: HexBar },
-  //         { name: 'Pull-Up Bar', img: Pull_UpBar },
-  //         { name: 'T Bar', img: T_BAR },
-  //         { name: 'Cable Machine', img: CableMachine },
-  //         { name: 'Cable Row Machine', img: CableRowMachine },
-  //         { name: 'Smith Machine', img: SmithMachine },
-  //         { name: 'Pulldown Machine', img: PulldownMachine },
-  //         { name: 'Roman Chair', img: RomanChair },
-  //         { name: 'Rear Fly Machine', img: RearFlyMachine },
-  //         { name: 'High Row Machine', img: HighRowMachine },
-  //         { name: 'Low Row Machine', img: LowRowMachine },
-  //         { name: 'Medicine Ball', img: MedicineBall },
-  //         { name: 'Kettlebell', img: Kettlebell },
-  //         { name: 'Suspension Trainer', img: SuspensionTrainer },
-  //       ]);
-  //       break;
-  //     case 'SHOULDERS':
-  //       setEquipmentOptions([
-  //         { name: 'Dumbells', img: Dumbells },
-  //         { name: 'Barbell', img: Barbell },
-  //         { name: 'Hex Bar', img: HexBar },
-  //         { name: 'Cable Machine', img: CableMachine },
-  //         { name: 'Overhead Press Machine', img: OverheadPressMachine },
-  //         { name: 'Lateral Raise Machine', img: LateralRaiseMachine },
-  //         { name: 'Rear Fly Machine', img: RearFlyMachine },
-  //         { name: 'Dip Station', img: DipStation },
-  //         { name: 'Medicine Ball', img: MedicineBall },
-  //         { name: 'Kettlebell', img: Kettlebell },
-  //         { name: 'Suspension Trainer', img: SuspensionTrainer },
-  //       ]);
-  //       break;
-  //     case 'ABS':
-  //       setEquipmentOptions([
-  //         { name: 'Dumbells', img: Dumbells },
-  //         { name: 'Medicine Ball', img: MedicineBall },
-  //         { name: 'Pull Up Bar', img: Pull_UpBar },
-  //         { name: 'Cable Machine', img: CableMachine },
-  //         { name: 'Crunch Machine', img: CrunchMachine },
-  //         { name: 'Oblique Crunch Machine', img: ObliqueCrunchMachine },
-  //         { name: 'Leg Raise Station', img: LegRaiseStation },
-  //         { name: 'Ab Roller', img: AbRoller },
-  //         { name: 'Roman Chair', img: RomanChair },
-  //         { name: 'Kettlebell', img: Kettlebell },
-  //         { name: 'Suspension Trainer', img: SuspensionTrainer },
-  //       ]);
-  //       break;
-  //     case 'LEGS':
-  //       setEquipmentOptions([
-  //         { name: 'Dumbells', img: Dumbells },
-  //         { name: 'Barbell', img: Barbell },
-  //         { name: 'Hex Bar', img: HexBar },
-  //         { name: 'Smith Machine', img: SmithMachine },
-  //         { name: 'Leg Press Machine', img: LegPressMachine },
-  //         { name: 'Squat Machine', img: SquatMachine },
-  //         { name: 'Hack Squat Machine', img: HackSquatMachine },
-  //         { name: 'Leg Curl Machine', img: LegCurlMachine },
-  //         { name: 'Prone Leg Curl Machine', img: ProneLegCurlMachine },
-  //         { name: 'Leg Extension Machine', img: LegExtensionMachine },
-  //         { name: 'Kickback Machine', img: KickbackMachine },
-  //         { name: 'Calf Raise Machine', img: CalfRaiseMachine },
-  //         { name: 'Calf Extension Machine', img: CalfExtensionMachine },
-  //         { name: 'Medicine Ball', img: MedicineBall },
-  //         { name: 'Kettlebell', img: Kettlebell },
-  //         { name: 'Sled', img: Sled },
-  //         { name: 'Suspension Trainer', img: SuspensionTrainer },
-  //       ]);
-  //       break;
-  //     case 'ARMS':
-  //       setEquipmentOptions([
-  //         { name: 'Dumbells', img: Dumbells },
-  //         { name: 'Barbell', img: Barbell },
-  //         { name: 'Tricep Bar', img: TricepBar },
-  //         { name: 'Cable Machine', img: CableMachine },
-  //         { name: 'Bicep Curl Machine', img: BicepCurlMachine },
-  //         { name: 'Pulldown Machine', img: PulldownMachine },
-  //         { name: 'Overhead Press Machine', img: OverheadPressMachine },
-  //         { name: 'Tricep Extension Machine', img: TricepExtension },
-  //         { name: 'Dip Station', img: DipStation },
-  //         { name: 'Pull Up Bar', img: Pull_UpBar },
-  //         { name: 'Medicine Ball', img: MedicineBall },
-  //         { name: 'Kettlebell', img: Kettlebell },
-  //         { name: 'Suspension Trainer', img: SuspensionTrainer },
-  //       ]);
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }, [muscleGroup]);
+  useEffect(() => {
+    setSelectionsLoading();
+    getEquipmentOptions(subMuscles);
+    // eslint-disable-next-line
+  }, []);
 
   useEffect(() => {
     makeRows();
     // eslint-disable-next-line
-  }, [windowSize]);
+  }, [windowSize, equipmentOptions]);
 
-  if (loading || equipmentOptions === null) return <Preloader />;
+  if (loading) return <Preloader />;
   return (
     <div className='equipmentBtnsContainer container'>
       {equipmentOptionRows.map((row, rowIndex) => (
         <div className='equipmentBtnRow' key={rowIndex}>
           {row.map((equipmentItem, index) => (
             <EquipmentButton
-              equipmentItem={equipmentItem.name}
-              img={equipmentItem.img}
+              equipmentItem={equipmentItem}
+              img={images[equipmentItem]}
               key={index}
             />
           ))}
