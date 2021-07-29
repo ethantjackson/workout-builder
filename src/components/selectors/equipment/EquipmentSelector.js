@@ -51,6 +51,7 @@ import {
   ProneLegCurlMachine,
   HackSquatMachine,
   LegRaiseStation,
+  NoEquipment,
 } from '../../../img/index';
 import ClearButton from '../../layout/clearButton/ClearButton';
 import AllButton from '../../layout/allButton/AllButton';
@@ -96,6 +97,7 @@ images['Tricep Bar'] = TricepBar;
 images['Oblique Crunch Machine'] = ObliqueCrunchMachine;
 images['Prone Leg Curl Machine'] = ProneLegCurlMachine;
 images['Leg Raise Station'] = LegRaiseStation;
+images['No Equipment'] = NoEquipment;
 
 const EquipmentSelector = ({
   subMuscles,
