@@ -10,7 +10,7 @@ import {
 } from '../../../actions/WorkoutActions';
 import {
   BenchPress,
-  Dumbells,
+  Dumbbells,
   SmithMachine,
   ChestPressMachine,
   DipStation,
@@ -59,7 +59,7 @@ import './EquipmentSelector.css';
 
 const images = {};
 images['Bench Press'] = BenchPress;
-images['Dumbells'] = Dumbells;
+images['Dumbbells'] = Dumbbells;
 images['Smith Machine'] = SmithMachine;
 images['Chest Press Machine'] = ChestPressMachine;
 images['Dip Station'] = DipStation;

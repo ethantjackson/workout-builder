@@ -39,7 +39,7 @@ import VastusMedialis from './subMuscles/legs/vastusMedialis.jpg';
 import VastusLateralisAndRectusFemoris from './subMuscles/legs/vastusLateralisAndRectusFemoris.jpg';
 
 import BenchPress from './equipment/benchPress.png';
-import Dumbells from './equipment/dumbells.png';
+import Dumbbells from './equipment/dumbbells.png';
 import SmithMachine from './equipment/smithMachine.png';
 import ChestPressMachine from './equipment/chestPressMachine.png';
 import DipStation from './equipment/dipStation.png';
@@ -121,7 +121,7 @@ export {
 
 export {
   BenchPress,
-  Dumbells,
+  Dumbbells,
   SmithMachine,
   ChestPressMachine,
   DipStation,
