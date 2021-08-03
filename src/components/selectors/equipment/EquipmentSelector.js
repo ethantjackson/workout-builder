@@ -181,9 +181,7 @@ const EquipmentSelector = ({
       <ClearButton onClick={() => setEquipment([])} />
       <AllButton
         onClick={() =>
-          setEquipment(
-            equipmentOptions.map((equipmentItem) => equipmentItem.name)
-          )
+          setEquipment(equipmentOptions.map((equipmentItem) => equipmentItem))
         }
       />
     </div>
