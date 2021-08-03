@@ -10,7 +10,7 @@ import {
 } from '../../../actions/WorkoutActions';
 import {
   BenchPress,
-  Dumbells,
+  Dumbbells,
   SmithMachine,
   ChestPressMachine,
   DipStation,
@@ -52,6 +52,8 @@ import {
   HackSquatMachine,
   LegRaiseStation,
   NoEquipment,
+  AbductionMachine,
+  AdductionMachine,
 } from '../../../img/index';
 import ClearButton from '../../layout/clearButton/ClearButton';
 import AllButton from '../../layout/allButton/AllButton';
@@ -59,7 +61,7 @@ import './EquipmentSelector.css';
 
 const images = {};
 images['Bench Press'] = BenchPress;
-images['Dumbells'] = Dumbells;
+images['Dumbbells'] = Dumbbells;
 images['Smith Machine'] = SmithMachine;
 images['Chest Press Machine'] = ChestPressMachine;
 images['Dip Station'] = DipStation;
@@ -98,6 +100,8 @@ images['Oblique Crunch Machine'] = ObliqueCrunchMachine;
 images['Prone Leg Curl Machine'] = ProneLegCurlMachine;
 images['Leg Raise Station'] = LegRaiseStation;
 images['No Equipment'] = NoEquipment;
+images['Abduction Machine'] = AbductionMachine;
+images['Adduction Machine'] = AdductionMachine;
 
 const EquipmentSelector = ({
   subMuscles,

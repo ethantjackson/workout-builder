@@ -39,7 +39,7 @@ import VastusMedialis from './subMuscles/legs/vastusMedialis.jpg';
 import VastusLateralisAndRectusFemoris from './subMuscles/legs/vastusLateralisAndRectusFemoris.jpg';
 
 import BenchPress from './equipment/benchPress.png';
-import Dumbells from './equipment/dumbells.png';
+import Dumbbells from './equipment/dumbbells.png';
 import SmithMachine from './equipment/smithMachine.png';
 import ChestPressMachine from './equipment/chestPressMachine.png';
 import DipStation from './equipment/dipStation.png';
@@ -81,6 +81,8 @@ import ProneLegCurlMachine from './equipment/proneLegCurlMachine.png';
 import HackSquatMachine from './equipment/hackSquatMachine.png';
 import LegRaiseStation from './equipment/legRaiseStation.png';
 import NoEquipment from './equipment/noEquipment.gif';
+import AbductionMachine from './equipment/abductionMachine.png';
+import AdductionMachine from './equipment/adductionMachine.png';
 
 export { Abs, Arms, Back, Front, Legs, Side };
 
@@ -121,7 +123,7 @@ export {
 
 export {
   BenchPress,
-  Dumbells,
+  Dumbbells,
   SmithMachine,
   ChestPressMachine,
   DipStation,
@@ -163,4 +165,6 @@ export {
   HackSquatMachine,
   LegRaiseStation,
   NoEquipment,
+  AbductionMachine,
+  AdductionMachine,
 };
