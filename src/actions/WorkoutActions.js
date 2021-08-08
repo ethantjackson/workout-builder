@@ -54,7 +54,6 @@ export const getEquipmentOptions = (subMuscles) => async (dispatch) => {
 };
 
 export const setSelectionsLoading = () => {
-  console.log('loading');
   return {
     type: SET_SELECTIONS_LOADING,
   };

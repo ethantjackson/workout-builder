@@ -168,11 +168,15 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
         </div>
       ))}
       <ClearButton
+        tooltipText='Clear All'
+        materialIcon='clear'
         onClick={() => {
           setSubMuscles([]);
         }}
       />
       <AllButton
+        tooltipText='Select All'
+        materialIcon='clear_all'
         onClick={() => {
           setSubMuscles(
             subMuscleOptions.map((subMuscleOption) => subMuscleOption.name)

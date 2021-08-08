@@ -1,6 +1,7 @@
 import {
   GET_WORKOUTS,
   CLEAR_WORKOUTS,
+  SHUFFLE_WORKOUTS,
   WORKOUTS_ERROR,
   SET_WORKOUTS_LOADING,
 } from '../actions/types';
@@ -10,6 +11,23 @@ const initialState = {
   loading: false,
   error: null,
 };
+
+function shuffle(array) {
+  var currentIndex = array.length,
+    randomIndex;
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
 
 const GeneratedWorkoutsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -23,6 +41,11 @@ const GeneratedWorkoutsReducer = (state = initialState, action) => {
       return {
         ...state,
         workouts: [],
+      };
+    case SHUFFLE_WORKOUTS:
+      return {
+        ...state,
+        workouts: shuffle(state.workouts),
       };
     case WORKOUTS_ERROR:
       console.error(action.payload);

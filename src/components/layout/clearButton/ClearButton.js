@@ -2,21 +2,23 @@ import React from 'react';
 import './ClearButton.css';
 import PropTypes from 'prop-types';
 
-const AllButton = ({ onClick }) => {
+const ClearButton = ({ onClick, tooltipText, materialIcon }) => {
   return (
     <div
       className='clearBtn tooltipped btn-flat'
-      data-tooltip='Clear All'
+      data-tooltip={tooltipText}
       data-position='left'
       onClick={onClick}
     >
-      <i className='material-icons'>clear</i>
+      <i className='material-icons'>{materialIcon}</i>
     </div>
   );
 };
 
-AllButton.propTypes = {
+ClearButton.propTypes = {
   onClick: PropTypes.func.isRequired,
+  tooltipText: PropTypes.string.isRequired,
+  materialIcon: PropTypes.string.isRequired,
 };
 
-export default AllButton;
+export default ClearButton;

@@ -77,12 +77,10 @@ app.route('/equipment/:targets').get(function (req, res) {
 
   Workout.find({ targets: { $in: targets } }, function (err, foundWorkouts) {
     if (!err) {
-      // console.log(foundWorkouts);
       let equipmentOptions = [];
       foundWorkouts.forEach((workout) => {
         workout.equipment.forEach((equipmentArr) => {
           equipmentArr.forEach((equipment) => {
-            // console.log(equipment);
             if (equipmentOptions.indexOf(equipment) === -1)
               equipmentOptions.push(equipment);
           });

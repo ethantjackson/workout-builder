@@ -178,8 +178,14 @@ const EquipmentSelector = ({
           ))}
         </div>
       ))}
-      <ClearButton onClick={() => setEquipment([])} />
+      <ClearButton
+        tooltipText='Clear All'
+        materialIcon='clear'
+        onClick={() => setEquipment([])}
+      />
       <AllButton
+        tooltipText='Select All'
+        materialIcon='clear_all'
         onClick={() =>
           setEquipment(equipmentOptions.map((equipmentItem) => equipmentItem))
         }

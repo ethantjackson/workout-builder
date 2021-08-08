@@ -1,6 +1,7 @@
 import {
   GET_WORKOUTS,
   CLEAR_WORKOUTS,
+  SHUFFLE_WORKOUTS,
   WORKOUTS_ERROR,
   SET_WORKOUTS_LOADING,
 } from './types';
@@ -36,6 +37,12 @@ export const getWorkouts = (workout) => async (dispatch) => {
 export const clearWorkouts = () => {
   return {
     type: CLEAR_WORKOUTS,
+  };
+};
+
+export const shuffleWorkouts = () => {
+  return {
+    type: SHUFFLE_WORKOUTS,
   };
 };
 
