@@ -36,6 +36,7 @@ const GeneratedWorkoutsPage = ({
 
   useEffect(() => {
     setWorkoutsLoading();
+    console.log(workout);
     getWorkouts(workout);
 
     function handleResize() {
@@ -46,6 +47,7 @@ const GeneratedWorkoutsPage = ({
     }
     window.addEventListener('resize', handleResize);
     handleResize();
+    makeRows();
     return () => window.removeEventListener('resize', handleResize);
     // eslint-disable-next-line
   }, []);
@@ -53,7 +55,7 @@ const GeneratedWorkoutsPage = ({
   useEffect(() => {
     makeRows();
     // eslint-disable-next-line
-  }, [windowSize]);
+  }, [workouts, windowSize]);
 
   return (
     <>
