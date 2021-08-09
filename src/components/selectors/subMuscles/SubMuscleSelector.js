@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SubMuscleButton from '../../layout/subMuscleButton/SubMuscleButton';
 import { setSubMuscles } from '../../../actions/WorkoutActions';
-import AllButton from '../../layout/allButton/AllButton';
-import ClearButton from '../../layout/clearButton/ClearButton';
+import PrimaryButton from '../../layout/primaryButton/PrimaryButton';
+import SecondaryButton from '../../layout/secondaryButton/SecondaryButton';
 import {
   // Test,
   ClavicularPectoral,
@@ -167,14 +167,14 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
           ))}
         </div>
       ))}
-      <ClearButton
+      <SecondaryButton
         tooltipText='Clear All'
         materialIcon='clear'
         onClick={() => {
           setSubMuscles([]);
         }}
       />
-      <AllButton
+      <PrimaryButton
         tooltipText='Select All'
         materialIcon='clear_all'
         onClick={() => {

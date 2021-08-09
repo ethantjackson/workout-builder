@@ -55,8 +55,8 @@ import {
   AbductionMachine,
   AdductionMachine,
 } from '../../../img/index';
-import ClearButton from '../../layout/clearButton/ClearButton';
-import AllButton from '../../layout/allButton/AllButton';
+import SecondaryButton from '../../layout/secondaryButton/SecondaryButton';
+import PrimaryButton from '../../layout/primaryButton/PrimaryButton';
 import './EquipmentSelector.css';
 
 const images = {};
@@ -178,12 +178,12 @@ const EquipmentSelector = ({
           ))}
         </div>
       ))}
-      <ClearButton
+      <SecondaryButton
         tooltipText='Clear All'
         materialIcon='clear'
         onClick={() => setEquipment([])}
       />
-      <AllButton
+      <PrimaryButton
         tooltipText='Select All'
         materialIcon='clear_all'
         onClick={() =>

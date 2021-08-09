@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import './AllButton.css';
+import './PrimaryButton.css';
 import PropTypes from 'prop-types';
 
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const AllButton = ({ onClick, tooltipText, materialIcon }) => {
+const PrimaryButton = ({ onClick, tooltipText, materialIcon }) => {
   useEffect(() => {
     var instance = document.querySelectorAll('.tooltipped');
     instance.forEach((tooltip) => {
@@ -25,10 +25,10 @@ const AllButton = ({ onClick, tooltipText, materialIcon }) => {
   );
 };
 
-AllButton.propTypes = {
+PrimaryButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   tooltipText: PropTypes.string.isRequired,
   materialIcon: PropTypes.string.isRequired,
 };
 
-export default AllButton;
+export default PrimaryButton;

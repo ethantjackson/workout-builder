@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import WorkoutCard from '../../components/layout/workoutCard/WorkoutCard';
 import RestartButton from '../../components/layout/restartButton/RestartButton';
-import AllButton from '../../components/layout/allButton/AllButton';
+import PrimaryButton from '../../components/layout/primaryButton/PrimaryButton';
 import Preloader from '../../components/layout/Preloader';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -86,7 +86,7 @@ const GeneratedWorkoutsPage = ({
       {!loading && workouts !== null && (
         <>
           <RestartButton />
-          <AllButton
+          <PrimaryButton
             tooltipText='Shuffle'
             materialIcon='casino'
             onClick={() => {

@@ -1,8 +1,8 @@
 import React from 'react';
-import './ClearButton.css';
+import './SecondaryButton.css';
 import PropTypes from 'prop-types';
 
-const ClearButton = ({ onClick, tooltipText, materialIcon }) => {
+const SecondaryButton = ({ onClick, tooltipText, materialIcon }) => {
   return (
     <div
       className='clearBtn tooltipped btn-flat'
@@ -15,10 +15,10 @@ const ClearButton = ({ onClick, tooltipText, materialIcon }) => {
   );
 };
 
-ClearButton.propTypes = {
+SecondaryButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   tooltipText: PropTypes.string.isRequired,
   materialIcon: PropTypes.string.isRequired,
 };
 
-export default ClearButton;
+export default SecondaryButton;
