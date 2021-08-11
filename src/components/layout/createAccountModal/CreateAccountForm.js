@@ -64,7 +64,7 @@ const CreateAccountForm = () => {
           </div>
         </div>
         <a
-          href='/muscle-group-selection'
+          href='/home-page'
           onClick={handleSubmit}
           className='modal-close signInButton'
         >

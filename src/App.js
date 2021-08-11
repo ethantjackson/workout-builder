@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LandingPage from './pages/landingPage/LandingPage';
+import HomePage from './pages/HomePage';
 import CreateAccountModal from './components/layout/createAccountModal/CreateAccountModal';
 import MuscleGroupSelectionPage from './pages/MuscleGroupSelectionPage';
 import SubMuscleSelectionPage from './pages/SubMuscleSelectionPage';
@@ -34,6 +35,9 @@ const App = () => {
               <Route exact path='/'>
                 <LandingPage />
                 <CreateAccountModal />
+              </Route>
+              <Route exact path='/home-page'>
+                <HomePage />
               </Route>
               <Route exact path='/muscle-group-selection'>
                 <MuscleGroupSelectionPage />

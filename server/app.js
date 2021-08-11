@@ -1,6 +1,10 @@
 const express = require('express');
 const ejs = require('ejs');
 const mongoose = require('mongoose');
+const findOrCreate = require('mongoose-findorcreate');
+const session = require('express-session');
+const passport = require('passport');
+const passportLocalMongoose = require('passport-local-mongoose');
 
 var dotenv = require('dotenv');
 dotenv.config();
@@ -28,16 +32,39 @@ mongoose.connect(url, {
   useUnifiedTopology: true,
 });
 
-const workoutSchema = {
+const workoutSchema = new mongoose.Schema({
   name: String,
   targets: Array,
   equipment: Array,
   demo: String,
   tangents: Array,
   tips: Array,
-};
+});
 
 const Workout = mongoose.model('Workout', workoutSchema);
+
+const userSchema = new mongoose.Schema({
+  email: String,
+  password: String,
+  googleId: String,
+  facebookId: String,
+});
+
+userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(findOrCreate);
+
+const User = new mongoose.model('User', userSchema);
+
+passport.use(User.createStrategy());
+
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
+});
+passport.deserializeUser(function (id, done) {
+  User.findById(id, function (err, user) {
+    done(err, user);
+  });
+});
 
 app.route('/workouts/:targets&:equipment').get(function (req, res) {
   const targetsString = req.params.targets;

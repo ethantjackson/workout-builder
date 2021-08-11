@@ -19,10 +19,10 @@
   height: 80vh;
 }
 .loginDiv {
-  padding-top: 20vh !important;
+  padding: 15vh 7% 0 !important;
 }
 .loginForm {
-  margin-top: 4rem;
+  margin-top: 1.5rem;
 }
 .input-field input[type='email']:focus,
 .input-field input[type='password']:focus {
@@ -52,4 +52,30 @@
 }
 .accountSubText a:hover {
   color: #26d1ed;
+}
+
+.socialBtnDiv {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  /* border: 1px solid blue; */
+}
+.socialBtn {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  line-height: 1.5rem;
+  box-shadow: 5px 5px 5px rgb(30, 36, 47);
+}
+.socialBtn:hover {
+  filter: brightness(1.25);
+}
+.google {
+  background-color: #db4437;
+}
+.facebook {
+  background-color: #1877f2;
+}
+
+hr {
+  border-top: 1px solid red;
+  width: 25%;
 }
