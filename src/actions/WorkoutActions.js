@@ -38,7 +38,9 @@ export const getEquipmentOptions = (subMuscles) => async (dispatch) => {
       return arr.map((item) => _.snakeCase(item)).join('-');
     };
 
-    const res = await fetch('/equipment/' + snakeCaseStringify(subMuscles));
+    const res = await fetch(
+      '/workout/equipment/' + snakeCaseStringify(subMuscles)
+    );
     const data = await res.json();
 
     dispatch({

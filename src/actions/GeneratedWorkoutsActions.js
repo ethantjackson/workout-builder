@@ -15,7 +15,7 @@ export const getWorkouts = (workout) => async (dispatch) => {
     };
 
     const res = await fetch(
-      '/workouts/' +
+      '/workout/workouts/' +
         snakeCaseStringify(workout.subMuscles) +
         '&' +
         snakeCaseStringify(workout.equipment)
