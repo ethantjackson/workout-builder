@@ -12,13 +12,13 @@ const LandingPage = () => {
         <div className='col s12 l6 loginDiv'>
           <h1 className='instructionsHeader'>WORKOUT BUILDER</h1>
           <div className='socialBtnDiv'>
-            <a className='socialBtn google' href='#!'>
-              <i className='fab fa-google'></i> &nbsp; Sign in with Google
+            <a className='socialBtn facebook' href='#!'>
+              <i className='fab fa-facebook'></i> &nbsp; Sign in with Facebook
             </a>
           </div>
           <div className='socialBtnDiv'>
-            <a className='socialBtn facebook' href='#!'>
-              <i className='fab fa-facebook'></i> &nbsp; Sign in with Facebook
+            <a className='socialBtn google' href='#!'>
+              <i className='fab fa-google'></i> &nbsp; Sign in with Google
             </a>
           </div>
           {/* <hr /> */}
