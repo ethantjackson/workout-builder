@@ -6,7 +6,7 @@ const User = require('./models/User');
 const cookieExtractor = (req) => {
   let token = null;
   if (req && req.cookies) {
-    token = req.cookies['access-token'];
+    token = req.cookies['access_token'];
   }
   return token;
 };
@@ -28,11 +28,18 @@ passport.use(
 );
 
 passport.use(
-  new LocalStrategy((email, password, done) => {
-    User.findOne({ email }, (err, user) => {
-      if (err) return done(err);
-      if (!user) return done(null, false);
-      user.comparePassword(password, done);
-    });
-  })
+  new LocalStrategy(
+    { usernameField: 'email', passwordField: 'password' },
+    (email, password, done) => {
+      User.findOne({ email }, (err, user) => {
+        if (err) {
+          return done(err);
+        }
+        if (!user) {
+          return done(null, false);
+        }
+        user.comparePassword(password, done);
+      });
+    }
+  )
 );

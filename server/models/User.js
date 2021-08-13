@@ -2,21 +2,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const UserSchema = new mongoose.Schema({
-  email: {
-    type: String,
-  },
-  name: {
-    type: String,
-  },
-  password: {
-    type: String,
-  },
-  googleId: {
-    type: String,
-  },
-  facebookId: {
-    type: String,
-  },
+  email: { type: String, unique: true },
+  name: String,
+  password: String,
+  googleId: String,
+  facebookId: String,
   workoutPlans: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Plan' }],
 });
 

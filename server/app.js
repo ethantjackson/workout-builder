@@ -1,25 +1,25 @@
 const express = require('express');
-const ejs = require('ejs');
+const app = express();
+const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
+app.use(cookieParser());
+app.use(express.json());
 
 var dotenv = require('dotenv');
 dotenv.config();
 var url = process.env.MONGO_URI;
 
-const app = express();
-app.set('view engine', 'ejs');
-
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
+mongoose.connect(
+  url,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  () => {
+    console.log('Successfully connected to database');
+  }
 );
-app.use(express.static('public'));
-
-mongoose.connect(url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.set('useCreateIndex', true); //get rid of deprecation warning
 
 const userRouter = require('./routes/User');
 app.use('/user', userRouter);
