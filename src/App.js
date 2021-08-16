@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LandingPage from './pages/landingPage/LandingPage';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/homePage/HomePage';
 import CreateAccountModal from './components/layout/createAccountModal/CreateAccountModal';
 import MuscleGroupSelectionPage from './pages/MuscleGroupSelectionPage';
 import SubMuscleSelectionPage from './pages/SubMuscleSelectionPage';

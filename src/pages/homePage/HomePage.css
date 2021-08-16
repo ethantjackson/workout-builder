@@ -1,0 +1,34 @@
+.topBar {
+  font-size: 1.3rem;
+  padding: 0 2.5vw;
+  display: flex;
+}
+
+.siteDiv {
+  width: 16rem;
+  text-align: left;
+}
+.siteIcon {
+  height: 2.5rem;
+  position: relative;
+  top: 0.9rem;
+}
+.siteTitle {
+  margin: 0;
+}
+
+.userDiv {
+  padding-top: 1rem;
+  flex: 1;
+  text-align: right;
+}
+
+.userDiv ul,
+li {
+  display: inline;
+  padding: 0.7rem;
+}
+
+.userAction {
+  color: grey;
+}
