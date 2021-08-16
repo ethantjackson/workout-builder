@@ -46,19 +46,28 @@ const HomePage = () => {
         <h1 className='homeTitle'>Hi, Ethan Jackson</h1>
         <div className='row'>
           <div className='col s4'>
+            <a href='/muscle-group-selection' className='homeActions'>
+              Find Workouts
+            </a>
+            <p>Use the Workout Finder to search our workout database.</p>
+          </div>
+          <div className='col s4'>
             <a href='#!' className='homeActions'>
               New Workout Plan
             </a>
+            <p>
+              Using our Workout Finder, put together your own workout plan,
+              complete with reps, sets, and rest times.
+            </p>
           </div>
           <div className='col s4'>
             <a href='#!' className='homeActions'>
               View Workout Plans
             </a>
-          </div>
-          <div className='col s4'>
-            <a href='/muscle-group-selection' className='homeActions'>
-              Find Workouts
-            </a>
+            <p>
+              Select from your personal workout plans for a step-by-step
+              exercise guide.
+            </p>
           </div>
         </div>
       </div>
