@@ -32,3 +32,17 @@ li {
 .userAction {
   color: grey;
 }
+
+.homeTitle {
+  font-size: 3rem;
+  color: #26d1ed;
+}
+
+.homeActions {
+  font-size: 1.4rem;
+  color: grey;
+}
+
+.homeActions:hover {
+  color: white;
+}

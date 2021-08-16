@@ -21,7 +21,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <div className='topBar'>
         <div className='siteDiv'>
           <p className='siteTitle'>
@@ -42,8 +42,27 @@ const HomePage = () => {
           </ul>
         </div>
       </div>
-      <h1>Hi, Ethan Jackson</h1>
-    </div>
+      <div className='container'>
+        <h1 className='homeTitle'>Hi, Ethan Jackson</h1>
+        <div className='row'>
+          <div className='col s4'>
+            <a href='#!' className='homeActions'>
+              New Workout Plan
+            </a>
+          </div>
+          <div className='col s4'>
+            <a href='#!' className='homeActions'>
+              View Workout Plans
+            </a>
+          </div>
+          <div className='col s4'>
+            <a href='/muscle-group-selection' className='homeActions'>
+              Find Workouts
+            </a>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
