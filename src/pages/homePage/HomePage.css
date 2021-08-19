@@ -33,16 +33,38 @@ li {
   color: grey;
 }
 
+.userAction:hover {
+  color: white;
+}
+
 .homeTitle {
+  margin-top: 10vh;
   font-size: 3rem;
   color: #26d1ed;
 }
 
+.homeActionDiv {
+  margin-top: 3vh;
+  padding: 2rem;
+}
+
 .homeActions {
   font-size: 1.4rem;
-  color: grey;
+  text-decoration: underline;
+  color: white;
 }
 
 .homeActions:hover {
-  color: white;
+  color: #26d1ed;
+}
+
+.homeActionImg {
+  /* height: 20vh; */
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.homeActionDescription {
+  color: grey;
 }

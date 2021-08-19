@@ -1,34 +1,58 @@
-import React, { useState } from 'react';
-import M from 'materialize-css/dist/js/materialize.min.js';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { registerUser } from '../../../actions/UserActions';
+import {
+  registerUser,
+  loginUser,
+  setMessage,
+} from '../../../actions/UserActions';
+import { useHistory } from 'react-router-dom';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
-const CreateAccountForm = ({ registerUser }) => {
+const CreateAccountForm = ({
+  registerUser,
+  loginUser,
+  setMessage,
+  message,
+}) => {
+  let history = useHistory();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSubmit = (e) => {
-    if (email === '' || password === '' || confirmPassword === '') {
-      e.preventDefault();
+    e.preventDefault();
+    if (
+      email === '' ||
+      password === '' ||
+      confirmPassword === '' ||
+      name === ''
+    ) {
       M.toast({ html: 'Please enter a valid email and password...' });
+    } else if (password.length < 8) {
+      M.toast({ html: 'Password must be at least 8 characters long...' });
     } else if (password !== confirmPassword) {
-      e.preventDefault();
       M.toast({ html: 'The provided passwords do not match...' });
     } else {
-      //add user
       registerUser({
         email: email,
         name: name,
         password: password,
       });
-      setEmail('');
-      setName('');
-      setPassword('');
     }
   };
+
+  useEffect(() => {
+    if (message?.toLowerCase().includes('success')) {
+      loginUser({ email: email, password: password });
+    }
+    setEmail('');
+    setName('');
+    setPassword('');
+    setConfirmPassword('');
+    //eslint-disable-next-line
+  }, [message]);
 
   return (
     <div className='createAccountForm'>
@@ -86,11 +110,7 @@ const CreateAccountForm = ({ registerUser }) => {
             </label>
           </div>
         </div>
-        <a
-          href='/home-page'
-          onClick={handleSubmit}
-          className='modal-close signInButton'
-        >
+        <a href='/' onClick={handleSubmit} className='signInButton'>
           Enter
         </a>
       </form>
@@ -100,6 +120,16 @@ const CreateAccountForm = ({ registerUser }) => {
 
 CreateAccountForm.propTypes = {
   registerUser: PropTypes.func.isRequired,
+  loginUser: PropTypes.func.isRequired,
+  setMessage: PropTypes.func.isRequired,
 };
 
-export default connect(null, { registerUser })(CreateAccountForm);
+const mapStateToProps = (state) => ({
+  message: state.user.message,
+});
+
+export default connect(mapStateToProps, {
+  registerUser,
+  loginUser,
+  setMessage,
+})(CreateAccountForm);

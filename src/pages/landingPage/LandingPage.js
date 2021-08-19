@@ -1,8 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import CreateAccountModal from '../../components/layout/createAccountModal/CreateAccountModal';
 import { Front } from '../../img/index';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { loginUser, setMessage } from '../../actions/UserActions';
+import { useHistory } from 'react-router-dom';
+import M from 'materialize-css/dist/js/materialize.min.js';
 import './LandingPage.css';
 
-const LandingPage = () => {
+const LandingPage = ({ loginUser, setMessage, isAuthenticated, message }) => {
+  let history = useHistory();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    loginUser({
+      email: email,
+      password: password,
+    });
+  };
+
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     history.push('/home-page');
+  //   }
+  //   //eslint-disable-next-line
+  // }, [isAuthenticated]);
+
+  useEffect(() => {
+    if (message) {
+      M.toast({ html: message });
+      setMessage(null);
+    }
+    //eslint-disable-next-line
+  }, [message]);
+
   return (
     <>
       <div className='landingContainer row'>
@@ -22,25 +55,36 @@ const LandingPage = () => {
             </a>
           </div>
           {/* <hr /> */}
-          <form className='loginForm' action=''>
+          <form className='loginForm'>
             <div className='row'>
               <div className='input-field col s8 xl6 offset-s2 offset-xl3'>
-                <input id='email' type='email' />
+                <input
+                  id='email'
+                  type='email'
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
                 <label htmlFor='email'>Email</label>
               </div>
             </div>
             <div className='row'>
               <div className='input-field col s8 xl6 offset-s2 offset-xl3'>
-                <input id='password' type='password' autoComplete='on' />
+                <input
+                  id='password'
+                  type='password'
+                  autoComplete='on'
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
                 <label htmlFor='password'>Password</label>
               </div>
             </div>
+            <a className='signInButton' href='#!' onClick={onSubmit}>
+              SIGN IN
+            </a>
           </form>
-          <a href='/home-page' className='signInButton'>
-            SIGN IN
-          </a>
           <p className='accountSubText'>
-            <a href='#create-account-modal' className='modal-trigger '>
+            <a href='#create-account-modal' className='modal-trigger'>
               Create an account{' '}
               <i className='material-icons tiny'>info_outline</i>
             </a>
@@ -52,8 +96,20 @@ const LandingPage = () => {
           </p>
         </div>
       </div>
+      <CreateAccountModal />
     </>
   );
 };
 
-export default LandingPage;
+LandingPage.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+  loginUser: PropTypes.func.isRequired,
+  setMessage: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.user.isAuthenticated,
+  message: state.user.message,
+});
+
+export default connect(mapStateToProps, { loginUser, setMessage })(LandingPage);

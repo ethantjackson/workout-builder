@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
+import PrivateRoute from './hocs/PrivateRoute';
+import UnPrivateRoute from './hocs/UnPrivateRoute';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LandingPage from './pages/landingPage/LandingPage';
 import HomePage from './pages/homePage/HomePage';
-import CreateAccountModal from './components/layout/createAccountModal/CreateAccountModal';
+// import CreateAccountModal from './components/layout/createAccountModal/CreateAccountModal';
 import MuscleGroupSelectionPage from './pages/MuscleGroupSelectionPage';
 import SubMuscleSelectionPage from './pages/SubMuscleSelectionPage';
 import EquipmentSelectionPage from './pages/EquipmentSelectionPage';
@@ -15,15 +17,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import persistedStore from './store';
 
 const App = () => {
-  const initMaterialize = () => {
-    M.AutoInit();
-    var modals = document.querySelectorAll('.modal');
-    M.Modal.init(modals, {});
-  };
   useEffect(() => {
-    document.addEventListener('DOMContentLoaded', initMaterialize);
-    return () =>
-      document.removeEventListener('DOMContentLoaded', initMaterialize);
+    M.AutoInit();
   }, []);
 
   return (
@@ -32,13 +27,11 @@ const App = () => {
         <div className='App'>
           <Router>
             <Switch>
-              <Route exact path='/'>
+              {/* <Route exact path='/'>
                 <LandingPage />
-                <CreateAccountModal />
-              </Route>
-              <Route exact path='/home-page'>
-                <HomePage />
-              </Route>
+              </Route> */}
+              <UnPrivateRoute exact path='/' component={LandingPage} />
+              <PrivateRoute exact path='/home-page' component={HomePage} />
               <Route exact path='/muscle-group-selection'>
                 <MuscleGroupSelectionPage />
               </Route>

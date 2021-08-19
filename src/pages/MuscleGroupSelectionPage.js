@@ -8,7 +8,7 @@ const MuscleGroupSelectionPage = () => {
     <>
       <h1 className='instructionsHeader'>Select a muscle group to begin</h1>
       <MuscleGroupSelector />
-      <BackButton target='/' />
+      <BackButton target='/home-page' />
       <NextButton target={'/sub-muscle-selection'} />
     </>
   );
