@@ -24,13 +24,16 @@ const PlanStep = ({ workoutID }) => {
   if (!workout) return <Preloader />;
   return (
     <div className='row stepDiv'>
+      <div style={{ position: 'relative' }}>
+        <i className='small material-icons deleteIcon'>delete </i>
+      </div>
       <div className='col s4'>
         <h4 className='workoutName'>{workout.name}</h4>
         <img className='workoutDemo' src={workout.demo} alt='workout-demo' />
       </div>
       <div className='col s8 stepInputsDiv'>
         <div className='row'>
-          <div className='col s4 m6'>
+          <div className='col s4 xl6'>
             <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
               <input
                 id='reps'
@@ -43,7 +46,7 @@ const PlanStep = ({ workoutID }) => {
               </label>
             </div>
           </div>
-          <div className='col s8 m6'>
+          <div className='col s8 xl6'>
             <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
               <input
                 id='setRest'
@@ -58,7 +61,7 @@ const PlanStep = ({ workoutID }) => {
           </div>
         </div>
         <div className='row'>
-          <div className='col s4 m6'>
+          <div className='col s4 xl6'>
             <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
               <input
                 id='sets'
@@ -71,7 +74,7 @@ const PlanStep = ({ workoutID }) => {
               </label>
             </div>
           </div>
-          <div className='col s8 m6'>
+          <div className='col s8 xl6'>
             <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
               <input
                 id='reps'

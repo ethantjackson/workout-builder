@@ -18,3 +18,24 @@
 .stepInputsDiv {
   padding: 5% 0 0 0 !important;
 }
+
+.deleteIcon {
+  visibility: hidden;
+  cursor: pointer;
+  position: absolute;
+  color: grey;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+.deleteIcon:hover {
+  color: white;
+}
+.stepDiv:hover .deleteIcon {
+  visibility: visible;
+}
+
+@media only screen and (max-width: 600px) {
+  .deleteIcon {
+    visibility: visible !important;
+  }
+}
