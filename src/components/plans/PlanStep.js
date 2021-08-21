@@ -5,27 +5,36 @@ import './PlanStep.css';
 
 //display: workout name, workout gif
 //edit: reps(12), sets(3), set rest(60)s, workout rest(120)s <- invalid field if isLastWorkout
-const PlanStep = ({ workoutID }) => {
+const PlanStep = ({
+  step: { reps, sets, setRest, workoutRest, workout_id, _id },
+  deleteStep,
+  editStep,
+}) => {
   const [workout, setWorkout] = useState(null);
-  const [reps, setReps] = useState(12);
-  const [sets, setSets] = useState(3);
-  const [setRest, setSetRest] = useState(60);
-  const [workoutRest, setWorkoutRest] = useState(120);
+  // const [reps, setReps] = useState(reps);
+  // const [sets, setSets] = useState(sets);
+  // const [setRest, setSetRest] = useState(setRest);
+  // const [workoutRest, setWorkoutRest] = useState(workoutRest);
 
   useEffect(() => {
     const fetchWorkout = async () => {
-      const res = await fetch('/workout/' + workoutID);
+      const res = await fetch('/workout/' + workout_id);
       const data = await res.json();
       setWorkout(data);
     };
     fetchWorkout();
-  }, [workoutID]);
+  }, [workout_id]);
 
   if (!workout) return <Preloader />;
   return (
     <div className='row stepDiv'>
       <div style={{ position: 'relative' }}>
-        <i className='small material-icons deleteIcon'>delete </i>
+        <i
+          className='small material-icons deleteIcon'
+          onClick={() => deleteStep(_id)}
+        >
+          delete
+        </i>
       </div>
       <div className='col s4'>
         <h4 className='workoutName'>{workout.name}</h4>
@@ -39,7 +48,9 @@ const PlanStep = ({ workoutID }) => {
                 id='reps'
                 type='number'
                 value={reps}
-                onChange={(e) => setReps(e.target.value)}
+                onChange={(e) =>
+                  editStep({ reps: parseInt(e.target.value) }, _id)
+                }
               />
               <label className='active' htmlFor='reps'>
                 Reps
@@ -52,7 +63,9 @@ const PlanStep = ({ workoutID }) => {
                 id='setRest'
                 type='number'
                 value={setRest}
-                onChange={(e) => setSetRest(e.target.value)}
+                onChange={(e) =>
+                  editStep({ setRest: parseInt(e.target.value) }, _id)
+                }
               />
               <label className='active' htmlFor='reps'>
                 Set Rest (s)
@@ -67,7 +80,9 @@ const PlanStep = ({ workoutID }) => {
                 id='sets'
                 type='number'
                 value={sets}
-                onChange={(e) => setSets(e.target.value)}
+                onChange={(e) =>
+                  editStep({ sets: parseInt(e.target.value) }, _id)
+                }
               />
               <label className='active' htmlFor='reps'>
                 Sets
@@ -80,7 +95,9 @@ const PlanStep = ({ workoutID }) => {
                 id='reps'
                 type='number'
                 value={workoutRest}
-                onChange={(e) => setWorkoutRest(e.target.value)}
+                onChange={(e) =>
+                  editStep({ workoutRest: parseInt(e.target.value) }, _id)
+                }
               />
               <label className='active' htmlFor='reps'>
                 Workout Rest (s)
@@ -94,7 +111,9 @@ const PlanStep = ({ workoutID }) => {
 };
 
 PlanStep.propTypes = {
-  workoutID: PropTypes.string.isRequired,
+  step: PropTypes.object.isRequired,
+  deleteStep: PropTypes.func.isRequired,
+  editStep: PropTypes.func.isRequired,
 };
 
 export default PlanStep;
