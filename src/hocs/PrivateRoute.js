@@ -11,8 +11,8 @@ const PrivateRoute = ({
   ...rest
 }) => {
   useEffect(() => {
-    console.log('authenticating (private)');
     checkAuthenticated();
+    //eslint-disable-next-line
   }, []);
 
   return (
@@ -20,10 +20,8 @@ const PrivateRoute = ({
       {...rest}
       render={(props) => {
         if (!isAuthenticated) {
-          console.log('not authenticated (bad)');
           return <Redirect to='/' />;
         }
-        console.log('authenticated (good)');
         return <Component {...props} />;
       }}
     />

@@ -15,12 +15,20 @@ body {
 }
 
 .instructionsHeader {
+  margin-top: 5vh;
   margin-bottom: 2rem;
   font-size: 2.5rem;
 }
 
 .instructionsSubHeader {
   color: #26d1ed;
+}
+
+.input-field input[type='email']:focus,
+.input-field input[type='password']:focus,
+.input-field input[type='number']:focus {
+  border-bottom: 1px solid #26d1ed !important;
+  box-shadow: 0 1px 0 0 #000 !important;
 }
 
 label {

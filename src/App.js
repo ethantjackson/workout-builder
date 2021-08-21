@@ -4,7 +4,7 @@ import UnPrivateRoute from './hocs/UnPrivateRoute';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LandingPage from './pages/landingPage/LandingPage';
 import HomePage from './pages/homePage/HomePage';
-// import CreateAccountModal from './components/layout/createAccountModal/CreateAccountModal';
+import NewPlanPage from './pages/NewPlanPage';
 import MuscleGroupSelectionPage from './pages/MuscleGroupSelectionPage';
 import SubMuscleSelectionPage from './pages/SubMuscleSelectionPage';
 import EquipmentSelectionPage from './pages/EquipmentSelectionPage';
@@ -27,11 +27,9 @@ const App = () => {
         <div className='App'>
           <Router>
             <Switch>
-              {/* <Route exact path='/'>
-                <LandingPage />
-              </Route> */}
               <UnPrivateRoute exact path='/' component={LandingPage} />
               <PrivateRoute exact path='/home-page' component={HomePage} />
+              <PrivateRoute exact path='/plan' component={NewPlanPage} />
               <Route exact path='/muscle-group-selection'>
                 <MuscleGroupSelectionPage />
               </Route>

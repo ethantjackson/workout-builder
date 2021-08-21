@@ -12,7 +12,7 @@ const UnPrivateRoute = ({
 }) => {
   useEffect(() => {
     checkAuthenticated();
-    console.log('authenticating (unprivate)');
+    //eslint-disable-next-line
   }, []);
 
   return (
@@ -20,10 +20,8 @@ const UnPrivateRoute = ({
       {...rest}
       render={(props) => {
         if (isAuthenticated) {
-          console.log('authenticated (bad)');
           return <Redirect to='/home-page' />;
         }
-        console.log('not authenticated (good)');
         return <Component {...props} />;
       }}
     />

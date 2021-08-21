@@ -5,7 +5,6 @@ import FindWorkoutImg from '../../img/custom.jpeg';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser, setMessage } from '../../actions/UserActions';
-import { useHistory } from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import './HomePage.css';
 
@@ -16,7 +15,6 @@ const HomePage = ({
   message,
   currUser,
 }) => {
-  let history = useHistory();
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
@@ -105,7 +103,7 @@ const HomePage = ({
                 alt='computer-img'
               />
               <br />
-              <a href='#!' className='homeActions'>
+              <a href='/plan' className='homeActions'>
                 New Workout Plan
               </a>
               <p className='homeActionDescription'>
@@ -122,7 +120,7 @@ const HomePage = ({
                 alt='plan-img'
               />
               <br />
-              <a href='#!' className='homeActions'>
+              <a href='/view-plans' className='homeActions'>
                 View Workout Plans
               </a>
               <p className='homeActionDescription'>

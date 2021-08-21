@@ -1,21 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-  registerUser,
-  loginUser,
-  setMessage,
-} from '../../../actions/UserActions';
-import { useHistory } from 'react-router-dom';
+import { registerUser, loginUser } from '../../../actions/UserActions';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const CreateAccountForm = ({
-  registerUser,
-  loginUser,
-  setMessage,
-  message,
-}) => {
-  let history = useHistory();
+const CreateAccountForm = ({ registerUser, loginUser }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -30,29 +19,30 @@ const CreateAccountForm = ({
       name === ''
     ) {
       M.toast({ html: 'Please enter a valid email and password...' });
+      setEmail('');
+      setName('');
+      setPassword('');
+      setConfirmPassword('');
     } else if (password.length < 8) {
       M.toast({ html: 'Password must be at least 8 characters long...' });
+      setPassword('');
+      setConfirmPassword('');
     } else if (password !== confirmPassword) {
       M.toast({ html: 'The provided passwords do not match...' });
+      setPassword('');
+      setConfirmPassword('');
     } else {
       registerUser({
         email: email,
         name: name,
         password: password,
       });
+      setEmail('');
+      setName('');
+      setPassword('');
+      setConfirmPassword('');
     }
   };
-
-  useEffect(() => {
-    if (message?.toLowerCase().includes('success')) {
-      loginUser({ email: email, password: password });
-    }
-    setEmail('');
-    setName('');
-    setPassword('');
-    setConfirmPassword('');
-    //eslint-disable-next-line
-  }, [message]);
 
   return (
     <div className='createAccountForm'>
@@ -121,15 +111,9 @@ const CreateAccountForm = ({
 CreateAccountForm.propTypes = {
   registerUser: PropTypes.func.isRequired,
   loginUser: PropTypes.func.isRequired,
-  setMessage: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  message: state.user.message,
-});
-
-export default connect(mapStateToProps, {
+export default connect(null, {
   registerUser,
   loginUser,
-  setMessage,
 })(CreateAccountForm);

@@ -79,7 +79,7 @@ const LandingPage = ({ loginUser, setMessage, isAuthenticated, message }) => {
                 <label htmlFor='password'>Password</label>
               </div>
             </div>
-            <a className='signInButton' href='#!' onClick={onSubmit}>
+            <a className='signInButton' href='/home-page' onClick={onSubmit}>
               SIGN IN
             </a>
           </form>

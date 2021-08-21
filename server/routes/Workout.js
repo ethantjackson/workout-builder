@@ -4,6 +4,14 @@ const Workout = require('../models/Workout');
 
 const _ = require('lodash');
 
+workoutRouter.get('/:id', (req, res) => {
+  const workoutID = req.params.id;
+  Workout.findById(workoutID, function (err, foundWorkout) {
+    if (!err) res.send(foundWorkout);
+    else res.send(err);
+  });
+});
+
 workoutRouter.get('/workouts/:targets&:equipment', (req, res) => {
   const targetsString = req.params.targets;
   const equipmentString = req.params.equipment;

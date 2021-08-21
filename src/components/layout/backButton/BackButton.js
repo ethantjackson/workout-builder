@@ -1,10 +1,10 @@
 import React from 'react';
 import './BackButton.css';
 
-const BackButton = ({ target }) => {
+const BackButton = ({ altText, target }) => {
   return (
     <a href={target} className='backButton'>
-      BACK
+      {altText ? altText : 'BACK'}
     </a>
   );
 };

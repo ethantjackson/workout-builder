@@ -36,7 +36,6 @@ const GeneratedWorkoutsPage = ({
 
   useEffect(() => {
     setWorkoutsLoading();
-    console.log(workout);
     getWorkouts(workout);
 
     function handleResize() {
