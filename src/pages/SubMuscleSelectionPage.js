@@ -6,11 +6,14 @@ import SubMuscleSelector from '../components/selectors/subMuscles/SubMuscleSelec
 import NextButton from '../components/layout/nextButton/NextButton';
 import BackButton from '../components/layout/backButton/BackButton';
 
-const SubMuscleSelectionPage = ({ subMuscles, isNested }) => {
+const SubMuscleSelectionPage = ({ subMuscles, isNested, getNextSelector }) => {
   const handleNext = (e) => {
     if (subMuscles.length === 0) {
       e.preventDefault();
       M.toast({ html: 'Please select target muscles.' });
+    } else if (isNested) {
+      e.preventDefault();
+      getNextSelector();
     }
   };
   return (

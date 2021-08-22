@@ -7,17 +7,23 @@ import SubMuscleSelectionPage from './SubMuscleSelectionPage';
 import BackButton from '../components/layout/backButton/BackButton';
 import NextButton from '../components/layout/nextButton/NextButton';
 
-const selectors = [
-  <MuscleGroupSelectionPage />,
-  <SubMuscleSelectionPage isNested={true} />,
-];
-
 const AddStepPage = () => {
   const [selectorIdx, setSelectorIdx] = useState(0);
 
   const getNextSelector = () => {
     setSelectorIdx(selectorIdx + 1 >= selectors.length ? 0 : selectorIdx + 1);
   };
+
+  const selectors = [
+    <MuscleGroupSelectionPage
+      isNested={true}
+      getNextSelector={getNextSelector}
+    />,
+    <SubMuscleSelectionPage
+      isNested={true}
+      getNextSelector={getNextSelector}
+    />,
+  ];
 
   return (
     <>
@@ -31,7 +37,6 @@ const AddStepPage = () => {
         {selectors[selectorIdx]}
       </div>
       <BackButton altText='CANCEL' target='/plan' />
-      <NextButton onClick={() => getNextSelector()} />
       <PlanPreview />
     </>
   );
