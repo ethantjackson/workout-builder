@@ -1,9 +1,13 @@
 import React from 'react';
 import './BackButton.css';
 
-const BackButton = ({ altText, target, isNested }) => {
+const BackButton = ({ onClick, altText, target, isNested }) => {
   return (
-    <a href={target} className={'backButton' + (isNested ? ' nested' : '')}>
+    <a
+      href={target}
+      className={'backButton' + (isNested ? ' nested' : '')}
+      onClick={onClick}
+    >
       {altText ? altText : 'BACK'}
     </a>
   );

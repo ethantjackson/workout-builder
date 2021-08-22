@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PlanPreview from '../components/layout/planPreview/PlanPreview';
-// import MuscleGroupSelector from '../components/selectors/muscles/MuscleGroupSelector';
 import MuscleGroupSelectionPage from '../pages/MuscleGroupSelectionPage';
-// import SubMuscleSelector from '../components/selectors/subMuscles/SubMuscleSelector';
 import SubMuscleSelectionPage from './SubMuscleSelectionPage';
+import EquipmentSelectionPage from './EquipmentSelectionPage';
+import GeneratedWorkoutsPage from './generatedWorkoutsPage/GeneratedWorkoutsPage';
 import BackButton from '../components/layout/backButton/BackButton';
-import NextButton from '../components/layout/nextButton/NextButton';
+import { useHistory } from 'react-router-dom';
 
 const AddStepPage = () => {
+  let history = useHistory();
   const [selectorIdx, setSelectorIdx] = useState(0);
+  const [selectedWorkout, setSelectedWorkout] = useState(null);
+
+  useEffect(() => {
+    console.log(selectedWorkout);
+  }, [selectedWorkout]);
+
+  const getPreviousSelector = () => {
+    setSelectorIdx(selectorIdx - 1 < 0 ? 0 : selectorIdx - 1);
+  };
 
   const getNextSelector = () => {
-    setSelectorIdx(selectorIdx + 1 >= selectors.length ? 0 : selectorIdx + 1);
+    if (selectorIdx + 1 >= selectors.length) {
+      history.push('/plan');
+    }
+    setSelectorIdx(selectorIdx + 1);
   };
 
   const selectors = [
@@ -21,7 +34,19 @@ const AddStepPage = () => {
     />,
     <SubMuscleSelectionPage
       isNested={true}
+      getPreviousSelector={getPreviousSelector}
       getNextSelector={getNextSelector}
+    />,
+    <EquipmentSelectionPage
+      isNested={true}
+      getPreviousSelector={getPreviousSelector}
+      getNextSelector={getNextSelector}
+    />,
+    <GeneratedWorkoutsPage
+      isNested={true}
+      getPreviousSelector={getPreviousSelector}
+      getNextSelector={getNextSelector}
+      setSelectedWorkout={setSelectedWorkout}
     />,
   ];
 
@@ -30,14 +55,14 @@ const AddStepPage = () => {
       <div
         style={{
           position: 'relative',
-          height: '90%',
+          height: '86%',
           overflowY: selectorIdx !== 0 ? 'auto' : 'hidden',
         }}
       >
         {selectors[selectorIdx]}
       </div>
       <BackButton altText='CANCEL' target='/plan' />
-      <PlanPreview />
+      <PlanPreview selectedWorkout={selectedWorkout} />
     </>
   );
 };

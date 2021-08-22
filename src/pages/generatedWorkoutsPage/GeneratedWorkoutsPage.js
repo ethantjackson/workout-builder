@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import WorkoutCard from '../../components/layout/workoutCard/WorkoutCard';
 import RestartButton from '../../components/layout/restartButton/RestartButton';
 import PrimaryButton from '../../components/layout/primaryButton/PrimaryButton';
+import BackButton from '../../components/layout/backButton/BackButton';
+import NextButton from '../../components/layout/nextButton/NextButton';
 import Preloader from '../../components/layout/Preloader';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -18,6 +20,10 @@ const GeneratedWorkoutsPage = ({
   getWorkouts,
   setWorkoutsLoading,
   shuffleWorkouts,
+  isNested,
+  getPreviousSelector,
+  getNextSelector,
+  setSelectedWorkout,
 }) => {
   const [cardRows, setCardRows] = useState([]);
   const [windowSize, setWindowSize] = useState({
@@ -75,7 +81,10 @@ const GeneratedWorkoutsPage = ({
                   }
                   key={workoutItem.name}
                 >
-                  <WorkoutCard workout={workoutItem} />
+                  <WorkoutCard
+                    workout={workoutItem}
+                    setSelectedWorkout={setSelectedWorkout}
+                  />
                 </div>
               ))}
             </div>
@@ -84,7 +93,18 @@ const GeneratedWorkoutsPage = ({
       </div>
       {!loading && workouts !== null && (
         <>
-          <RestartButton />
+          {!isNested && <RestartButton />}
+          {isNested && (
+            <>
+              <BackButton onClick={getPreviousSelector} isNested={isNested} />
+              <NextButton
+                onClick={getNextSelector}
+                is
+                Nested={isNested}
+                altText='ADD STEP'
+              />
+            </>
+          )}
           <PrimaryButton
             tooltipText='Shuffle'
             materialIcon='casino'
@@ -92,6 +112,7 @@ const GeneratedWorkoutsPage = ({
               shuffleWorkouts();
               makeRows();
             }}
+            isNested={isNested}
           />
         </>
       )}

@@ -42,6 +42,7 @@ const EquipmentButton = ({ equipment, equipmentItem, img, setEquipment }) => {
         src={img}
         alt='test-img'
         data-tooltip={equipmentItem}
+        data-position='top'
         onClick={() => handleSelect()}
       />
     </div>

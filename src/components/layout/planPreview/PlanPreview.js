@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './PlanPreview.css';
 import { BenchPress } from '../../../img';
 
-const PlanPreview = ({ steps }) => {
+const PlanPreview = ({ steps, selectedWorkout }) => {
   const [workoutImgs, setWorkoutImgs] = useState([]);
 
   const getWorkoutImg = async (workoutID) => {
@@ -30,15 +30,30 @@ const PlanPreview = ({ steps }) => {
     <div className='planPreview'>
       {workoutImgs.map((img) => (
         <div key={img} className='stepPreview'>
-          <img className='workoutImg' src={img} alt='preview-img' />
+          <img
+            className={selectedWorkout ? 'selectedWorkoutImg' : 'workoutImg'}
+            src={img}
+            alt='preview-img'
+          />
         </div>
       ))}
-      <div className='emptyStep'>
-        <img src={BenchPress} alt='placeholder-img' />
-        <div className='emptyStepIcon'>
-          <i className='material-icons'>add</i>
+      {selectedWorkout === null ? (
+        <div className='emptyStep'>
+          <img src={BenchPress} alt='placeholder-img' />
+          <div className='emptyStepIcon'>
+            <i className='material-icons'>add</i>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className='stepPreview'>
+          <img
+            className='selectedWorkoutImg selected'
+            // className='workoutImg'
+            src={selectedWorkout.demo}
+            alt='selected-img'
+          />
+        </div>
+      )}
     </div>
   );
 };

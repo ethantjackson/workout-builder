@@ -6,7 +6,18 @@ import SubMuscleSelector from '../components/selectors/subMuscles/SubMuscleSelec
 import NextButton from '../components/layout/nextButton/NextButton';
 import BackButton from '../components/layout/backButton/BackButton';
 
-const SubMuscleSelectionPage = ({ subMuscles, isNested, getNextSelector }) => {
+const SubMuscleSelectionPage = ({
+  subMuscles,
+  isNested,
+  getPreviousSelector,
+  getNextSelector,
+}) => {
+  const handleBack = (e) => {
+    if (isNested) {
+      e.preventDefault();
+      getPreviousSelector();
+    }
+  };
   const handleNext = (e) => {
     if (subMuscles.length === 0) {
       e.preventDefault();
@@ -20,11 +31,12 @@ const SubMuscleSelectionPage = ({ subMuscles, isNested, getNextSelector }) => {
     <>
       <h1 className='instructionsHeader'>Target muscles</h1>
       <SubMuscleSelector isNested={isNested} />
-      <BackButton isNested={isNested} target='/muscle-group-selection' />
-      <NextButton
-        target='/equipment-selection'
-        onClick={(e) => handleNext(e)}
+      <BackButton
+        isNested={isNested}
+        target='/muscle-group-selection'
+        onClick={handleBack}
       />
+      <NextButton target='/equipment-selection' onClick={handleNext} />
     </>
   );
 };

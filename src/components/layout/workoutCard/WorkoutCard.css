@@ -6,6 +6,7 @@
   color: white;
   background-color: rgb(30, 36, 47);
   border-radius: 1rem;
+  z-index: 0;
 }
 
 .cardImg {
