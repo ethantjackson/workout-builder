@@ -26,6 +26,7 @@ body {
 
 .input-field input[type='email']:focus,
 .input-field input[type='password']:focus,
+.input-field input[type='text']:focus,
 .input-field input[type='number']:focus {
   border-bottom: 1px solid #26d1ed !important;
   box-shadow: 0 1px 0 0 #000 !important;
@@ -33,6 +34,9 @@ body {
 
 label {
   font-size: 1.2rem;
+}
+input:focus + label {
+  color: #26d1ed !important;
 }
 
 a {

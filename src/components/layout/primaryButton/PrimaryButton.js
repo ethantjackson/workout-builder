@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import 'materialize-css/dist/css/materialize.min.css';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const PrimaryButton = ({ onClick, tooltipText, materialIcon }) => {
+const PrimaryButton = ({ onClick, tooltipText, materialIcon, isNested }) => {
   useEffect(() => {
     var instance = document.querySelectorAll('.tooltipped');
     instance.forEach((tooltip) => {
@@ -15,9 +15,10 @@ const PrimaryButton = ({ onClick, tooltipText, materialIcon }) => {
 
   return (
     <div
-      className='allBtn tooltipped btn-flat'
+      style={{ bottom: isNested && '16%' }}
+      className='primaryBtn tooltipped btn-flat'
       data-tooltip={tooltipText}
-      data-position='left'
+      data-position={isNested ? 'top' : 'left'}
       onClick={onClick}
     >
       <i className='material-icons'>{materialIcon}</i>

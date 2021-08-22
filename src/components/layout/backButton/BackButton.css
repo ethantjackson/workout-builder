@@ -14,9 +14,16 @@
   background-color: #26d1ed;
 }
 
+.backButton.nested {
+  top: 12rem;
+}
+
 @media only screen and (max-width: 600px) {
   .backButton {
     font-size: 1rem;
-    top: 6.2rem;
+    top: 5.4rem;
+  }
+  .backButton.nested {
+    top: 9rem;
   }
 }

@@ -1,4 +1,4 @@
-.clearBtn {
+.secondaryBtn {
   position: fixed;
   line-height: 3.5rem;
   bottom: 7.5rem;
@@ -12,6 +12,6 @@
   box-shadow: 5px 5px 5px rgb(30, 36, 47);
 }
 
-.clearBtn:hover {
+.secondaryBtn:hover {
   background-color: #26d1ed;
 }

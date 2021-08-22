@@ -1,8 +1,9 @@
 .planEditor {
-margin: 6vh 4%;
+  margin: 6vh 4%;
 }
 .addStepDiv {
   border: 2px dashed grey;
+  border-radius: 0.6rem;
   color: grey;
   cursor: pointer;
   margin-top: 2rem;

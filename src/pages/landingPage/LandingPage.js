@@ -4,12 +4,10 @@ import { Front } from '../../img/index';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser, setMessage } from '../../actions/UserActions';
-import { useHistory } from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import './LandingPage.css';
 
 const LandingPage = ({ loginUser, setMessage, isAuthenticated, message }) => {
-  let history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

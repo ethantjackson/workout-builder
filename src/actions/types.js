@@ -15,3 +15,7 @@ export const SET_CURR_USER = 'SET_CURR_USER';
 export const SET_AUTHENTICATED = 'SET_AUTHENTICATED';
 export const SET_MESSAGE = 'SET_MESSAGE';
 export const USERS_ERROR = 'USERS_ERROR';
+
+export const SET_PLAN_NAME = 'SET_PLAN_NAME';
+export const SET_PLAN_STEPS = 'SET_PLAN_STEPS';
+export const PLANS_ERROR = 'PLANS_ERROR';

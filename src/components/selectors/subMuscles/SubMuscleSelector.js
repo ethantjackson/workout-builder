@@ -41,7 +41,11 @@ import {
 } from '../../../img/index';
 import './SubMuscleSelector.css';
 
-const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
+const SubMuscleSelector = ({
+  workout: { muscleGroup },
+  setSubMuscles,
+  isNested,
+}) => {
   const [subMuscleOptions, setSubMuscleOptions] = useState([]);
   const [subMuscleOptionRows, setSubMuscleOptionRows] = useState([]);
   const [windowSize, setWindowSize] = useState({
@@ -173,6 +177,7 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
         onClick={() => {
           setSubMuscles([]);
         }}
+        isNested={isNested}
       />
       <PrimaryButton
         tooltipText='Select All'
@@ -182,6 +187,7 @@ const SubMuscleSelector = ({ workout: { muscleGroup }, setSubMuscles }) => {
             subMuscleOptions.map((subMuscleOption) => subMuscleOption.name)
           );
         }}
+        isNested={isNested}
       />
     </div>
   );

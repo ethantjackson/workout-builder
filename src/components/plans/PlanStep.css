@@ -1,5 +1,6 @@
 .stepDiv {
   border: 2px dashed grey;
+  border-radius: 1rem;
   margin-top: 2rem;
   padding-bottom: 3%;
 }

@@ -9,12 +9,14 @@ const PlanStep = ({
   step: { reps, sets, setRest, workoutRest, workout_id, _id },
   deleteStep,
   editStep,
+  isLast,
 }) => {
   const [workout, setWorkout] = useState(null);
-  // const [reps, setReps] = useState(reps);
-  // const [sets, setSets] = useState(sets);
-  // const [setRest, setSetRest] = useState(setRest);
-  // const [workoutRest, setWorkoutRest] = useState(workoutRest);
+
+  useEffect(() => {
+    if (isLast) editStep({ workoutRest: 0 });
+    //eslint-disable-next-line
+  }, [isLast]);
 
   useEffect(() => {
     const fetchWorkout = async () => {
@@ -48,9 +50,10 @@ const PlanStep = ({
                 id='reps'
                 type='number'
                 value={reps}
-                onChange={(e) =>
-                  editStep({ reps: parseInt(e.target.value) }, _id)
-                }
+                onChange={(e) => {
+                  if (e.target.value >= 0)
+                    editStep({ reps: parseInt(e.target.value) }, _id);
+                }}
               />
               <label className='active' htmlFor='reps'>
                 Reps
@@ -63,9 +66,10 @@ const PlanStep = ({
                 id='setRest'
                 type='number'
                 value={setRest}
-                onChange={(e) =>
-                  editStep({ setRest: parseInt(e.target.value) }, _id)
-                }
+                onChange={(e) => {
+                  if (e.target.value >= 0)
+                    editStep({ setRest: parseInt(e.target.value) }, _id);
+                }}
               />
               <label className='active' htmlFor='reps'>
                 Set Rest (s)
@@ -80,30 +84,34 @@ const PlanStep = ({
                 id='sets'
                 type='number'
                 value={sets}
-                onChange={(e) =>
-                  editStep({ sets: parseInt(e.target.value) }, _id)
-                }
+                onChange={(e) => {
+                  if (e.target.value >= 0)
+                    editStep({ sets: parseInt(e.target.value) }, _id);
+                }}
               />
               <label className='active' htmlFor='reps'>
                 Sets
               </label>
             </div>
           </div>
-          <div className='col s8 xl6'>
-            <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
-              <input
-                id='reps'
-                type='number'
-                value={workoutRest}
-                onChange={(e) =>
-                  editStep({ workoutRest: parseInt(e.target.value) }, _id)
-                }
-              />
-              <label className='active' htmlFor='reps'>
-                Workout Rest (s)
-              </label>
+          {!isLast && (
+            <div className='col s8 xl6'>
+              <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
+                <input
+                  id='reps'
+                  type='number'
+                  value={workoutRest}
+                  onChange={(e) => {
+                    if (e.target.value >= 0)
+                      editStep({ workoutRest: parseInt(e.target.value) }, _id);
+                  }}
+                />
+                <label className='active' htmlFor='reps'>
+                  Workout Rest (s)
+                </label>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
@@ -114,6 +122,7 @@ PlanStep.propTypes = {
   step: PropTypes.object.isRequired,
   deleteStep: PropTypes.func.isRequired,
   editStep: PropTypes.func.isRequired,
+  isLast: PropTypes.bool.isRequired,
 };
 
 export default PlanStep;
