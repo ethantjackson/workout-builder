@@ -6,25 +6,8 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  name: 'Test',
-  steps: [
-    {
-      reps: 8,
-      sets: 4,
-      setRest: 100,
-      workoutRest: 130,
-      _id: '0',
-      workout_id: '60f070673152366ab62c3593',
-    },
-    {
-      reps: 20,
-      sets: 5,
-      setRest: 60,
-      workoutRest: 0,
-      _id: '1',
-      workout_id: '610d894118065b373c0b0cf3',
-    },
-  ],
+  name: '',
+  steps: [],
   error: null,
 };
 

@@ -9,6 +9,7 @@ import {
 } from '../actions/WorkoutPlanActions';
 import BackButton from '../components/layout/backButton/BackButton';
 import NextButton from '../components/layout/nextButton/NextButton';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 const NewPlanPage = ({ name, steps, setPlanName, setPlanSteps, addPlan }) => {
   // const [planName, setPlanName] = useState('Test Plan');
@@ -30,6 +31,25 @@ const NewPlanPage = ({ name, steps, setPlanName, setPlanSteps, addPlan }) => {
   //     workout_id: '610d894118065b373c0b0cf3',
   //   },
   // ]);
+  const handleSave = (e) => {
+    if (name.length > 0 && steps.length > 0) {
+      addPlan({
+        name: name,
+        steps: steps.map(({ _id, ...rest }) => rest),
+      });
+      setPlanSteps([]);
+      setPlanName('');
+    } else {
+      if (name.length <= 0) {
+        e.preventDefault();
+        M.toast({ html: 'Please enter a plan name...' });
+      }
+      if (steps.length <= 0) {
+        e.preventDefault();
+        M.toast({ html: 'Please add at least one step...' });
+      }
+    }
+  };
 
   return (
     <>
@@ -45,20 +65,14 @@ const NewPlanPage = ({ name, steps, setPlanName, setPlanSteps, addPlan }) => {
       <BackButton
         altText={'CANCEL'}
         target='/home-page'
-        onclick={(e) => {
+        onclick={() => {
           setPlanSteps([]);
         }}
       />
       <NextButton
         altText={'SAVE PLAN'}
         target='/home-page'
-        onClick={(e) => {
-          addPlan({
-            name: name,
-            steps: steps.map(({ _id, ...rest }) => rest),
-          });
-          setPlanSteps([]);
-        }}
+        onClick={handleSave}
       />
     </>
   );
