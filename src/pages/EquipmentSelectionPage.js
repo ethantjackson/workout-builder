@@ -7,11 +7,28 @@ import EquipmentSelector from '../components/selectors/equipment/EquipmentSelect
 import NextButton from '../components/layout/nextButton/NextButton';
 import BackButton from '../components/layout/backButton/BackButton';
 
-const EquipmentSelectionPage = ({ muscleGroup, equipment, loading }) => {
+const EquipmentSelectionPage = ({
+  muscleGroup,
+  equipment,
+  loading,
+  isNested,
+  getPreviousSelector,
+  getNextSelector,
+}) => {
+  const handleBack = (e) => {
+    if (isNested) {
+      e.preventDefault();
+      getPreviousSelector();
+    }
+  };
+
   const handleNext = (e) => {
     if (equipment.length <= 0) {
       e.preventDefault();
       M.toast({ html: 'Please select equipment.' });
+    } else if (isNested) {
+      e.preventDefault();
+      getNextSelector();
     }
   };
 
@@ -20,11 +37,19 @@ const EquipmentSelectionPage = ({ muscleGroup, equipment, loading }) => {
       <h1 className='instructionsHeader'>
         Select {_.lowerCase(muscleGroup)} equipment
       </h1>
-      <EquipmentSelector />
+      <EquipmentSelector isNested={isNested} />
       {!loading && (
         <>
-          <BackButton target='/sub-muscle-selection' />
-          <NextButton target='/workouts' onClick={(e) => handleNext(e)} />
+          <BackButton
+            target='/sub-muscle-selection'
+            onClick={handleBack}
+            isNested={isNested}
+          />
+          <NextButton
+            target='/workouts'
+            onClick={handleNext}
+            isNested={isNested}
+          />
         </>
       )}
     </>

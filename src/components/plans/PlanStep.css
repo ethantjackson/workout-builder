@@ -1,0 +1,42 @@
+.stepDiv {
+  border: 2px dashed grey;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 3%;
+}
+.stepDiv:hover {
+  border: 2px dashed #26d1ed;
+}
+
+.workoutName {
+  font-size: 1.4rem;
+}
+.workoutDemo {
+  width: 80%;
+  border-radius: 1rem;
+}
+
+.stepInputsDiv {
+  padding: 5% 0 0 0 !important;
+}
+
+.deleteIcon {
+  visibility: hidden;
+  cursor: pointer;
+  position: absolute;
+  color: grey;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+.deleteIcon:hover {
+  color: white;
+}
+.stepDiv:hover .deleteIcon {
+  visibility: visible;
+}
+
+@media only screen and (max-width: 600px) {
+  .deleteIcon {
+    visibility: visible !important;
+  }
+}

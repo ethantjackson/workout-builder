@@ -1,10 +1,10 @@
 import React from 'react';
 import './NextButton.css';
 
-const NextButton = ({ target, onClick }) => {
+const NextButton = ({ target, onClick, altText }) => {
   return (
     <a href={target} className='nextButton' onClick={onClick}>
-      NEXT
+      {altText ? altText : 'NEXT'}
     </a>
   );
 };

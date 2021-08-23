@@ -1,0 +1,72 @@
+.topBar {
+  font-size: 1.3rem;
+  padding: 0 2.5vw;
+}
+
+.siteDiv {
+  width: 16rem;
+  text-align: left;
+}
+.siteIcon {
+  height: 2.5rem;
+  position: relative;
+  top: 0.9rem;
+}
+.siteTitle {
+  margin: 0;
+}
+
+.userDiv {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-top: 1rem;
+  flex: 1;
+  text-align: right;
+}
+
+.userDiv ul,
+.userDiv li {
+  display: inline;
+  padding: 0.7rem;
+}
+
+.userAction {
+  color: grey;
+}
+
+.userAction:hover {
+  color: white;
+}
+
+.homeTitle {
+  margin-top: 10vh;
+  font-size: 3rem;
+  color: #26d1ed;
+}
+
+.homeActionDiv {
+  margin-top: 3vh;
+  padding: 2rem;
+}
+
+.homeActions {
+  font-size: 1.4rem;
+  text-decoration: underline;
+  color: white;
+}
+
+.homeActions:hover {
+  color: #26d1ed;
+}
+
+.homeActionImg {
+  /* height: 20vh; */
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.homeActionDescription {
+  color: grey;
+}

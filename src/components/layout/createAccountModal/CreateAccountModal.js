@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CreateAccountForm from './CreateAccountForm';
 import CreateAccountInfo from './CreateAccountInfo';
+import M from 'materialize-css/dist/js/materialize.min.js';
+
 import './CreateAccountModal.css';
 
 const CreateAccountModal = () => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
+
+  useEffect(() => {
+    var modals = document.querySelectorAll('.modal');
+    M.Modal.init(modals, {});
+  }, []);
 
   return (
     <div

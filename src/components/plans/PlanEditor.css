@@ -1,0 +1,17 @@
+.planEditor {
+  margin: 6vh 4% 0;
+  padding-bottom: 6vh;
+}
+.addStepDiv {
+  border: 2px dashed grey;
+  border-radius: 0.6rem;
+  color: grey;
+  cursor: pointer;
+  margin-top: 2rem;
+  line-height: 3.5vh;
+  height: 4vh;
+}
+.addStepDiv:hover {
+  color: #26d1ed;
+  border: 2px dashed #26d1ed;
+}

@@ -1,0 +1,60 @@
+.planPreview {
+  position: absolute;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  text-align: left;
+  padding: 1rem;
+  width: 90%;
+  height: 12%;
+  left: 5%;
+  bottom: 3%;
+  background-color: #202020;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 5px rgb(30, 36, 47);
+}
+
+.stepPreview {
+  display: inline-block;
+  height: 100%;
+  margin-right: 1rem;
+}
+.workoutImg {
+  position: relative;
+  top: calc(-50% - 1rem + 2px);
+  height: 100%;
+  border-radius: 1rem;
+}
+.selectedWorkoutImg {
+  height: 100%;
+  border-radius: 1rem;
+  opacity: 0.85;
+}
+.selected {
+  opacity: 1;
+  box-shadow: 0px 0px 1rem #26d1ed;
+}
+
+.emptyStep {
+  display: inline-block;
+  height: 100%;
+  /* margin-top: 5%; */
+  border: 2px dashed grey;
+  border-radius: 1rem;
+}
+.emptyStep img {
+  visibility: hidden;
+  height: 100%;
+}
+
+.emptyStepIcon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  color: grey;
+  top: calc(-100% - 4px);
+}

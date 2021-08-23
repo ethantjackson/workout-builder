@@ -3,13 +3,19 @@ import MuscleGroupSelector from '../components/selectors/muscles/MuscleGroupSele
 import BackButton from '../components/layout/backButton/BackButton';
 import NextButton from '../components/layout/nextButton/NextButton';
 
-const MuscleGroupSelectionPage = () => {
+const MuscleGroupSelectionPage = ({ isNested, getNextSelector }) => {
+  const handleNext = (e) => {
+    if (isNested) {
+      e.preventDefault();
+      getNextSelector();
+    }
+  };
   return (
     <>
       <h1 className='instructionsHeader'>Select a muscle group to begin</h1>
       <MuscleGroupSelector />
-      <BackButton target='/' />
-      <NextButton target={'/sub-muscle-selection'} />
+      <BackButton target='/home-page' />
+      <NextButton target={'/sub-muscle-selection'} onClick={handleNext} />
     </>
   );
 };

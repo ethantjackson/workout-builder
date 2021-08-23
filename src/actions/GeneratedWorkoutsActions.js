@@ -8,6 +8,19 @@ import {
 
 import _ from 'lodash';
 
+// export const getWorkout = (workoutID) => async (dispatch) => {
+//   try {
+//     const res = await fetch('/workout/' + workoutID);
+//     const data = await res.json();
+//     return data;
+//   } catch (err) {
+//     dispatch({
+//       type: WORKOUTS_ERROR,
+//       payload: err.response.data,
+//     });
+//   }
+// };
+
 export const getWorkouts = (workout) => async (dispatch) => {
   try {
     const snakeCaseStringify = (arr) => {
@@ -15,7 +28,7 @@ export const getWorkouts = (workout) => async (dispatch) => {
     };
 
     const res = await fetch(
-      '/workouts/' +
+      '/workout/workouts/' +
         snakeCaseStringify(workout.subMuscles) +
         '&' +
         snakeCaseStringify(workout.equipment)

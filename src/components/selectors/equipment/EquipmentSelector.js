@@ -110,6 +110,7 @@ const EquipmentSelector = ({
   setEquipment,
   getEquipmentOptions,
   setSelectionsLoading,
+  isNested,
 }) => {
   const [equipmentOptionRows, setEquipmentOptionRows] = useState([]);
   const [windowSize, setWindowSize] = useState({
@@ -182,6 +183,7 @@ const EquipmentSelector = ({
         tooltipText='Clear All'
         materialIcon='clear'
         onClick={() => setEquipment([])}
+        isNested={isNested}
       />
       <PrimaryButton
         tooltipText='Select All'
@@ -189,6 +191,7 @@ const EquipmentSelector = ({
         onClick={() =>
           setEquipment(equipmentOptions.map((equipmentItem) => equipmentItem))
         }
+        isNested={isNested}
       />
     </div>
   );

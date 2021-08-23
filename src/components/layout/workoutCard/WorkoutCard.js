@@ -2,10 +2,10 @@ import React from 'react';
 import './WorkoutCard.css';
 import PropTypes from 'prop-types';
 
-const WorkoutCard = ({ workout }) => {
+const WorkoutCard = ({ workout, setSelectedWorkout }) => {
   return (
     <div className='cardContainer'>
-      <div className='card'>
+      <div className='card' onClick={() => setSelectedWorkout(workout)}>
         <div className='card-image waves-effect waves-block waves-light cardImg'>
           <img
             className='activator'
