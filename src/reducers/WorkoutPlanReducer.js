@@ -1,4 +1,9 @@
-import { SET_PLAN_NAME, SET_PLAN_STEPS, PLANS_ERROR } from '../actions/types';
+import {
+  SET_PLAN_NAME,
+  SET_PLAN_STEPS,
+  ADD_PLAN_STEP,
+  PLANS_ERROR,
+} from '../actions/types';
 
 const initialState = {
   name: 'Test',
@@ -34,6 +39,11 @@ const WorkoutPlanReducer = (state = initialState, action) => {
       return {
         ...state,
         steps: action.payload,
+      };
+    case ADD_PLAN_STEP:
+      return {
+        ...state,
+        steps: [...state.steps, action.payload],
       };
     case PLANS_ERROR:
       console.error(action.payload);

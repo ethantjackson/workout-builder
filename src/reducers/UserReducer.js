@@ -1,5 +1,6 @@
 import {
   SET_CURR_USER,
+  GET_CURR_USER_PLANS,
   SET_MESSAGE,
   SET_AUTHENTICATED,
   USERS_ERROR,
@@ -8,6 +9,7 @@ import {
 //TODO implement toastMessage (set ToastMessage on 401 res in actions)
 const initialState = {
   currUser: null,
+  currUserPlans: [],
   isAuthenticated: false,
   message: null,
   error: null,
@@ -19,6 +21,11 @@ const UserReducer = (state = initialState, action) => {
       return {
         ...state,
         currUser: action.payload,
+      };
+    case GET_CURR_USER_PLANS:
+      return {
+        ...state,
+        currUserPlans: action.payload,
       };
     case SET_MESSAGE:
       return {

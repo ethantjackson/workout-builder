@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import PlanEditor from '../components/plans/PlanEditor';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setPlanName, setPlanSteps } from '../actions/WorkoutPlanActions';
+import {
+  setPlanName,
+  setPlanSteps,
+  addPlan,
+} from '../actions/WorkoutPlanActions';
 import BackButton from '../components/layout/backButton/BackButton';
+import NextButton from '../components/layout/nextButton/NextButton';
 
-const NewPlanPage = ({ name, steps, setPlanName, setPlanSteps }) => {
+const NewPlanPage = ({ name, steps, setPlanName, setPlanSteps, addPlan }) => {
   // const [planName, setPlanName] = useState('Test Plan');
   // const [planSteps, setPlanSteps] = useState([
   //   {
@@ -37,7 +42,24 @@ const NewPlanPage = ({ name, steps, setPlanName, setPlanSteps }) => {
           setPlanSteps={setPlanSteps}
         />
       </div>
-      <BackButton altText={'SAVE PLAN'} target='/home-page' />
+      <BackButton
+        altText={'CANCEL'}
+        target='/home-page'
+        onclick={(e) => {
+          setPlanSteps([]);
+        }}
+      />
+      <NextButton
+        altText={'SAVE PLAN'}
+        target='/home-page'
+        onClick={(e) => {
+          addPlan({
+            name: name,
+            steps: steps.map(({ _id, ...rest }) => rest),
+          });
+          setPlanSteps([]);
+        }}
+      />
     </>
   );
 };
@@ -45,16 +67,17 @@ const NewPlanPage = ({ name, steps, setPlanName, setPlanSteps }) => {
 NewPlanPage.propTypes = {
   name: PropTypes.string.isRequired,
   steps: PropTypes.array.isRequired,
+  setPlanName: PropTypes.func.isRequired,
+  setPlanSteps: PropTypes.func.isRequired,
+  addPlan: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   name: state.plan.name,
   steps: state.plan.steps,
-  setPlanName: PropTypes.func.isRequired,
-  setPlanSteps: PropTypes.func.isRequired,
 });
 
-export default connect(mapStateToProps, { setPlanName, setPlanSteps })(
+export default connect(mapStateToProps, { setPlanName, setPlanSteps, addPlan })(
   NewPlanPage
 );
 

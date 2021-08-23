@@ -1,5 +1,6 @@
 import {
   SET_CURR_USER,
+  GET_CURR_USER_PLANS,
   SET_MESSAGE,
   SET_AUTHENTICATED,
   USERS_ERROR,
@@ -44,6 +45,29 @@ export const loginUser = (user) => async (dispatch) => {
       dispatch({
         type: SET_MESSAGE,
         payload: 'Incorrect email or password.',
+      });
+    }
+  } catch (err) {
+    console.log(err);
+    dispatch({ type: USERS_ERROR, payload: err.response.data });
+  }
+};
+
+export const getUserPlans = () => async (dispatch) => {
+  try {
+    const res = await fetch('/user/plans');
+    if (res.status !== 401) {
+      const data = await res.json();
+      if (data.authenticated === true) {
+        dispatch({
+          type: GET_CURR_USER_PLANS,
+          payload: data.workoutPlans,
+        });
+      }
+    } else {
+      dispatch({
+        type: SET_MESSAGE,
+        payload: "Cannot get user's workout plans",
       });
     }
   } catch (err) {

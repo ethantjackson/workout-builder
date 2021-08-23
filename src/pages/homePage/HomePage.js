@@ -69,10 +69,11 @@ const HomePage = ({
                 logout
               </a>
             </li>
-            <li className='userAction'>
+            {/* <li className='userAction'>
               <a href='#!'>profile</a>
-            </li>
-            {windowSize.width > 550 && <li>{currUser.name}</li>}
+            </li> */}
+            {/* {windowSize.width > 550 && <li>{currUser.name}</li>} */}
+            <li>{currUser.name}</li>
           </ul>
         </div>
       </div>
@@ -148,4 +149,7 @@ const mapStateToProps = (state) => ({
   currUser: state.user.currUser,
 });
 
-export default connect(mapStateToProps, { logoutUser, setMessage })(HomePage);
+export default connect(mapStateToProps, {
+  logoutUser,
+  setMessage,
+})(HomePage);

@@ -18,4 +18,6 @@ export const USERS_ERROR = 'USERS_ERROR';
 
 export const SET_PLAN_NAME = 'SET_PLAN_NAME';
 export const SET_PLAN_STEPS = 'SET_PLAN_STEPS';
+export const ADD_PLAN_STEP = 'ADD_PLAN_STEP';
+export const GET_CURR_USER_PLANS = 'GET_CURR_USER_PLANS';
 export const PLANS_ERROR = 'PLANS_ERROR';

@@ -14,9 +14,11 @@ const PlanStep = ({
   const [workout, setWorkout] = useState(null);
 
   useEffect(() => {
-    if (isLast) editStep({ workoutRest: 0 });
+    if (isLast) {
+      editStep({ workoutRest: 0 }, _id);
+    }
     //eslint-disable-next-line
-  }, [isLast]);
+  }, [isLast, _id]);
 
   useEffect(() => {
     const fetchWorkout = async () => {

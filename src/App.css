@@ -20,8 +20,16 @@ body {
   font-size: 2.5rem;
 }
 
+@media only screen and (max-height: 1025px) {
+  .instructionsHeader {
+    margin-top: 2vh;
+  }
+}
+
 .instructionsSubHeader {
   color: #26d1ed;
+  z-index: 2;
+  position: relative;
 }
 
 .input-field input[type='email']:focus,
