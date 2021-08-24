@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import './PlanActionCard.css';
 
-const PlanActionCard = ({ plan }) => {
+const PlanActionCard = ({ plan, deleteUserPlan }) => {
   const [workouts, setWorkouts] = useState([]);
 
   const getWorkout = async (workoutID) => {
@@ -31,10 +31,6 @@ const PlanActionCard = ({ plan }) => {
     //eslint-disable-next-line
   }, [plan]);
 
-  useEffect(() => {
-    console.log(workouts);
-  }, [workouts]);
-
   return (
     <div className='planActionCard'>
       {/* <div className='top'> */}
@@ -46,7 +42,11 @@ const PlanActionCard = ({ plan }) => {
         <li className='tooltipped planAction' data-tooltip='Edit Plan'>
           <i className='material-icons'>create</i>
         </li>
-        <li className='tooltipped planAction' data-tooltip='Delete Plan'>
+        <li
+          className='tooltipped planAction'
+          data-tooltip='Delete Plan'
+          onClick={() => deleteUserPlan(plan._id)}
+        >
           <i className='material-icons'>delete</i>
         </li>
       </ul>
@@ -58,12 +58,13 @@ const PlanActionCard = ({ plan }) => {
           {workouts.map((workout, index) => (
             <div
               key={workout._id}
-              className='stepPreview'
+              className='stepPreview stepPreviewDiv'
               style={
                 index >= workouts.length || plan.steps[index].workoutRest <= 0
                   ? {
                       borderRight: 'none',
-                      paddingRight: '0',
+                      paddingRight: '1.5rem',
+                      marginRight: '0',
                     }
                   : {}
               }
@@ -93,6 +94,7 @@ const PlanActionCard = ({ plan }) => {
 
 PlanActionCard.propTypes = {
   plan: PropTypes.object.isRequired,
+  deleteUserPlan: PropTypes.func.isRequired,
 };
 
 export default PlanActionCard;

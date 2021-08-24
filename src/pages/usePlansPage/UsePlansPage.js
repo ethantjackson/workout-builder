@@ -3,10 +3,15 @@ import PlanActionCard from '../../components/layout/planActionCard/PlanActionCar
 import BackButton from '../../components/layout/backButton/BackButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getUserPlans } from '../../actions/UserActions';
+import { getUserPlans, deleteUserPlan } from '../../actions/UserActions';
 import './UsePlansPage.css';
 
-const UsePlansPage = ({ currUser, currUserPlans, getUserPlans }) => {
+const UsePlansPage = ({
+  currUser,
+  currUserPlans,
+  getUserPlans,
+  deleteUserPlan,
+}) => {
   useEffect(() => {
     getUserPlans();
     //eslint-disable-next-line
@@ -15,12 +20,24 @@ const UsePlansPage = ({ currUser, currUserPlans, getUserPlans }) => {
   return (
     <>
       <div className='container'>
-        <h1 className='instructionsHeader'>
+        <h1 className='usePlanHeader'>
           <span className='userName'>{currUser.name}'s</span> Workout Plans
         </h1>
         {currUserPlans.map((plan) => (
-          <PlanActionCard key={plan._id} plan={plan} />
+          <PlanActionCard
+            key={plan._id}
+            plan={plan}
+            deleteUserPlan={deleteUserPlan}
+          />
         ))}
+        {currUserPlans.length <= 0 && (
+          <>
+            <h3 className='usePlanSubHeader'>No plans yet...</h3>
+            <a className='addPlanBtn' href='/plan'>
+              + ADD WORKOUT PLAN
+            </a>
+          </>
+        )}
       </div>
       <BackButton altText={'HOME'} target='/home-page' />
     </>
@@ -36,6 +53,9 @@ UsePlansPage.propTypes = {
   currUser: PropTypes.object.isRequired,
   currUserPlans: PropTypes.array.isRequired,
   getUserPlans: PropTypes.func.isRequired,
+  deleteUserPlan: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, { getUserPlans })(UsePlansPage);
+export default connect(mapStateToProps, { getUserPlans, deleteUserPlan })(
+  UsePlansPage
+);

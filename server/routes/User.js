@@ -120,22 +120,27 @@ userRouter.delete(
             msgError: true,
           },
         });
-      } else req.user.workoutPlans.filter((plan) => plan._id !== planID);
-      req.user.save((err) => {
+      }
+      let updatedUser = req.user;
+      updatedUser.workoutPlans = updatedUser.workoutPlans.filter(
+        (plan) => plan._id != planID
+      );
+      updatedUser.save((err) => {
         if (err)
           res.status(500).json({
             message: {
-              msgBody: 'Error has occured when updating user',
+              msgBody: 'Error has occured when updating user.',
               msgError: true,
             },
           });
-        else
+        else {
           res.status(200).json({
             message: {
-              msgBody: 'Successfully deleted workout plan',
+              msgBody: 'Successfully deleted workout plan.',
               msgError: false,
             },
           });
+        }
       });
     });
   }

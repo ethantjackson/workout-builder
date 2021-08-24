@@ -59,8 +59,8 @@
   overflow-y: hidden;
   width: calc(100% - 2rem);
 }
-.stepPreview {
-  /* height: 100%; */
+.stepPreviewDiv {
+  /* border: 1px solid red; */
   position: relative;
   margin-right: 1.5rem;
   padding-right: 1.5rem;
@@ -89,7 +89,7 @@
 .stepDetails {
   text-align: center;
   position: absolute;
-  /* border: 1px solid red; */
+  /* border: 1px solid blue; */
   width: calc(100% - 1.5rem);
   color: #26d1ed;
 }

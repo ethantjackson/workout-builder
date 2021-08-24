@@ -26,7 +26,7 @@ const WorkoutPlanReducer = (state = initialState, action) => {
     case ADD_PLAN_STEP:
       return {
         ...state,
-        steps: [...state.steps, action.payload],
+        steps: [...state.steps, { ...action.payload, _id: state.steps.length }],
       };
     case PLANS_ERROR:
       console.error(action.payload);

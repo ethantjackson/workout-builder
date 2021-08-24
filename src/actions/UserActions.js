@@ -1,6 +1,7 @@
 import {
   SET_CURR_USER,
   GET_CURR_USER_PLANS,
+  DELETE_CURR_USER_PLAN,
   SET_MESSAGE,
   SET_AUTHENTICATED,
   USERS_ERROR,
@@ -69,6 +70,26 @@ export const getUserPlans = () => async (dispatch) => {
         type: SET_MESSAGE,
         payload: "Cannot get user's workout plans",
       });
+    }
+  } catch (err) {
+    console.log(err);
+    dispatch({ type: USERS_ERROR, payload: err.response.data });
+  }
+};
+
+export const deleteUserPlan = (planID) => async (dispatch) => {
+  try {
+    const res = await fetch('/user/plan/' + planID, {
+      method: 'DELETE',
+    });
+    if (res.status !== 401) {
+      const data = await res.json();
+      if (!data.message.msgError) {
+        dispatch({
+          type: DELETE_CURR_USER_PLAN,
+          payload: planID,
+        });
+      }
     }
   } catch (err) {
     console.log(err);

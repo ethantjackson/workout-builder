@@ -65,7 +65,7 @@ const NewPlanPage = ({ name, steps, setPlanName, setPlanSteps, addPlan }) => {
       <BackButton
         altText={'CANCEL'}
         target='/home-page'
-        onclick={() => {
+        onClick={() => {
           setPlanSteps([]);
         }}
       />
