@@ -23,7 +23,8 @@
   .restartButtonContainer {
     right: 50%;
     top: auto;
-    bottom: 3rem;
+    bottom: 3.4rem;
+    left: 5%;
     font-size: 1.2rem;
   }
   .restartButton {

@@ -21,7 +21,7 @@
 @media only screen and (max-width: 600px) {
   .backButton {
     font-size: 1rem;
-    top: 5.4rem;
+    top: 3.5rem;
   }
   .backButton.nested {
     top: 9rem;

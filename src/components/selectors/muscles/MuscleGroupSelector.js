@@ -30,7 +30,7 @@ const MuscleGroupSelector = ({
   useEffect(() => {
     var instance = document.querySelectorAll('.carousel');
     M.Carousel.init(instance, {
-      indicators: windowSize.height >= 850 ? true : false,
+      indicators: true,
       onCycleTo: (e) => {
         setMuscleGroup(e.id);
         setSubMuscles([]);

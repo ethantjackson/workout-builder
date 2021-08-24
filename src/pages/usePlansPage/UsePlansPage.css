@@ -1,0 +1,9 @@
+.container {
+  padding-bottom: 10vh;
+}
+.instructionsHeader {
+  margin-bottom: 9vh !important;
+}
+.userName {
+  color: #21d1ed;
+}
