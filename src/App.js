@@ -8,6 +8,7 @@ import NewPlanPage from './pages/NewPlanPage';
 import EditPlanPage from './pages/EditPlanPage';
 import AddStepPage from './pages/AddStepPage';
 import UsePlansPage from './pages/usePlansPage/UsePlansPage';
+import PlanGuidePage from './pages/PlanGuidePage';
 import MuscleGroupSelectionPage from './pages/MuscleGroupSelectionPage';
 import SubMuscleSelectionPage from './pages/SubMuscleSelectionPage';
 import EquipmentSelectionPage from './pages/EquipmentSelectionPage';
@@ -36,6 +37,7 @@ const App = () => {
               <PrivateRoute exact path='/edit-plan' component={EditPlanPage} />
               <PrivateRoute exact path='/add-step' component={AddStepPage} />
               <PrivateRoute exact path='/plans' component={UsePlansPage} />
+              <PrivateRoute exact path='/guide' component={PlanGuidePage} />
               <Route exact path='/muscle-group-selection'>
                 <MuscleGroupSelectionPage />
               </Route>
