@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PlanEditor from '../components/plans/PlanEditor';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -6,23 +6,33 @@ import {
   setPlanID,
   setPlanName,
   setPlanSteps,
-  addPlan,
+  updatePlan,
 } from '../actions/WorkoutPlanActions';
 import BackButton from '../components/layout/backButton/BackButton';
 import NextButton from '../components/layout/nextButton/NextButton';
+import { useHistory } from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const NewPlanPage = ({
+const EditPlanPage = ({
+  id,
   name,
   steps,
   setPlanID,
   setPlanName,
   setPlanSteps,
-  addPlan,
+  updatePlan,
 }) => {
+  let history = useHistory();
+  useEffect(() => {
+    if (id === null) {
+      history.push('/plans');
+    }
+    //eslint-disable-next-line
+  }, []);
+
   const handleSave = (e) => {
     if (name.length > 0 && steps.length > 0) {
-      addPlan({
+      updatePlan(id, {
         name: name,
         steps: steps.map(({ _id, ...rest }) => rest),
       });
@@ -44,7 +54,7 @@ const NewPlanPage = ({
   return (
     <>
       <div className='container'>
-        <h1 className='instructionsHeader'>New Workout Plan</h1>
+        <h1 className='instructionsHeader'>Edit Workout Plan</h1>
         <PlanEditor
           planName={name}
           setPlanName={setPlanName}
@@ -54,32 +64,29 @@ const NewPlanPage = ({
       </div>
       <BackButton
         altText={'CANCEL'}
-        target='/home-page'
+        target='/plans'
         onClick={() => {
           setPlanID(null);
           setPlanName('');
           setPlanSteps([]);
         }}
       />
-      <NextButton
-        altText={'SAVE PLAN'}
-        target='/home-page'
-        onClick={handleSave}
-      />
+      <NextButton altText={'SAVE PLAN'} target='/plans' onClick={handleSave} />
     </>
   );
 };
 
-NewPlanPage.propTypes = {
+EditPlanPage.propTypes = {
   name: PropTypes.string.isRequired,
   steps: PropTypes.array.isRequired,
   setPlanID: PropTypes.func.isRequired,
   setPlanName: PropTypes.func.isRequired,
   setPlanSteps: PropTypes.func.isRequired,
-  addPlan: PropTypes.func.isRequired,
+  updatePlan: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
+  id: state.plan.id,
   name: state.plan.name,
   steps: state.plan.steps,
 });
@@ -88,5 +95,5 @@ export default connect(mapStateToProps, {
   setPlanID,
   setPlanName,
   setPlanSteps,
-  addPlan,
-})(NewPlanPage);
+  updatePlan,
+})(EditPlanPage);

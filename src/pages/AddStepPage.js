@@ -5,11 +5,9 @@ import SubMuscleSelectionPage from './SubMuscleSelectionPage';
 import EquipmentSelectionPage from './EquipmentSelectionPage';
 import GeneratedWorkoutsPage from './generatedWorkoutsPage/GeneratedWorkoutsPage';
 import BackButton from '../components/layout/backButton/BackButton';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPlanStep } from '../actions/WorkoutPlanActions';
 import { useHistory } from 'react-router-dom';
-import nextId from 'react-id-generator';
 
 const AddStepPage = ({ addPlanStep }) => {
   let history = useHistory();
@@ -27,7 +25,6 @@ const AddStepPage = ({ addPlanStep }) => {
         sets: 3,
         setRest: 60,
         workoutRest: 0,
-        _id: nextId(),
         workout_id: selectedWorkout._id,
       });
       history.push('/plan');

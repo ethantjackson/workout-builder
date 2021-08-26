@@ -106,6 +106,74 @@ userRouter.post(
   }
 );
 
+userRouter.put(
+  '/plan/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const planID = req.params.id;
+    const newPlan = req.body;
+
+    Plan.findByIdAndUpdate(planID, newPlan, { new: true }, (err) => {
+      if (err) {
+        console.log(err);
+        res.status(500).json({
+          message: {
+            msgBody: 'Error has occured when updating workout plan.',
+            msgError: true,
+          },
+        });
+      } else {
+        res.status(200).json({
+          message: {
+            msgBody: 'Successfully updated workout plan.',
+            msgError: false,
+          },
+        });
+      }
+    });
+  }
+);
+
+userRouter.delete(
+  '/plan/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const planID = req.params.id;
+    Plan.findByIdAndDelete(planID, (err) => {
+      if (err) {
+        console.log(err);
+        res.status(500).json({
+          message: {
+            msgBody: 'Error has occured when deleting workout plan.',
+            msgError: true,
+          },
+        });
+      }
+      let updatedUser = req.user;
+      updatedUser.workoutPlans = updatedUser.workoutPlans.filter(
+        (plan) => plan._id != planID
+      );
+      updatedUser.save((err) => {
+        if (err)
+          res.status(500).json({
+            message: {
+              msgBody: 'Error has occured when updating user.',
+              msgError: true,
+            },
+          });
+        else {
+          res.status(200).json({
+            message: {
+              msgBody: 'Successfully deleted workout plan.',
+              msgError: false,
+            },
+          });
+        }
+      });
+    });
+  }
+);
+
 userRouter.get(
   '/plans',
   passport.authenticate('jwt', { session: false }),

@@ -1,0 +1,98 @@
+.planActionCard {
+  position: relative;
+  margin-top: 5vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  text-align: left;
+  /* padding: 1rem; */
+  padding: 0 50% calc(10vh + 6.5rem) 2rem;
+  background-color: #202020;
+  border-radius: 1rem;
+  box-shadow: 10px 10px 10px rgb(30, 36, 47);
+}
+/* .top {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.planActions {
+  display: inline;
+  position: absolute;
+  right: 15%;
+  top: -0.5vh;
+}
+.planAction {
+  display: inline;
+  background-color: rgb(40, 63, 104);
+  box-shadow: 5px 5px 5px rgb(30, 36, 47);
+  margin-left: 10%;
+  padding: 5vh 1rem 0.4rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.planAction:hover {
+  background-color: #26d1ed;
+}
+.planAction i {
+  font-size: 2.2vh;
+}
+
+/* .deleteIcon {
+  position: relative;
+  border: 1px solid red;
+  right: 1rem;
+  top: 0rem;
+} */
+
+.planName {
+  font-size: 2.2vh;
+  margin-bottom: 2vh;
+}
+
+.stepPreviewContainer {
+  /* border: 1px solid red; */
+  padding-bottom: 5rem;
+  padding-right: 1.5rem;
+  position: absolute;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: calc(100% - 2rem);
+}
+.stepPreviewDiv {
+  /* border: 1px solid red; */
+  position: relative;
+  margin-right: 1.5rem;
+  padding-right: 1.5rem;
+  border-right: grey 1px solid;
+}
+
+.workoutImg {
+  /* position: relative; */
+  /* top: calc(-50% - 1rem + 2px); */
+  height: 10vh;
+  border-radius: 1rem;
+}
+
+.workoutRest {
+  margin-top: 0;
+  text-align: center;
+  background-color: #202020;
+  color: #26d1ed;
+  position: absolute;
+  top: calc(50% - 1rem);
+  /* border: 1px solid red; */
+  width: 3rem;
+  right: -1.5rem;
+  z-index: 3;
+}
+.stepDetails {
+  text-align: center;
+  position: absolute;
+  /* border: 1px solid blue; */
+  width: calc(100% - 1.5rem);
+  color: #26d1ed;
+}
+.units {
+  color: rgb(199, 199, 199);
+}

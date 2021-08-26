@@ -1,6 +1,7 @@
 import {
   SET_CURR_USER,
   GET_CURR_USER_PLANS,
+  DELETE_CURR_USER_PLAN,
   SET_MESSAGE,
   SET_AUTHENTICATED,
   USERS_ERROR,
@@ -26,6 +27,13 @@ const UserReducer = (state = initialState, action) => {
       return {
         ...state,
         currUserPlans: action.payload,
+      };
+    case DELETE_CURR_USER_PLAN:
+      return {
+        ...state,
+        currUserPlans: state.currUserPlans.filter(
+          (plan) => plan._id !== action.payload.toString()
+        ),
       };
     case SET_MESSAGE:
       return {

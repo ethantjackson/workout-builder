@@ -78,7 +78,10 @@ const HomePage = ({
         </div>
       </div>
       <div className='container'>
-        <h1 className='homeTitle'>Hi, {currUser.name}.</h1>
+        <h1 className='homeTitle'>
+          <span style={{ color: 'white' }}>Hi, </span>
+          {currUser.name}.
+        </h1>
         <div className='row'>
           <div className='col s12 m6 l4'>
             <div className='homeActionDiv'>
@@ -121,8 +124,8 @@ const HomePage = ({
                 alt='plan-img'
               />
               <br />
-              <a href='/view-plans' className='homeActions'>
-                View Workout Plans
+              <a href='/plans' className='homeActions'>
+                Use Workout Plans
               </a>
               <p className='homeActionDescription'>
                 Select from your personal workout plans for a step-by-step

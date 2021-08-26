@@ -1,11 +1,9 @@
 .stepDiv {
-  border: 2px dashed grey;
   border-radius: 1rem;
   margin-top: 2rem;
   padding-bottom: 3%;
-}
-.stepDiv:hover {
-  border: 2px dashed #26d1ed;
+  background-color: #202020;
+  box-shadow: 5px 5px 15px rgb(30, 36, 47);
 }
 
 .workoutName {

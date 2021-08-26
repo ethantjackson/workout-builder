@@ -29,7 +29,6 @@ const PlanStep = ({
     fetchWorkout();
   }, [workout_id]);
 
-  if (!workout) return <Preloader />;
   return (
     <div className='row stepDiv'>
       <div style={{ position: 'relative' }}>
@@ -40,82 +39,98 @@ const PlanStep = ({
           delete
         </i>
       </div>
-      <div className='col s4'>
-        <h4 className='workoutName'>{workout.name}</h4>
-        <img className='workoutDemo' src={workout.demo} alt='workout-demo' />
-      </div>
-      <div className='col s8 stepInputsDiv'>
-        <div className='row'>
-          <div className='col s4 xl6'>
-            <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
-              <input
-                id='reps'
-                type='number'
-                value={reps}
-                onChange={(e) => {
-                  if (e.target.value >= 0)
-                    editStep({ reps: parseInt(e.target.value) }, _id);
-                }}
-              />
-              <label className='active' htmlFor='reps'>
-                Reps
-              </label>
-            </div>
+      {!workout ? (
+        <Preloader />
+      ) : (
+        <>
+          <div
+            className='col s4'
+            onClick={() => console.log(workout.name, _id)}
+          >
+            <h4 className='workoutName'>{workout.name}</h4>
+            <img
+              className='workoutDemo'
+              src={workout.demo}
+              alt='workout-demo'
+            />
           </div>
-          <div className='col s8 xl6'>
-            <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
-              <input
-                id='setRest'
-                type='number'
-                value={setRest}
-                onChange={(e) => {
-                  if (e.target.value >= 0)
-                    editStep({ setRest: parseInt(e.target.value) }, _id);
-                }}
-              />
-              <label className='active' htmlFor='reps'>
-                Set Rest (s)
-              </label>
-            </div>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col s4 xl6'>
-            <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
-              <input
-                id='sets'
-                type='number'
-                value={sets}
-                onChange={(e) => {
-                  if (e.target.value >= 0)
-                    editStep({ sets: parseInt(e.target.value) }, _id);
-                }}
-              />
-              <label className='active' htmlFor='reps'>
-                Sets
-              </label>
-            </div>
-          </div>
-          {!isLast && (
-            <div className='col s8 xl6'>
-              <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
-                <input
-                  id='reps'
-                  type='number'
-                  value={workoutRest}
-                  onChange={(e) => {
-                    if (e.target.value >= 0)
-                      editStep({ workoutRest: parseInt(e.target.value) }, _id);
-                  }}
-                />
-                <label className='active' htmlFor='reps'>
-                  Workout Rest (s)
-                </label>
+          <div className='col s8 stepInputsDiv'>
+            <div className='row'>
+              <div className='col s4 xl6'>
+                <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
+                  <input
+                    id='reps'
+                    type='number'
+                    value={reps}
+                    onChange={(e) => {
+                      if (e.target.value > 0)
+                        editStep({ reps: parseInt(e.target.value) }, _id);
+                    }}
+                  />
+                  <label className='active' htmlFor='reps'>
+                    Reps
+                  </label>
+                </div>
+              </div>
+              <div className='col s8 xl6'>
+                <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
+                  <input
+                    id='setRest'
+                    type='number'
+                    value={setRest}
+                    onChange={(e) => {
+                      if (e.target.value > 0)
+                        editStep({ setRest: parseInt(e.target.value) }, _id);
+                    }}
+                  />
+                  <label className='active' htmlFor='reps'>
+                    Set Rest (s)
+                  </label>
+                </div>
               </div>
             </div>
-          )}
-        </div>
-      </div>
+            <div className='row'>
+              <div className='col s4 xl6'>
+                <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
+                  <input
+                    id='sets'
+                    type='number'
+                    value={sets}
+                    onChange={(e) => {
+                      if (e.target.value > 0)
+                        editStep({ sets: parseInt(e.target.value) }, _id);
+                    }}
+                  />
+                  <label className='active' htmlFor='reps'>
+                    Sets
+                  </label>
+                </div>
+              </div>
+              {!isLast && (
+                <div className='col s8 xl6'>
+                  <div className='input-field col s12 m8 l6 offset-m1 offset-l2'>
+                    <input
+                      id='reps'
+                      type='number'
+                      value={workoutRest}
+                      onChange={(e) => {
+                        if (e.target.value >= 0)
+                          editStep(
+                            { workoutRest: parseInt(e.target.value) },
+                            _id
+                          );
+                      }}
+                    />
+                    <label className='active' htmlFor='reps'>
+                      Workout Rest (s)
+                    </label>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

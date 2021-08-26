@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LandingPage from './pages/landingPage/LandingPage';
 import HomePage from './pages/homePage/HomePage';
 import NewPlanPage from './pages/NewPlanPage';
+import EditPlanPage from './pages/EditPlanPage';
 import AddStepPage from './pages/AddStepPage';
+import UsePlansPage from './pages/usePlansPage/UsePlansPage';
 import MuscleGroupSelectionPage from './pages/MuscleGroupSelectionPage';
 import SubMuscleSelectionPage from './pages/SubMuscleSelectionPage';
 import EquipmentSelectionPage from './pages/EquipmentSelectionPage';
@@ -31,7 +33,9 @@ const App = () => {
               <UnPrivateRoute exact path='/' component={LandingPage} />
               <PrivateRoute exact path='/home-page' component={HomePage} />
               <PrivateRoute exact path='/plan' component={NewPlanPage} />
+              <PrivateRoute exact path='/edit-plan' component={EditPlanPage} />
               <PrivateRoute exact path='/add-step' component={AddStepPage} />
+              <PrivateRoute exact path='/plans' component={UsePlansPage} />
               <Route exact path='/muscle-group-selection'>
                 <MuscleGroupSelectionPage />
               </Route>
