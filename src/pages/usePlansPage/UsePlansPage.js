@@ -4,6 +4,11 @@ import BackButton from '../../components/layout/backButton/BackButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUserPlans, deleteUserPlan } from '../../actions/UserActions';
+import {
+  setPlanID,
+  setPlanName,
+  setPlanSteps,
+} from '../../actions/WorkoutPlanActions';
 import './UsePlansPage.css';
 
 const UsePlansPage = ({
@@ -11,6 +16,9 @@ const UsePlansPage = ({
   currUserPlans,
   getUserPlans,
   deleteUserPlan,
+  setPlanID,
+  setPlanName,
+  setPlanSteps,
 }) => {
   useEffect(() => {
     getUserPlans();
@@ -28,6 +36,9 @@ const UsePlansPage = ({
             key={plan._id}
             plan={plan}
             deleteUserPlan={deleteUserPlan}
+            setPlanID={setPlanID}
+            setPlanName={setPlanName}
+            setPlanSteps={setPlanSteps}
           />
         ))}
         {currUserPlans.length <= 0 && (
@@ -54,8 +65,15 @@ UsePlansPage.propTypes = {
   currUserPlans: PropTypes.array.isRequired,
   getUserPlans: PropTypes.func.isRequired,
   deleteUserPlan: PropTypes.func.isRequired,
+  setPlanID: PropTypes.func.isRequired,
+  setPlanName: PropTypes.func.isRequired,
+  setPlanSteps: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, { getUserPlans, deleteUserPlan })(
-  UsePlansPage
-);
+export default connect(mapStateToProps, {
+  getUserPlans,
+  deleteUserPlan,
+  setPlanID,
+  setPlanName,
+  setPlanSteps,
+})(UsePlansPage);

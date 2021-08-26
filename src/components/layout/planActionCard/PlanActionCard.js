@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Preloader from '../Preloader';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import './PlanActionCard.css';
 
-const PlanActionCard = ({ plan, deleteUserPlan }) => {
+const PlanActionCard = ({
+  plan,
+  deleteUserPlan,
+  setPlanID,
+  setPlanName,
+  setPlanSteps,
+}) => {
+  let history = useHistory();
   const [workouts, setWorkouts] = useState([]);
 
   const getWorkout = async (workoutID) => {
@@ -23,6 +31,12 @@ const PlanActionCard = ({ plan, deleteUserPlan }) => {
   useEffect(() => {
     var elems = document.querySelectorAll('.tooltipped');
     M.Tooltip.init(elems, { position: 'bottom' });
+    return () => {
+      elems.forEach((elem) => {
+        var instance = M.Tooltip.getInstance(elem);
+        instance.destroy();
+      });
+    };
   }, []);
 
   useEffect(() => {
@@ -39,7 +53,16 @@ const PlanActionCard = ({ plan, deleteUserPlan }) => {
         <li className='tooltipped planAction' data-tooltip='Run Plan Guide'>
           <i className='material-icons'>play_circle_filled</i>
         </li>
-        <li className='tooltipped planAction' data-tooltip='Edit Plan'>
+        <li
+          className='tooltipped planAction'
+          data-tooltip='Edit Plan'
+          onClick={() => {
+            setPlanID(plan._id);
+            setPlanName(plan.name);
+            setPlanSteps(plan.steps);
+            history.push('/edit-plan');
+          }}
+        >
           <i className='material-icons'>create</i>
         </li>
         <li
@@ -57,7 +80,7 @@ const PlanActionCard = ({ plan, deleteUserPlan }) => {
         <div className='stepPreviewContainer'>
           {workouts.map((workout, index) => (
             <div
-              key={workout._id}
+              key={index}
               className='stepPreview stepPreviewDiv'
               style={
                 index >= workouts.length || plan.steps[index].workoutRest <= 0

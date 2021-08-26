@@ -27,6 +27,11 @@ const CreateAccountForm = ({ registerUser, loginUser }) => {
       M.toast({ html: 'Password must be at least 8 characters long...' });
       setPassword('');
       setConfirmPassword('');
+    } else if (name.length > 20) {
+      M.toast({ html: 'Name cannot be longer than 20 characters...' });
+      setName('');
+      setPassword('');
+      setConfirmPassword('');
     } else if (password !== confirmPassword) {
       M.toast({ html: 'The provided passwords do not match...' });
       setPassword('');

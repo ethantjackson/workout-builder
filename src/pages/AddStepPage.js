@@ -5,7 +5,6 @@ import SubMuscleSelectionPage from './SubMuscleSelectionPage';
 import EquipmentSelectionPage from './EquipmentSelectionPage';
 import GeneratedWorkoutsPage from './generatedWorkoutsPage/GeneratedWorkoutsPage';
 import BackButton from '../components/layout/backButton/BackButton';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPlanStep } from '../actions/WorkoutPlanActions';
 import { useHistory } from 'react-router-dom';

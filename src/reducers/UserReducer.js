@@ -32,7 +32,7 @@ const UserReducer = (state = initialState, action) => {
       return {
         ...state,
         currUserPlans: state.currUserPlans.filter(
-          (plan) => plan._id != action.payload
+          (plan) => plan._id !== action.payload.toString()
         ),
       };
     case SET_MESSAGE:

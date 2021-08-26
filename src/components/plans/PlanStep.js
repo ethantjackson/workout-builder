@@ -63,7 +63,7 @@ const PlanStep = ({
                     type='number'
                     value={reps}
                     onChange={(e) => {
-                      if (e.target.value >= 0)
+                      if (e.target.value > 0)
                         editStep({ reps: parseInt(e.target.value) }, _id);
                     }}
                   />
@@ -79,7 +79,7 @@ const PlanStep = ({
                     type='number'
                     value={setRest}
                     onChange={(e) => {
-                      if (e.target.value >= 0)
+                      if (e.target.value > 0)
                         editStep({ setRest: parseInt(e.target.value) }, _id);
                     }}
                   />
@@ -97,7 +97,7 @@ const PlanStep = ({
                     type='number'
                     value={sets}
                     onChange={(e) => {
-                      if (e.target.value >= 0)
+                      if (e.target.value > 0)
                         editStep({ sets: parseInt(e.target.value) }, _id);
                     }}
                   />

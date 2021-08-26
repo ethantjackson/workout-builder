@@ -1,4 +1,5 @@
 import {
+  SET_PLAN_ID,
   SET_PLAN_NAME,
   SET_PLAN_STEPS,
   ADD_PLAN_STEP,
@@ -6,6 +7,7 @@ import {
 } from '../actions/types';
 
 const initialState = {
+  id: null,
   name: '',
   steps: [],
   error: null,
@@ -13,6 +15,11 @@ const initialState = {
 
 const WorkoutPlanReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_PLAN_ID:
+      return {
+        ...state,
+        id: action.payload,
+      };
     case SET_PLAN_NAME:
       return {
         ...state,
