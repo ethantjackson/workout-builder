@@ -8,7 +8,7 @@ import NewPlanPage from './pages/NewPlanPage';
 import EditPlanPage from './pages/EditPlanPage';
 import AddStepPage from './pages/AddStepPage';
 import UsePlansPage from './pages/usePlansPage/UsePlansPage';
-import PlanGuidePage from './pages/PlanGuidePage';
+import PlanGuidePage from './pages/planGuidePage/PlanGuidePage';
 import MuscleGroupSelectionPage from './pages/MuscleGroupSelectionPage';
 import SubMuscleSelectionPage from './pages/SubMuscleSelectionPage';
 import EquipmentSelectionPage from './pages/EquipmentSelectionPage';

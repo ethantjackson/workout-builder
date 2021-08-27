@@ -5,7 +5,12 @@ import PropTypes from 'prop-types';
 const WorkoutCard = ({ workout, setSelectedWorkout }) => {
   return (
     <div className='cardContainer'>
-      <div className='card' onClick={() => setSelectedWorkout(workout)}>
+      <div
+        className='card'
+        onClick={() => {
+          if (setSelectedWorkout) setSelectedWorkout(workout);
+        }}
+      >
         <div className='card-image waves-effect waves-block waves-light cardImg'>
           <img
             className='activator'

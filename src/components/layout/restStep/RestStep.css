@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.guideBtn {
+.playBtn {
   line-height: 5rem;
   border-radius: 50%;
   height: 5rem;
@@ -13,7 +13,7 @@
   box-shadow: 5px 5px 5px rgb(30, 36, 47);
 }
 
-.guideBtn:hover {
+.playBtn:hover {
   background-color: #26d1ed;
 }
 

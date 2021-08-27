@@ -35,7 +35,7 @@ const RestStep = ({ restTime }) => {
     <div className='container restStepDiv'>
       <RestCard count={count} />
       <i
-        className='guideBtn material-icons medium'
+        className='playBtn material-icons medium'
         onClick={() => {
           if (paused) startTimer();
           else stopTimer();

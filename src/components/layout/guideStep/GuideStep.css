@@ -1,0 +1,26 @@
+.guideStepDiv {
+  margin: 12vh 0 0;
+}
+
+.guideStepText {
+  margin-top: 1.5vh;
+  margin-bottom: 2vh;
+  font-size: 6vh;
+  color: #26d1ed;
+}
+
+.guideBtn {
+  display: inline-block;
+  line-height: 5rem;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  background-color: rgb(40, 63, 104);
+  color: white;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px rgb(30, 36, 47);
+}
+
+.guideBtn:hover {
+  background-color: #26d1ed;
+}
