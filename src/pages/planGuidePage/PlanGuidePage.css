@@ -60,6 +60,6 @@
   height: 100%;
   /* border: 1px solid blue; */
   font-family: 'Iceland', cursive;
-  padding-top: calc(50% - 2rem);
+  padding-top: calc(50% - 1.5rem);
   font-size: 2.5rem;
 }

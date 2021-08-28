@@ -14,16 +14,16 @@ const RestStep = ({ restTime, getNext }) => {
     return () => clearInterval(timer.current);
   }, [paused]);
 
+  useEffect(() => {
+    if (count < 0) {
+      getNext();
+    }
+  }, [count]);
+
   const startTimer = () => {
     timer.current = setInterval(() => {
       setCount((prevCount) => {
-        if (prevCount > 0) return prevCount - 1;
-        else {
-          setPaused(true);
-          getNext();
-          // alert('done');
-          return 0;
-        }
+        return prevCount - 1;
       });
     }, 1000);
   };
@@ -34,7 +34,7 @@ const RestStep = ({ restTime, getNext }) => {
 
   return (
     <div className='container restStepDiv'>
-      <RestCard count={count} />
+      <RestCard count={count > 0 ? count : 0} />
       <i
         className='playBtn material-icons medium'
         onClick={() => {

@@ -31,7 +31,22 @@ const EditPlanPage = ({
   }, []);
 
   const handleSave = (e) => {
-    if (name.length > 0 && steps.length > 0) {
+    const checkValidInput = () => {
+      for (const step of steps) {
+        if (
+          isNaN(step.reps) ||
+          isNaN(step.sets) ||
+          isNaN(step.setRest) ||
+          isNaN(step.workoutRest)
+        )
+          return false;
+        if (step.reps <= 0 || step.sets <= 0) return false;
+        if (step.setRest < 0 || step.workoutRest < 0) return false;
+      }
+      return true;
+    };
+    const isValidInput = checkValidInput();
+    if (name.length > 0 && steps.length > 0 && isValidInput) {
       updatePlan(id, {
         name: name,
         steps: steps.map(({ _id, ...rest }) => rest),
@@ -47,6 +62,10 @@ const EditPlanPage = ({
       if (steps.length <= 0) {
         e.preventDefault();
         M.toast({ html: 'Please add at least one step...' });
+      }
+      if (!isValidInput) {
+        e.preventDefault();
+        M.toast({ html: 'Please provide valid reps, sets, and rest times...' });
       }
     }
   };
