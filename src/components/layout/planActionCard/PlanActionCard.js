@@ -50,7 +50,16 @@ const PlanActionCard = ({
       {/* <div className='top'> */}
       <h5 className='planName'>{plan.name}</h5>
       <ul className='planActions'>
-        <li className='tooltipped planAction' data-tooltip='Run Plan Guide'>
+        <li
+          className='tooltipped planAction'
+          data-tooltip='Run Plan Guide'
+          onClick={() => {
+            setPlanID(plan._id);
+            setPlanName(plan.name);
+            setPlanSteps(plan.steps);
+            history.push('/guide');
+          }}
+        >
           <i className='material-icons'>play_circle_filled</i>
         </li>
         <li

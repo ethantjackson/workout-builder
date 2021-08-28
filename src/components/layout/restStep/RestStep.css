@@ -1,0 +1,45 @@
+.restStepDiv {
+  text-align: center;
+}
+
+.playBtn {
+  line-height: 5rem;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  background-color: rgb(40, 63, 104);
+  color: white;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px rgb(30, 36, 47);
+}
+
+.playBtn:hover {
+  background-color: #26d1ed;
+}
+
+.restCard {
+  /* position: relative; */
+  border-radius: 2rem;
+  margin: 15vh 0 8vh;
+  padding: 5vh 0 12vh;
+  background-image: linear-gradient(
+    to top left,
+    rgb(27, 27, 27),
+    rgb(56, 56, 56)
+  );
+  box-shadow: 10px 10px 10px rgb(30, 36, 47);
+}
+.restHeader {
+  font-size: 3vh;
+  color: rgb(161, 161, 161);
+}
+.restCount {
+  margin-top: 7vh;
+  margin-bottom: 0;
+  font-size: 15vh;
+  font-family: 'Iceland', cursive;
+  /* color: rgb(206, 206, 206); */
+}
+.flashColor {
+  color: #26d1ed;
+}

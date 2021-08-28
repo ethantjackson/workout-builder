@@ -1,0 +1,21 @@
+.guideStepDiv {
+  margin: 12vh 0 0;
+}
+
+.guideStepText {
+  line-height: 7vh;
+  /* border: 1px solid red; */
+  margin-top: 1.5vh;
+  margin-bottom: 2vh;
+  font-size: 6vh;
+  color: #26d1ed;
+}
+.guideStepSubText {
+  position: relative;
+  bottom: 1.5vh;
+  font-size: 3vh;
+  font-weight: 100;
+  letter-spacing: 0.5rem;
+  /* border: 1px solid blue; */
+  color: rgb(173, 173, 173);
+}

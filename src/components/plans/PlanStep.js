@@ -61,9 +61,9 @@ const PlanStep = ({
                   <input
                     id='reps'
                     type='number'
-                    value={reps}
+                    value={!isNaN(reps) && reps !== null ? reps : ''}
                     onChange={(e) => {
-                      if (e.target.value > 0)
+                      if (e.target.value >= 0)
                         editStep({ reps: parseInt(e.target.value) }, _id);
                     }}
                   />
@@ -77,9 +77,9 @@ const PlanStep = ({
                   <input
                     id='setRest'
                     type='number'
-                    value={setRest}
+                    value={!isNaN(setRest) && setRest !== null ? setRest : ''}
                     onChange={(e) => {
-                      if (e.target.value > 0)
+                      if (e.target.value >= 0)
                         editStep({ setRest: parseInt(e.target.value) }, _id);
                     }}
                   />
@@ -95,9 +95,9 @@ const PlanStep = ({
                   <input
                     id='sets'
                     type='number'
-                    value={sets}
+                    value={!isNaN(sets) && sets !== null ? sets : ''}
                     onChange={(e) => {
-                      if (e.target.value > 0)
+                      if (e.target.value >= 0)
                         editStep({ sets: parseInt(e.target.value) }, _id);
                     }}
                   />
@@ -112,7 +112,11 @@ const PlanStep = ({
                     <input
                       id='reps'
                       type='number'
-                      value={workoutRest}
+                      value={
+                        !isNaN(workoutRest) && workoutRest !== null
+                          ? workoutRest
+                          : ''
+                      }
                       onChange={(e) => {
                         if (e.target.value >= 0)
                           editStep(
