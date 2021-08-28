@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import RestCard from './RestCard';
 import './RestStep.css';
 
-const RestStep = ({ restTime }) => {
+const RestStep = ({ restTime, getNext }) => {
   const timer = useRef(null);
   const [count, setCount] = useState(restTime);
   const [paused, setPaused] = useState(false);
@@ -19,8 +19,9 @@ const RestStep = ({ restTime }) => {
       setCount((prevCount) => {
         if (prevCount > 0) return prevCount - 1;
         else {
-          // alert('done');
           setPaused(true);
+          getNext();
+          // alert('done');
           return 0;
         }
       });
@@ -50,6 +51,7 @@ const RestStep = ({ restTime }) => {
 
 RestStep.propTypes = {
   restTime: PropTypes.number.isRequired,
+  getNext: PropTypes.func.isRequired,
 };
 
 export default RestStep;

@@ -8,7 +8,9 @@ const RestCard = ({ count }) => {
       <div className='col s12 m10 offset-m1 l8 offset-l2 xl6 offset-xl3'>
         <div className='restCard'>
           <h1 className='restHeader'>REST</h1>
-          <p className='restCount'>{count}</p>
+          <p className={'restCount' + (count % 2 === 0 ? ' flashColor' : '')}>
+            {count}
+          </p>
         </div>
       </div>
     </div>

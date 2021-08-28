@@ -37,5 +37,9 @@
   margin-top: 7vh;
   margin-bottom: 0;
   font-size: 15vh;
-  /* color: #26d1ed; */
+  font-family: 'Iceland', cursive;
+  /* color: rgb(206, 206, 206); */
+}
+.flashColor {
+  color: #26d1ed;
 }

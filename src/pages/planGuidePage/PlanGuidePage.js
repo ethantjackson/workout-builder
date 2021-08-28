@@ -12,10 +12,16 @@ import {
 } from '../../actions/WorkoutPlanActions';
 // import M from 'materialize-css/dist/js/materialize.min.js';
 import './PlanGuidePage.css';
+import nextId from 'react-id-generator';
+import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from 'react-dom';
 
 const PlanGuidePage = ({ plan, setPlanID, setPlanName, setPlanSteps }) => {
   let history = useHistory();
   const [workouts, setWorkouts] = useState([]);
+  const [currStepIdx, setCurrStepIdx] = useState(0);
+  const [isRest, setIsRest] = useState(false);
+  const [currSet, setCurrSet] = useState(1);
+  const [finished, setFinished] = useState(false);
 
   // useEffect(() => {
   //   var elems = document.querySelectorAll('.tooltipped');
@@ -49,24 +55,108 @@ const PlanGuidePage = ({ plan, setPlanID, setPlanName, setPlanSteps }) => {
     //eslint-disable-next-line
   }, []);
 
+  const getContent = () => {
+    if (!isRest) {
+      return (
+        <GuideStep
+          workout={workouts[currStepIdx]}
+          step={plan.steps[currStepIdx]}
+          currSet={currSet}
+        />
+      );
+    } else {
+      return (
+        <RestStep
+          restTime={
+            currSet < plan.steps[currStepIdx].sets
+              ? plan.steps[currStepIdx].setRest
+              : plan.steps[currStepIdx].workoutRest
+          }
+          getNext={getNext}
+        />
+      );
+    }
+  };
+
+  const getPreviewContent = () => {
+    if (!isRest) {
+      return (
+        <div className='restPreview'>
+          <div className='restPreviewText'>
+            {currSet < plan.steps[currStepIdx].sets
+              ? plan.steps[currStepIdx].setRest
+              : plan.steps[currStepIdx].workoutRest}
+            s
+          </div>
+        </div>
+      );
+    } else {
+      if (currSet < plan.steps[currStepIdx].sets)
+        return (
+          <img
+            src={workouts[currStepIdx].demo}
+            className='stepPreviewImg'
+            alt='step-preview-img'
+          />
+        );
+      else {
+        if (currStepIdx + 1 < plan.steps.length) {
+          return (
+            <img
+              src={workouts[currStepIdx + 1].demo}
+              className='stepPreviewImg'
+              alt='step-preview-img'
+            />
+          );
+        } else {
+          return (
+            <div className='restPreview'>
+              <div className='restPreviewText' style={{ fontSize: '2rem' }}>
+                DONE!
+              </div>
+            </div>
+          );
+        }
+      }
+    }
+  };
+
+  const getNext = () => {
+    if (!isRest) {
+      // go to rest
+      setIsRest(true);
+    } else {
+      setIsRest(false);
+      if (currSet >= plan.steps[currStepIdx].sets) {
+        //completed workout rest
+        if (currStepIdx + 1 >= plan.steps.length) setFinished(true);
+        else {
+          setCurrStepIdx(currStepIdx + 1);
+          setCurrSet(1);
+        }
+      } else {
+        setCurrSet(currSet + 1);
+      }
+    }
+  };
+
+  if (finished) return <h1>FINISHED ! </h1>;
   return (
     <>
       {workouts.length > 0 && (
         <>
-          <GuideStep workout={workouts[0]} step={plan.steps[0]} />
+          {getContent()}
           <div className='row'>
-            <div className='col s4 offset-s7 m2 offset-m8 xl1 offset-xl8 nextStepPreview '>
-              <p>CONTINUE TO</p>
-              <img
-                src={workouts[0].demo}
-                className='stepPreviewImg'
-                alt='step-preview-img'
-              />
+            <div
+              className='col s4 offset-s8 m2 offset-m8 xl1 offset-xl8 nextStepPreview'
+              onClick={getNext}
+            >
+              <p>TO NEXT</p>
+              {getPreviewContent()}
             </div>
           </div>
         </>
       )}
-      {/* <RestStep restTime={12} /> */}
       <BackButton
         altText={'CANCEL'}
         target='/plans'
