@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PlanStep from './PlanStep';
 import { useHistory } from 'react-router-dom';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './PlanEditor.css';
 
 //setName
@@ -12,12 +13,21 @@ const PlanEditor = ({ planName, planSteps, setPlanName, setPlanSteps }) => {
   const deleteStep = (id) => {
     setPlanSteps(planSteps.filter((step) => step._id !== id));
   };
+
   const editStep = (newVals, id) => {
     const editIdx = planSteps.findIndex((step) => step._id === id);
     const newStep = { ...planSteps[editIdx], ...newVals };
     let newPlanSteps = planSteps;
     newPlanSteps[editIdx] = newStep;
     setPlanSteps([...newPlanSteps]);
+  };
+
+  const handleOnDragEnd = (result) => {
+    console.log(result);
+    const steps = Array.from(planSteps);
+    const [reorderedStep] = steps.splice(result.source.index, 1);
+    steps.splice(result.destination.index, 0, reorderedStep);
+    setPlanSteps([...steps]);
   };
 
   return (
@@ -35,7 +45,38 @@ const PlanEditor = ({ planName, planSteps, setPlanName, setPlanSteps }) => {
           </label>
         </div>
       </div>
-      {planSteps.map((step, index) => (
+      <DragDropContext onDragEnd={handleOnDragEnd}>
+        <Droppable droppableId='planSteps'>
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              {planSteps.map((step, index) => (
+                <Draggable
+                  key={step._id + index}
+                  draggableId={step._id + index}
+                  index={index}
+                >
+                  {(provided) => (
+                    <div
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      ref={provided.innerRef}
+                    >
+                      <PlanStep
+                        step={step}
+                        deleteStep={deleteStep}
+                        editStep={editStep}
+                        isLast={index === planSteps.length - 1 ? true : false}
+                      />
+                    </div>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
+      {/* {planSteps.map((step, index) => (
         <PlanStep
           key={step._id + index}
           step={step}
@@ -43,7 +84,7 @@ const PlanEditor = ({ planName, planSteps, setPlanName, setPlanSteps }) => {
           editStep={editStep}
           isLast={index === planSteps.length - 1 ? true : false}
         />
-      ))}
+      ))} */}
       <div className='addStepDiv' onClick={() => history.push('/add-step')}>
         + Add Step
       </div>
