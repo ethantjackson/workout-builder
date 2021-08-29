@@ -18,6 +18,7 @@ const RestStep = ({ restTime, getNext }) => {
     if (count < 0) {
       getNext();
     }
+    //eslint-disable-next-line
   }, [count]);
 
   const startTimer = () => {

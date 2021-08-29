@@ -14,7 +14,7 @@ const MuscleGroupSelectionPage = ({ isNested, getNextSelector }) => {
     <>
       <h1 className='instructionsHeader'>Select a muscle group to begin</h1>
       <MuscleGroupSelector />
-      <BackButton target='/home-page' />
+      {!isNested && <BackButton target='/home-page' />}
       <NextButton target={'/sub-muscle-selection'} onClick={handleNext} />
     </>
   );

@@ -23,7 +23,7 @@ const PlanEditor = ({ planName, planSteps, setPlanName, setPlanSteps }) => {
   };
 
   const handleOnDragEnd = (result) => {
-    console.log(result);
+    if (!result.destination) return;
     const steps = Array.from(planSteps);
     const [reorderedStep] = steps.splice(result.source.index, 1);
     steps.splice(result.destination.index, 0, reorderedStep);
@@ -52,7 +52,7 @@ const PlanEditor = ({ planName, planSteps, setPlanName, setPlanSteps }) => {
               {planSteps.map((step, index) => (
                 <Draggable
                   key={step._id + index}
-                  draggableId={step._id + index}
+                  draggableId={step._id + index.toString()}
                   index={index}
                 >
                   {(provided) => (
@@ -76,15 +76,6 @@ const PlanEditor = ({ planName, planSteps, setPlanName, setPlanSteps }) => {
           )}
         </Droppable>
       </DragDropContext>
-      {/* {planSteps.map((step, index) => (
-        <PlanStep
-          key={step._id + index}
-          step={step}
-          deleteStep={deleteStep}
-          editStep={editStep}
-          isLast={index === planSteps.length - 1 ? true : false}
-        />
-      ))} */}
       <div className='addStepDiv' onClick={() => history.push('/add-step')}>
         + Add Step
       </div>

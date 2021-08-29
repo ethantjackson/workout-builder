@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { addPlanStep } from '../actions/WorkoutPlanActions';
 import { useHistory } from 'react-router-dom';
 
-const AddStepPage = ({ addPlanStep }) => {
+const AddStepPage = ({ id, addPlanStep }) => {
   let history = useHistory();
   const [selectorIdx, setSelectorIdx] = useState(0);
   const [selectedWorkout, setSelectedWorkout] = useState(null);
@@ -27,7 +27,8 @@ const AddStepPage = ({ addPlanStep }) => {
         workoutRest: 0,
         workout_id: selectedWorkout._id,
       });
-      history.push('/plan');
+      if (id === null) history.push('/plan');
+      else history.push('/edit-plan');
     }
     setSelectorIdx(selectorIdx + 1);
   };
@@ -72,4 +73,8 @@ const AddStepPage = ({ addPlanStep }) => {
   );
 };
 
-export default connect(null, { addPlanStep })(AddStepPage);
+const mapStateToProps = (state) => ({
+  id: state.plan.id,
+});
+
+export default connect(mapStateToProps, { addPlanStep })(AddStepPage);

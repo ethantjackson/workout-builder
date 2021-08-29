@@ -34,7 +34,7 @@ const PlanActionCard = ({
     return () => {
       elems.forEach((elem) => {
         var instance = M.Tooltip.getInstance(elem);
-        instance.destroy();
+        instance?.destroy();
       });
     };
   }, []);
